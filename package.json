@@ -17,6 +17,7 @@
   "devDependencies": {
     "@iconify-json/mdi": "^1.1.57",
     "@unocss/reset": "^0.57.7",
+    "@unocss/transformer-directives": "^0.57.7",
     "unocss": "^0.57.7"
   }
 }

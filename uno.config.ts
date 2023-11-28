@@ -5,12 +5,17 @@ import {
   presetTypography,
   presetIcons,
 } from "unocss";
+import transformerDirectives from '@unocss/transformer-directives'
+
 
 export default defineConfig({
   presets: [
     presetUno(),
     presetAttributify({ nonValuedAttribute: true }),
-    presetIcons(),
+    presetIcons({
+      scale: 1.2,
+      warn: true,
+    }),
     presetTypography({
       cssExtend: {
         ":not(pre) > code": {
@@ -31,5 +36,16 @@ export default defineConfig({
         },
       },
     }),
+  ],
+  theme: {
+    color: {
+      primary: "#2e405b"
+    }
+  },
+  shortcuts: [
+    ['icon', 'inline-block '],
+  ],
+  transformers: [
+    transformerDirectives(),
   ],
 })

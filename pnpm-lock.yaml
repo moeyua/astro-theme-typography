@@ -22,6 +22,9 @@ devDependencies:
   '@unocss/reset':
     specifier: ^0.57.7
     version: 0.57.7
+  '@unocss/transformer-directives':
+    specifier: ^0.57.7
+    version: 0.57.7
   unocss:
     specifier: ^0.57.7
     version: 0.57.7(postcss@8.4.31)(vite@4.5.0)

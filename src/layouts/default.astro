@@ -1,15 +1,38 @@
 ---
 import '~/styles/index.css'
 ---
+
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Ink</title>
-	</head>
-	<body>
-    <slot></slot>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Ink</title>
+  </head>
+  <body un-container p-8>
+    <header text-center un-flex="~ col gap-2.5">
+      <h3 text-5>Moeyua</h3>
+      <h1 text-8>四畳半のへや</h1>
+      <nav text-center un-flex="~ col gap-1">
+        <p text-3.5>
+          <a href="">首页</a>
+          <a href="">归档</a>
+          <a href="">分类</a>
+          <a href="">关于</a>
+        </p>
+        <p>
+          <a href="" class="icon i-mdi-github"></a>
+          <a href="" class="icon i-mdi-rss"></a>
+          <a href="" class="icon i-mdi-twitter"></a>
+          <a href="" class="icon i-mdi-mastodon"></a>
+        </p>
+      </nav>
+    </header>
+    
+    <main>
+      <slot />
+    </main>
+    <footer>footer</footer>
+  </body>
 </html>
