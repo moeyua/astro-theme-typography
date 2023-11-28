@@ -7,7 +7,6 @@ import {
 } from "unocss";
 import transformerDirectives from '@unocss/transformer-directives'
 
-
 export default defineConfig({
   presets: [
     presetUno(),
@@ -39,7 +38,11 @@ export default defineConfig({
   ],
   theme: {
     color: {
-      primary: "#2e405b"
+      primary: "#2e405b",
+    },
+    fontFamily: {
+      sans: '"Source Sans Pro","Roboto","Helvetica","Helvetica Neue","Source Han Sans SC","Source Han Sans TC","PingFang SC","PingFang HK","PingFang TC",sans-serif',
+      serif: '"HiraMinProN-W6","Source Han Serif CN","Source Han Serif SC","Source Han Serif TC",serif',
     }
   },
   shortcuts: [

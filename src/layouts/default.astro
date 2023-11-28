@@ -1,5 +1,6 @@
 ---
 import '~/styles/index.css'
+import Header from '~/components/Header.astro';
 ---
 
 <html lang="en">
@@ -11,25 +12,7 @@ import '~/styles/index.css'
     <title>Ink</title>
   </head>
   <body un-container p-8>
-    <header text-center un-flex="~ col gap-2.5">
-      <h3 text-5>Moeyua</h3>
-      <h1 text-8>四畳半のへや</h1>
-      <nav text-center un-flex="~ col gap-1">
-        <p text-3.5>
-          <a href="">首页</a>
-          <a href="">归档</a>
-          <a href="">分类</a>
-          <a href="">关于</a>
-        </p>
-        <p>
-          <a href="" class="icon i-mdi-github"></a>
-          <a href="" class="icon i-mdi-rss"></a>
-          <a href="" class="icon i-mdi-twitter"></a>
-          <a href="" class="icon i-mdi-mastodon"></a>
-        </p>
-      </nav>
-    </header>
-    
+    <Header />
     <main>
       <slot />
     </main>
