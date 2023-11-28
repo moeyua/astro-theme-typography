@@ -13,5 +13,10 @@
     "@astrojs/check": "^0.3.1",
     "astro": "^3.6.1",
     "typescript": "^5.3.2"
+  },
+  "devDependencies": {
+    "@iconify-json/mdi": "^1.1.57",
+    "@unocss/reset": "^0.57.7",
+    "unocss": "^0.57.7"
   }
 }
