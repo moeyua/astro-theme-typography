@@ -21,8 +21,8 @@ allPosts.forEach((post: Post) => {
 <Default>
   {
     Array.from(postByYear.entries()).map(([year, posts]) => (
-      <section>
-        <h2 class="text-8 mb-4 font-bold">{year}</h2>
+      <section un-flex="~ col gap-4">
+        <h2 class="text-5 font-bold">{year}</h2>
         <ul class="ml-6">
           {posts.map((post) => (
             <Post post={post}></Post>
