@@ -1,9 +1,26 @@
 ---
-import Default from "~/layouts/default.astro";
+import Default from '~/layouts/default.astro'
+import { getCollection } from 'astro:content'
+
+const allPosts = await getCollection('posts')
 ---
 
 <Default>
-	<h1>title</h1>
+  <section contain-layout un-flex="~ col gap-7.5">
+    {
+      allPosts.map((post) => (
+        <article>
+          <header  >
+            <h2 text-5 font-bold lh-7.5 >
+              <a href="">{post.data.title}</a>
+            </h2>
+            <div my-2.5 >
+              <time text-3.5 >Published on {post.data.pubDate.toLocaleDateString() }</time>
+            </div>
+          </header>
+          <p>{post.data.description}</p>
+        </article>
+      ))
+    }
+  </section>
 </Default>
-
-
