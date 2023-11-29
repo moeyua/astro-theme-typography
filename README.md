@@ -7,3 +7,17 @@ This work astro-theme-Typography is forked from [hexo-theme-Typography](https://
 It is still under development.
 
 目前仍在开发中。
+
+## Installation
+
+
+## Features
+[] tag
+[] archive
+[] about
+[] responsive
+[] config file
+[] rss
+[] seo
+[] lighthouse
+[] i18n
