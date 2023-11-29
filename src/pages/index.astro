@@ -1,6 +1,7 @@
 ---
 import Default from '~/layouts/default.astro'
 import { getCollection } from 'astro:content'
+import Post from '~/components/Post.astro'
 
 const allPosts = await getCollection('posts')
 ---
@@ -9,17 +10,9 @@ const allPosts = await getCollection('posts')
   <section contain-layout un-flex="~ col gap-7.5">
     {
       allPosts.map((post) => (
-        <article>
-          <header>
-            <h2 class="text-5 font-bold lh-7.5">
-              <a href="">{post.data.title}</a>
-            </h2>
-            <div class="my-2.5">
-              <time class="text-3.5">{post.data.pubDate.toString().slice(0, 10)}</time>
-            </div>
-          </header>
-          <p>{post.data.description}</p>
-        </article>
+        <Post post={post}>
+          <p class="not-prose">{post.data.description}</p>
+        </Post>
       ))
     }
   </section>
