@@ -1,7 +1,21 @@
 body {
-  color: theme("color.primary");
+  color: theme("colors.primary");
   font-family: theme("fontFamily.sans");
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
   background-size: 7px 7px;
+}
+
+a {
+  border-bottom-width: 1.5px;
+  border-color: theme("colors.primary");
+  text-decoration: none;
+  transition-property: color, background-color, border-color, outline-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+a:hover {
+  color: theme("colors.secondary");
+  background-color: theme("colors.primary");
 }
 

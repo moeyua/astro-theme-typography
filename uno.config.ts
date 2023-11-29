@@ -37,8 +37,9 @@ export default defineConfig({
     }),
   ],
   theme: {
-    color: {
+    colors: {
       primary: "#2e405b",
+      secondary: "#ffffff",
     },
     fontFamily: {
       sans: '"Source Sans Pro","Roboto","Helvetica","Helvetica Neue","Source Han Sans SC","Source Han Sans TC","PingFang SC","PingFang HK","PingFang TC",sans-serif',
