@@ -1,5 +1,5 @@
 ---
-import Default from '~/layouts/default.astro'
+import Default from '~/layouts/Default.astro'
 import { getCollection } from 'astro:content'
 import Post from '~/components/Post.astro'
 
@@ -11,7 +11,7 @@ const allPosts = await getCollection('posts')
     {
       allPosts.map((post) => (
         <Post post={post}>
-          <p class="not-prose">{post.data.description}</p>
+          <p>{post.data.description}</p>
         </Post>
       ))
     }
