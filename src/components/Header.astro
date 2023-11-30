@@ -1,5 +1,5 @@
 ---
-
+import { SOCIALS } from '~/config'
 ---
 
 <header class="text-center" un-flex="~ col gap-2.5">
@@ -13,10 +13,13 @@
       <li><a href="/about">About</a></li>
     </ul>
     <ul un-flex="~ row gap-1 justify-center">
-      <li><a href="" class="icon i-mdi-github"></a></li>
-      <li><a href="" class="icon i-mdi-rss"></a></li>
-      <li><a href="" class="icon i-mdi-twitter"></a></li>
-      <li><a href="" class="icon i-mdi-mastodon"></a></li>
+      {
+        SOCIALS.map((soc) => (
+          <li>
+            <a href={soc.href} title={soc.linkTitle} class={`icon i-mdi-${soc.name}`} />
+          </li>
+        ))
+      }
     </ul>
   </nav>
 </header>
