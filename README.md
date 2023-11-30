@@ -21,3 +21,4 @@ It is still under development.
 [] i18n
 [] dark mode
 [] lighthouse
+

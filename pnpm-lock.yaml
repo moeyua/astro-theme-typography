@@ -14,6 +14,9 @@ dependencies:
   astro:
     specifier: ^3.6.1
     version: 3.6.1(@types/node@20.10.0)(typescript@5.3.2)
+  astro-seo:
+    specifier: ^0.8.0
+    version: 0.8.0
   typescript:
     specifier: ^5.3.2
     version: 5.3.2
@@ -1466,6 +1469,10 @@ packages:
 
   /array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
+    dev: false
+
+  /astro-seo@0.8.0:
+    resolution: {integrity: sha512-7gq6lhibCM8FuzZIJlbLLWP5EJ9KL2/4XqeFrAg9O6ZK2xMFxJ5ubKf+a0VJwwTu8W8Xr421CmpiXu6Hq7n/7Q==}
     dev: false
 
   /astro@3.6.1(@types/node@20.10.0)(typescript@5.3.2):
