@@ -5,7 +5,8 @@ import {
   presetTypography,
   presetIcons,
 } from "unocss";
-import transformerDirectives from '@unocss/transformer-directives'
+import transformerDirectives from "@unocss/transformer-directives";
+import { ICON_SAFE_LIST } from "./src/config";
 
 export default defineConfig({
   presets: [
@@ -51,5 +52,8 @@ export default defineConfig({
   ],
   transformers: [
     transformerDirectives(),
+  ],
+  safelist: [
+    ...ICON_SAFE_LIST,
   ],
 })

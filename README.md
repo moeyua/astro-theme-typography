@@ -14,9 +14,9 @@ It is still under development.
 ## Features
 [x] archive
 [] tag
-[] config file
+[x] config file
 [] responsive
-[] seo
+[x] seo
 [] rss
 [] i18n
 [] dark mode

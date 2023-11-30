@@ -18,7 +18,7 @@ export const SOCIALS: SocialObjects = [
   {
     name: "rss",
     href: "https://github.com/moeyua/astro-theme-typography",
-    linkTitle: `${SITE.title} on Facebook`,
+    linkTitle: `${SITE.title} on RSS`,
   },
   {
     name: "twitter",
@@ -31,3 +31,6 @@ export const SOCIALS: SocialObjects = [
     linkTitle: `${SITE.title} on Mastodon`,
   }
 ];
+
+// Used in uno.config.ts
+export const ICON_SAFE_LIST = SOCIALS.map((social) => `i-mdi-${social.name}`);
