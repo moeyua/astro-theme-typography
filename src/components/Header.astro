@@ -1,5 +1,5 @@
 ---
-import { SOCIALS } from '~/config'
+import { SOCIALS, NAVS } from '~/config'
 ---
 
 <header class="text-center" un-flex="~ col gap-2.5">
@@ -7,10 +7,13 @@ import { SOCIALS } from '~/config'
   <h1 class="text-8 font-extrabold font-serif">Typography</h1>
   <nav class="text-center font-bold" un-flex="~ col gap-2">
     <ul class="text-3.5" un-flex="~ row gap-2 justify-center">
-      <li><a href="/">Home</a></li>
-      <li><a href="/archive">Archive</a></li>
-      <li><a href="/tags">Tags</a></li>
-      <li><a href="/about">About</a></li>
+      {
+        NAVS.map((nav) => (
+          <li>
+            <a href={nav.href} >{nav.name}</a>
+          </li>
+        ))
+      }
     </ul>
     <ul un-flex="~ row gap-1 justify-center">
       {

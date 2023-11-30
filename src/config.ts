@@ -32,5 +32,24 @@ export const SOCIALS: SocialObjects = [
   }
 ];
 
+export const NAVS = [
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "Archive",
+    href: "/archive",
+  },
+  {
+    name: "Tags",
+    href: "/tags"
+  },
+  {
+    name: "About",
+    href: "/about",
+  },
+];
+
 // Used in uno.config.ts
 export const ICON_SAFE_LIST = SOCIALS.map((social) => `i-mdi-${social.name}`);
