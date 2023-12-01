@@ -48,9 +48,9 @@ export default defineConfig({
     animation: {
       keyframes: {
         "fadein-down":
-          "{from {opacity: 0;transform: translateY(-20px);}to {opacity: 1;transform: translateY(0);}}",
+          "{from {opacity: 0.1;transform: translateY(-20px);}to {opacity: 1;transform: translateY(0);}}",
         "fadein-left":
-          "{from {opacity: 0;transform: translateX(20px);}to {opacity: 1;transform: translateX(0);}}",
+          "{from {opacity: 0.1;transform: translateX(20px);}to {opacity: 1;transform: translateX(0);}}",
       },
     },
   },
