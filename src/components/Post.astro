@@ -9,10 +9,10 @@ const { post } = Astro.props
 
 <article class="heti" >
   <header>
-    <h1 class="text-5! font-bold! lh-7.5! m-0!">
+    <h1 class="post-title!">
       <a href={`/posts/${post.slug}/`}>{post.data.title}</a>
     </h1>
-    <div class="my-2.5">
+    <div class="mt-2">
       <time class="text-3.5">{post.data.pubDate.toString().slice(0, 10)}</time>
     </div>
   </header>

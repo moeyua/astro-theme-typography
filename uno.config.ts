@@ -56,6 +56,7 @@ export default defineConfig({
   },
   shortcuts: [
     ['icon', 'inline-block '],
+    ['post-title', 'text-5 font-bold lh-7.5 m-0'],
   ],
   transformers: [
     transformerDirectives(),

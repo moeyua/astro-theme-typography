@@ -1,0 +1,19 @@
+---
+import ListItem from '~/components/ListItem.astro'
+import ListSection from '~/components/ListSection.astro'
+import Default from '~/layouts/Default.astro'
+import { getCategories } from '~/utils/index'
+
+const categories = await getCategories()
+
+---
+
+<Default>
+  <ListSection title="Categories">
+    {
+      Array.from(categories).map(([key, value]) => (
+        <ListItem title={key} href={`/categories/${key}`} description={`${value.length}篇`} />
+      ))
+    }
+  </ListSection>
+</Default>

@@ -3,6 +3,8 @@ import Default from '~/layouts/Default.astro'
 import { getCollection } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
 import Post from '~/components/Post.astro'
+import ListSection from '~/components/ListSection.astro'
+import ListItem from '~/components/ListItem.astro'
 
 type Post = CollectionEntry<'posts'>
 
@@ -21,14 +23,11 @@ allPosts.forEach((post: Post) => {
 <Default>
   {
     Array.from(postByYear.entries()).map(([year, posts]) => (
-      <section un-flex="~ col gap-4">
-        <h2 class="text-5 font-bold">{year}</h2>
-        <ul class="ml-6">
-          {posts.map((post) => (
-            <Post post={post}></Post>
-          ))}
-        </ul>
-      </section>
+      <ListSection title={year}>
+        {posts.map((post) => (
+          <ListItem title={post.data.title} href={`/posts/${post.slug}/`} description={post.data.pubDate.toString().slice(0, 10)} />
+        ))}
+      </ListSection>
     ))
   }
 </Default>

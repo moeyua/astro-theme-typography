@@ -1,0 +1,13 @@
+---
+interface Props {
+  href: string
+  title: string
+  description: string
+}
+const { href, title, description } = Astro.props
+---
+
+<li un-flex="~ col gap-1 items-start">
+  <a class="post-title!" href={href}>{title}</a>
+  <p>{description}</p>
+</li>

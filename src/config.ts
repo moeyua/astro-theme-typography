@@ -42,8 +42,8 @@ export const NAVS = [
     href: "/archive",
   },
   {
-    name: "Tags",
-    href: "/tags"
+    name: "Categories",
+    href: "/categories"
   },
   {
     name: "About",

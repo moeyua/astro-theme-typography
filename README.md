@@ -13,7 +13,8 @@ It is still under development.
 
 ## Features
 - [x] archive
-- [] tag
+- [x] category
+- [] page
 - [x] config file
 - [x] responsive
 - [x] seo
