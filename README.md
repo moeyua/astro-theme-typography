@@ -12,13 +12,13 @@ It is still under development.
 
 
 ## Features
-[x] archive
-[] tag
-[x] config file
-[x] responsive
-[x] seo
-[] rss
-[] i18n
-[] dark mode
-[] lighthouse
+- [x] archive
+- [] tag
+- [x] config file
+- [x] responsive
+- [x] seo
+- [] rss
+- [] i18n
+- [] dark mode
+- [] lighthouse
 
