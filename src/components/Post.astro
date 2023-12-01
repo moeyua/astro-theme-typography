@@ -7,14 +7,14 @@ interface Props {
 const { post } = Astro.props
 ---
 
-<article class="prose" >
-  <header class="not-prose">
-    <h1 class="text-5 font-bold lh-7.5">
+<article class="heti" >
+  <header >
+    <h1 class="text-5 font-bold lh-7.5 m-0!">
       <a href={`/posts/${post.slug}/`}>{post.data.title}</a>
     </h1>
     <div class="my-2.5">
       <time class="text-3.5">{post.data.pubDate.toString().slice(0, 10)}</time>
     </div>
   </header>
-  <slot />
+  <slot/>
 </article>

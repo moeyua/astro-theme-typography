@@ -1,5 +1,7 @@
 ---
 import '~/styles/index.css'
+// https://sivan.github.io/heti
+import '~/styles/heti.min.css'
 import Header from '~/components/Header.astro'
 import Footer from '~/components/Footer.astro'
 import { SEO } from 'astro-seo'
@@ -24,11 +26,16 @@ import { SEO } from 'astro-seo'
       }}
     />
   </head>
-  <body class="px-8 pt-10 pb-15 container" un-flex="~ col gap-7.5">
-    <Header />
-    <main>
-      <slot />
-    </main>
-    <Footer />
+  <body>
+    <div un-lg="flex flex-row-reverse justify-center gap-4 px-8" class="container contain-layout m-a">
+      <div un-lg="sticky top-0 h-screen" un-lg:flex="~ col justify-between items-start gap-4" class="px-7.5 py-20">
+        <Header />
+        <Footer class="max-lg:hidden"  />
+      </div>
+      <main class="px-7.5 py-20">
+        <slot />
+      </main>
+      <Footer class="lg:hidden p-7.5" />
+    </div>
   </body>
 </html>

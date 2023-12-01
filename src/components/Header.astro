@@ -1,12 +1,21 @@
 ---
 import { SOCIALS, NAVS } from '~/config'
+
+import type { HTMLAttributes } from 'astro/types'
+
+type Props = HTMLAttributes<'footer'>;
+
+const { ...attrs } = Astro.props;
 ---
 
-<header class="text-center" un-flex="~ col gap-2.5">
-  <h3 class="text-5 font-extrabold font-serif">Moeyua</h3>
-  <h1 class="text-8 font-extrabold font-serif">Typography</h1>
+<header un-lg="grow-1 justify-between items-start" un-flex="~ col gap-2.5" class="text-center" {...attrs}>
+  <div un-lg=" write-vertical-right items-start px-2.5 b-l-2px b-l-primary-solid" un-flex="~ col gap-2.5">
+    <h3 class="text-5 font-extrabold font-serif">Moeyua</h3>
+    <h1 class="text-8 font-extrabold font-serif">Typography</h1>
+  </div>
+  
   <nav class="text-center font-bold" un-flex="~ col gap-2">
-    <ul class="text-3.5" un-flex="~ row gap-2 justify-center">
+    <ul un-lg="flex-col items-start" class="text-3.5" un-flex="~ row gap-2 justify-center">
       {
         NAVS.map((nav) => (
           <li>

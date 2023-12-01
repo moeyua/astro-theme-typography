@@ -15,7 +15,7 @@ It is still under development.
 [x] archive
 [] tag
 [x] config file
-[] responsive
+[x] responsive
 [x] seo
 [] rss
 [] i18n
