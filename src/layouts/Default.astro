@@ -28,11 +28,11 @@ import { SEO } from 'astro-seo'
   </head>
   <body>
     <div un-lg="flex flex-row-reverse justify-center gap-4 px-8" class="container contain-layout m-a">
-      <div un-lg="sticky top-0 h-screen" un-lg:flex="~ col justify-between items-start gap-4" class="px-7.5 py-20">
+      <div un-lg="sticky top-0 h-screen py-20" un-lg:flex="~ col justify-between items-start gap-4" class="p-7.5">
         <Header />
         <Footer class="max-lg:hidden"  />
       </div>
-      <main class="px-7.5 py-20">
+      <main un-lg="py-20" class="p-7.5">
         <slot />
       </main>
       <Footer class="lg:hidden p-7.5" />
