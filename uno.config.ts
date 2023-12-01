@@ -44,7 +44,15 @@ export default defineConfig({
     fontFamily: {
       sans: '"Source Sans Pro","Roboto","Helvetica","Helvetica Neue","Source Han Sans SC","Source Han Sans TC","PingFang SC","PingFang HK","PingFang TC",sans-serif',
       serif: '"HiraMinProN-W6","Source Han Serif CN","Source Han Serif SC","Source Han Serif TC",serif',
-    }
+    },
+    animation: {
+      keyframes: {
+        "fadein-down":
+          "{from {opacity: 0;transform: translateY(-20px);}to {opacity: 1;transform: translateY(0);}}",
+        "fadein-left":
+          "{from {opacity: 0;transform: translateX(20px);}to {opacity: 1;transform: translateX(0);}}",
+      },
+    },
   },
   shortcuts: [
     ['icon', 'inline-block '],
