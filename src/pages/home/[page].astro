@@ -1,9 +1,9 @@
 ---
 import Default from '~/layouts/Default.astro'
 import Post from '~/components/Post.astro'
-import Pagination from '~/components/Pagination.astro';
-import { HOME_PAGE_SIZE } from "~/config";
-import { getPosts } from "~/utils";
+import Pagination from '~/components/Pagination.astro'
+import { HOME_PAGE_SIZE } from '~/config'
+import { getPosts } from '~/utils'
 import type { InferGetStaticParamsType, InferGetStaticPropsType, GetStaticPaths } from 'astro'
 
 export const getStaticPaths = (async ({ paginate }) => {
@@ -26,6 +26,7 @@ const { page } = Astro.props
         </Post>
       ))
     }
+
     <Pagination page={page} />
   </section>
 </Default>

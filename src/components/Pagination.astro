@@ -11,10 +11,11 @@ const { page } = Astro.props
   <p class="flex items-center gap-2">
     <span class="inline-flex items-center">
       <i class="i-mdi-chevron-double-left icon"></i>
-      <a href={page.url.prev}>上一页</a>
+      {page.url.prev ? <a href={page.url.prev}>上一页</a> : <span>上一页</span>}
     </span>
+
     <span class="inline-flex items-center">
-      <a href={page.url.next}>下一页</a>
+      {page.url.next ? <a href={page.url.next}>下一页</a> : <span>下一页</span>}
       <i class="i-mdi-chevron-double-right icon"></i>
     </span>
   </p>
