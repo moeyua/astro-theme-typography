@@ -21,7 +21,21 @@ a {
   transition-duration: 300ms;
 }
 
+
+
+
+
 a:hover {
   color: theme("colors.secondary");
   background-color: theme("colors.primary");
+}
+
+a.normal{
+  border: none;
+  transition: none;
+}
+
+a:hover.normal{
+  color: inherit;
+  background-color: transparent;
 }
