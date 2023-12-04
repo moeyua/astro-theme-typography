@@ -19,9 +19,13 @@
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.1.57",
+    "@types/markdown-it": "^13.0.7",
     "@types/node": "^20.10.0",
+    "@types/sanitize-html": "^2.9.5",
     "@unocss/reset": "^0.57.7",
     "@unocss/transformer-directives": "^0.57.7",
+    "markdown-it": "^13.0.2",
+    "sanitize-html": "^2.11.0",
     "unocss": "^0.57.7"
   }
 }
