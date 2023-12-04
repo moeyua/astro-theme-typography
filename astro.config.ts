@@ -3,6 +3,10 @@ import UnoCSS from 'unocss/astro'
 
 // https://astro.build/config
 export default defineConfig({
+  redirects: {
+    '/': '/home/1',
+    '/home': '/home/1'
+  },
   integrations: [
     UnoCSS({
       injectReset: true

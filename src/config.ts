@@ -1,4 +1,18 @@
-import type { Site, SocialObjects } from "./types";
+
+export type Site = {
+  website: string;
+  author: string;
+  desc: string;
+  title: string;
+};
+
+export type SocialObjects = {
+  name: string;
+  href: string;
+  linkTitle: string;
+}[];
+
+
 
 export const SITE: Site = {
   website: "https://astro-theme-typography.vercel.app/", // replace this with your deployed domain
@@ -35,7 +49,7 @@ export const SOCIALS: SocialObjects = [
 export const NAVS = [
   {
     name: "Home",
-    href: "/",
+    href: "/home",
   },
   {
     name: "Archive",
@@ -53,3 +67,5 @@ export const NAVS = [
 
 // Used in uno.config.ts
 export const ICON_SAFE_LIST = SOCIALS.map((social) => `i-mdi-${social.name}`);
+
+export const HOME_PAGE_SIZE = 10;

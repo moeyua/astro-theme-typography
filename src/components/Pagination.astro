@@ -1,0 +1,21 @@
+---
+interface Props {
+  page: Page
+}
+
+const { page } = Astro.props
+---
+
+<footer class="mt-5">
+  <p class="mb-2.5">第 {page.currentPage} 页 / 共 {page.lastPage} 页</p>
+  <p class="flex items-center gap-2">
+    <span class="inline-flex items-center">
+      <i class="i-mdi-chevron-double-left icon"></i>
+      <a href={page.url.prev}>上一页</a>
+    </span>
+    <span class="inline-flex items-center">
+      <a href={page.url.next}>下一页</a>
+      <i class="i-mdi-chevron-double-right icon"></i>
+    </span>
+  </p>
+</footer>

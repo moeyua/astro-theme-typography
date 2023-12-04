@@ -1,0 +1,31 @@
+---
+import Default from '~/layouts/Default.astro'
+import Post from '~/components/Post.astro'
+import Pagination from '~/components/Pagination.astro';
+import { HOME_PAGE_SIZE } from "~/config";
+import { getPosts } from "~/utils";
+import type { InferGetStaticParamsType, InferGetStaticPropsType, GetStaticPaths } from 'astro'
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await getPosts()
+  return paginate(posts, { pageSize: HOME_PAGE_SIZE })
+}) satisfies GetStaticPaths
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
+
+const { page } = Astro.props
+---
+
+<Default>
+  <section contain-layout un-flex="~ col gap-7.5">
+    {
+      page.data.map((post) => (
+        <Post post={post}>
+          <p>{post.data.description}</p>
+        </Post>
+      ))
+    }
+    <Pagination page={page} />
+  </section>
+</Default>

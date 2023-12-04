@@ -1,17 +1,14 @@
 ---
 import Default from '~/layouts/Default.astro'
-import { getCollection } from 'astro:content'
-import type { CollectionEntry } from 'astro:content'
-import Post from '~/components/Post.astro'
 import ListSection from '~/components/ListSection.astro'
 import ListItem from '~/components/ListItem.astro'
+import { getPosts } from "~/utils";
 
-type Post = CollectionEntry<'posts'>
 
-const allPosts = await getCollection('posts')
+const posts = await getPosts()
 
 const postByYear = new Map<number, Post[]>()
-allPosts.forEach((post: Post) => {
+posts.forEach((post: Post) => {
   const year = new Date(post.data.pubDate).getFullYear()
   if (!postByYear.has(year)) {
     postByYear.set(year, [])

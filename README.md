@@ -14,12 +14,12 @@ It is still under development.
 ## Features
 - [x] archive
 - [x] category
-- [] page
+- [x] pagination
 - [x] config file
 - [x] responsive
 - [x] seo
-- [] rss
-- [] i18n
-- [] dark mode
-- [] lighthouse
+- [ ] rss
+- [ ] i18n
+- [ ] dark mode
+- [ ] lighthouse
 

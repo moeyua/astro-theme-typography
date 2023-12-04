@@ -1,7 +1,4 @@
 import { getCollection } from 'astro:content'
-import type { CollectionEntry } from 'astro:content'
-
-type Post = CollectionEntry<'posts'>
 
 export async function getCategories() {
   const posts = await getPosts()
