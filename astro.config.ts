@@ -1,5 +1,7 @@
 import { defineConfig } from 'astro/config';
-import UnoCSS from 'unocss/astro'
+import UnoCSS from 'unocss/astro';
+
+import robotsTxt from "astro-robots-txt";
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,5 +14,6 @@ export default defineConfig({
     UnoCSS({
       injectReset: true
     }),
-  ],
+    robotsTxt()
+  ]
 });

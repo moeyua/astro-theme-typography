@@ -20,7 +20,6 @@ It is still under development.
 - [x] seo
 - [x] rss
 - [x] i18n
-- [ ] robots.txt
+- [x] robots.txt
 - [ ] dark mode
-- [ ] lighthouse
 
