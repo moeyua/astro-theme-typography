@@ -5,6 +5,7 @@ import '~/styles/heti.min.css'
 import Header from '~/components/Header.astro'
 import Footer from '~/components/Footer.astro'
 import { SEO } from 'astro-seo'
+const { title, desc, website } = Astro.locals.config
 ---
 
 <html lang="en">
@@ -15,9 +16,10 @@ import { SEO } from 'astro-seo'
     <!-- https://github.com/jonasmerlin/astro-seo#readme -->
     <SEO
       charset="utf-8"
-      title="Typography"
-      titleDefault="Typography"
-      description="A "
+      title={title}
+      titleDefault={title}
+      description={desc}
+      canonical={website}
       twitter={{
         creator: '@moeyua',
       }}

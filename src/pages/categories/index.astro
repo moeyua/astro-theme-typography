@@ -4,16 +4,13 @@ import ListSection from '~/components/ListSection.astro'
 import Default from '~/layouts/Default.astro'
 import { getCategories } from '~/utils/index'
 
-const categories = await getCategories()
+const { translate: t } = Astro.locals
 
+const categories = await getCategories()
 ---
 
 <Default>
-  <ListSection title="Categories">
-    {
-      Array.from(categories).map(([key, value]) => (
-        <ListItem title={key} href={`/categories/${key}`} description={`${value.length}篇`} />
-      ))
-    }
+  <ListSection title={t('Categories')}>
+    {Array.from(categories).map(([key, value]) => <ListItem title={key} href={`/categories/${key}`} description={t('CategoriesCount', value.length)} />)}
   </ListSection>
 </Default>

@@ -1,11 +1,13 @@
 ---
-import { SOCIALS, NAVS } from '~/config'
-
 import type { HTMLAttributes } from 'astro/types'
 
 type Props = HTMLAttributes<'header'>
 
 const { ...attrs } = Astro.props
+
+const { title, author, socials, navs } = Astro.locals.config
+
+const { translate: t } = Astro.locals
 ---
 
 <header un-lg="grow-1 justify-between items-start" un-flex="~ col gap-2.5" class="text-center" {...attrs}>
@@ -16,26 +18,26 @@ const { ...attrs } = Astro.props
     class="cursor-pointer transition-[padding,background] duration-800 ease-in-out"
   >
     <a class="normal" href="/">
-      <h3 class="text-5 font-extrabold font-serif">Moeyua</h3>
-      <h1 class="text-8 font-extrabold font-serif">Typography</h1>
+      <h3 class="text-5 font-extrabold font-serif">{author}</h3>
+      <h1 class="text-8 font-extrabold font-serif">{title}</h1>
     </a>
   </hgroup>
 
   <nav class="text-center font-bold" un-flex="~ col gap-2">
     <ul un-lg="flex-col items-start" class="text-3.5" un-flex="~ row gap-2 justify-center">
       {
-        NAVS.map((nav) => (
+        navs.map((nav) => (
           <li>
-            <a href={nav.href}>{nav.name}</a>
+            <a href={nav.href}>{t(nav.name)}</a>
           </li>
         ))
       }
     </ul>
     <ul un-flex="~ row gap-1 justify-center">
       {
-        SOCIALS.map((soc) => (
+        socials.map((soc) => (
           <li>
-            <a href={soc.href} title={soc.linkTitle} class={`icon i-mdi-${soc.name}`} />
+            <a href={soc.href} target="_blank" title={soc.name} class={`icon i-mdi-${soc.name}`} />
           </li>
         ))
       }

@@ -18,8 +18,9 @@ It is still under development.
 - [x] config file
 - [x] responsive
 - [x] seo
-- [ ] rss
-- [ ] i18n
+- [x] rss
+- [x] i18n
+- [ ] robots.txt
 - [ ] dark mode
 - [ ] lighthouse
 

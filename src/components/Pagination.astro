@@ -1,4 +1,6 @@
 ---
+const { translate: t } = Astro.locals
+
 interface Props {
   page: Page
 }
@@ -7,15 +9,15 @@ const { page } = Astro.props
 ---
 
 <footer class="mt-5">
-  <p class="mb-2.5">第 {page.currentPage} 页 / 共 {page.lastPage} 页</p>
+  <p class="mb-2.5">{t('PageNumber', page.currentPage)} / {t('PageCount', page.lastPage)}</p>
   <p class="flex items-center gap-2">
     <span class="inline-flex items-center">
       <i class="i-mdi-chevron-double-left icon"></i>
-      {page.url.prev ? <a href={page.url.prev}>上一页</a> : <span>上一页</span>}
+      {page.url.prev ? <a href={page.url.prev}> {t('prev')} </a> : <span>{t('prev')}</span>}
     </span>
 
     <span class="inline-flex items-center">
-      {page.url.next ? <a href={page.url.next}>下一页</a> : <span>下一页</span>}
+      {page.url.next ? <a href={page.url.next}>{t('next')}</a> : <span>{t('next')}</span>}
       <i class="i-mdi-chevron-double-right icon"></i>
     </span>
   </p>

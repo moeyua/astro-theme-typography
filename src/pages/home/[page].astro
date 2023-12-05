@@ -2,13 +2,12 @@
 import Default from '~/layouts/Default.astro'
 import Post from '~/components/Post.astro'
 import Pagination from '~/components/Pagination.astro'
-import { HOME_PAGE_SIZE } from '~/config'
 import { getPosts } from '~/utils'
 import type { InferGetStaticParamsType, InferGetStaticPropsType, GetStaticPaths } from 'astro'
 
 export const getStaticPaths = (async ({ paginate }) => {
   const posts = await getPosts()
-  return paginate(posts, { pageSize: HOME_PAGE_SIZE })
+  return paginate(posts, { pageSize: 10 })
 }) satisfies GetStaticPaths
 
 type Params = InferGetStaticParamsType<typeof getStaticPaths>

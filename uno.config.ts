@@ -5,7 +5,7 @@ import {
   presetIcons,
 } from "unocss";
 import transformerDirectives from "@unocss/transformer-directives";
-import { ICON_SAFE_LIST } from "./src/config";
+import { THEME_CONFIG } from "./src/theme.config";
 
 export default defineConfig({
   presets: [
@@ -62,6 +62,6 @@ export default defineConfig({
     transformerDirectives(),
   ],
   safelist: [
-    ...ICON_SAFE_LIST,
+    ...THEME_CONFIG.socials.map((social) => `i-mdi-${social.name}`),
   ],
 })
