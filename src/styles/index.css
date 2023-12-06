@@ -23,8 +23,11 @@ a:hover {
   color: theme("colors.secondary");
   background-color: theme("colors.primary");
   border-bottom: solid transparent 2px;
-  border-block-end: 1px solid rgba(0, 0, 0, 0) !important;
+}
+
+.heti a:hover {
   padding-block-end: 0px !important;
+  border-block-end: 1px solid rgba(0, 0, 0, 0) !important;
 }
 
 a.normal {
