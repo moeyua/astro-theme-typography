@@ -20,5 +20,6 @@ export async function getCategories() {
 
 export async function getPosts() {
   const posts = await getCollection('posts')
+  posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
   return posts
 }
