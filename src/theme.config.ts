@@ -17,7 +17,7 @@ export const THEME_CONFIG: App.Locals['config'] = {
     },
     {
       name: "rss",
-      href: "https://github.com/moeyua/astro-theme-typography",
+      href: "/atom.xml",
     },
     {
       name: "twitter",

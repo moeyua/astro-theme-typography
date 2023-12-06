@@ -17,10 +17,11 @@ export async function getStaticPaths() {
 
 const { posts } = Astro.props
 const { category } = Astro.params
+const { locale } = Astro.locals.config
 ---
 
 <Default>
   <ListSection title={category}>
-    {posts.map((post) => <ListItem title={post.data.title} href={`/posts/${post.slug}/`} description={post.data.pubDate.toString().slice(0, 10)} />)}
+    {posts.map((post) => <ListItem title={post.data.title} href={`/posts/${post.slug}/`} description={post.data.pubDate.toLocaleDateString(locale)} />)}
   </ListSection>
 </Default>
