@@ -5,6 +5,7 @@ interface Props {
 
 const { post } = Astro.props
 const { locale } = Astro.locals.config
+const {translate: t} = Astro.locals
 ---
 
 <article class="heti">
@@ -12,8 +13,8 @@ const { locale } = Astro.locals.config
     <h1 class="post-title!">
       <a href={`/posts/${post.slug}/`}>{post.data.title}</a>
     </h1>
-    <div class="mt-2">
-      <time class="text-3.5">{post.data.pubDate.toLocaleDateString(locale)}</time>
+    <div class="mt-2 text-3.5">
+      <span>{t('posted_at')}</span> <time>{post.data.pubDate.toLocaleDateString(locale)}</time>
     </div>
   </header>
   <slot />

@@ -18,7 +18,7 @@ const { locale } = Astro.locals.config
 ---
 
 <Default>
-  <div un-flex="~ col gap-2">
+  <div un-flex="~ col gap-4">
     {
       Array.from(postByYear.entries()).map(([year, posts]) => (
         <ListSection title={year}>

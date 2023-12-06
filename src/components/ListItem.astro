@@ -8,6 +8,8 @@ const { href, title, description } = Astro.props
 ---
 
 <li un-flex="~ col gap-1 items-start">
-  <a class="post-title!" href={href}>{title}</a>
+  <h3 class="post-title!">
+    <a href={href}>{title}</a>
+  </h3>
   <p>{description}</p>
 </li>

@@ -8,7 +8,7 @@ export const THEME_CONFIG: App.Locals['config'] = {
   /** your deployed domain */
   website: "https://astro-theme-typography.vercel.app/",
   /** your locale */
-  locale: "zh-cn",
+  locale: "en-us",
   /** your socials */
   socials: [
     {
