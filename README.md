@@ -34,7 +34,14 @@ You can instantly clone this to your GitHub and deploy the site by clicking the 
 - [ ] dark mode
 
 ## Checklist
+When you use this theme, try follow the checklist to update your info properly
 
+- [ ] Change the author name in LICENSE and package.json
+- [ ] Change the `site` in [astro.config.ts](astro.config.ts)
+- [ ] Change the favicon in public
+- [ ] Clean up the README.md
+- [ ] config the site in [src/theme.config.ts](src/theme.config.ts)
+And, enjoy :)
 
 ## Pagespeed Score
 
