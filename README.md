@@ -43,6 +43,18 @@ When you use this theme, try follow the checklist to update your info properly
 - [ ] config the site in [src/theme.config.ts](src/theme.config.ts)
 And, enjoy :)
 
+## Update
+You can update the theme by running the following command in your project root directory.
+
+```bash
+git remote add template https://github.com/Moeyua/astro-theme-typography.git
+git fetch template
+git merge template/main --allow-unrelated-histories
+```
+
+and then, fix the conflicts.
+
+
 ## Pagespeed Score
 
 [![Pagespeed Score](https://github.com/moeyua/astro-theme-typography/assets/45156493/26b37fd9-122a-48e5-90e9-db274c5dcbf6)](https://pagespeed.web.dev/analysis/https-astro-theme-typography-vercel-app-home-1/1enpbpw1e3?form_factor=desktop)
