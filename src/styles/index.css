@@ -12,30 +12,27 @@ body {
 }
 
 a {
-  border-bottom-width: 1.5px;
+  transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
+  border-bottom: solid 2px;
   border-color: theme("colors.primary");
-  text-decoration: none;
-  transition-property: color, background-color, border-color, outline-color,
-    text-decoration-color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
+  padding: 0;
+  cursor: pointer;
 }
-
-
-
-
 
 a:hover {
   color: theme("colors.secondary");
   background-color: theme("colors.primary");
+  border-bottom: solid transparent 2px;
+  border-block-end: 1px solid rgba(0, 0, 0, 0) !important;
+  padding-block-end: 0px !important;
 }
 
-a.normal{
+a.normal {
   border: none;
   transition: none;
 }
 
-a:hover.normal{
+a:hover.normal {
   color: inherit;
   background-color: transparent;
 }
