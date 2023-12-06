@@ -21,7 +21,7 @@ const { page } = Astro.props
     {
       page.data.map((post) => (
         <Post post={post}>
-          <p>{post.data.description}</p>
+          <p class="line-clamp-4">{post.data.description ?? post.body.slice(0, 400)}</p>
         </Post>
       ))
     }
