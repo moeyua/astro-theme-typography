@@ -1,2 +1,2 @@
-*.xsl linguist-language=XSLT
+pretty-feed-v3.xsl linguist-language=XSLT
 *.astro linguist-language=Astro
