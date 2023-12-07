@@ -5,33 +5,40 @@ import '~/styles/heti.min.css'
 import Header from '~/components/Header.astro'
 import Footer from '~/components/Footer.astro'
 import { SEO } from 'astro-seo'
-const { title, desc, website } = Astro.locals.config
+
+interface Props {
+  title?: string
+  desc?: string
+}
+
+const props = Astro.props
+const themeConfig = Astro.locals.config
+
+const title = props.title ?? themeConfig.title
+const desc = props.desc ?? themeConfig.desc
+
 ---
 
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-
-    <!-- https://github.com/jonasmerlin/astro-seo#readme -->
-    <SEO
-      charset="utf-8"
-      title={title}
-      titleDefault={title}
-      description={desc}
-      twitter={{
-        creator: '@moeyua',
-      }}
-      extend={{
-        link: [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
-      }}
-    />
+    <slot name="seo">
+      <SEO
+        charset="utf-8"
+        title={title}
+        description={desc}
+        extend={{
+          link: [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
+        }}
+      />
+    </slot>
   </head>
   <body>
     <div un-max-lg="animate-fadein-down" un-lg="flex flex-row-reverse justify-center gap-4 px-8" class="container contain-layout m-a">
       <div un-lg="sticky top-0 h-screen py-20 animate-fadein-left" un-lg:flex="~ col justify-between items-start gap-4" class="p-7.5">
         <Header />
-        <Footer class="max-lg:hidden"  />
+        <Footer class="max-lg:hidden" />
       </div>
       <main un-lg="py-20 min-w-xl animate-fadein-down" class="p-7.5">
         <slot />

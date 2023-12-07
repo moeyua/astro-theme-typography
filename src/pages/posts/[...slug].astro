@@ -1,21 +1,23 @@
 ---
-import Post from '~/components/Post.astro';
-import Default from '~/layouts/Default.astro';
-import { getPosts } from "~/utils";
+import { SEO } from 'astro-seo'
+import Post from '~/components/Post.astro'
+import Default from '~/layouts/Default.astro'
+import { getPosts } from '~/utils'
 
 export async function getStaticPaths() {
-  const posts = await getPosts();
-  return posts.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
-  }));
+  const posts = await getPosts()
+  return posts.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
 }
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { entry } = Astro.props
+const { Content } = await entry.render()
 ---
 
-<Default>
-  <Post post={entry} >
+<Default title={entry.data.title} desc={entry.data.description}>
+  <Post post={entry}>
     <Content />
   </Post>
 </Default>
