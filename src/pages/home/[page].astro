@@ -1,5 +1,5 @@
 ---
-import Default from '~/layouts/Default.astro'
+import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import Post from '~/components/Post.astro'
 import Pagination from '~/components/Pagination.astro'
 import { getPosts } from '~/utils'
@@ -16,7 +16,7 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>
 const { page } = Astro.props
 ---
 
-<Default>
+<LayoutDefault>
   <section contain-layout un-flex="~ col gap-7.5">
     {
       page.data.map((post) => (
@@ -28,4 +28,4 @@ const { page } = Astro.props
 
     <Pagination page={page} />
   </section>
-</Default>
+</LayoutDefault>

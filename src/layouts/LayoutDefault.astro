@@ -16,23 +16,20 @@ const themeConfig = Astro.locals.config
 
 const title = props.title ?? themeConfig.title
 const desc = props.desc ?? themeConfig.desc
-
 ---
 
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <slot name="seo">
-      <SEO
-        charset="utf-8"
-        title={title}
-        description={desc}
-        extend={{
-          link: [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
-        }}
-      />
-    </slot>
+    <SEO
+      charset="utf-8"
+      title={title}
+      description={desc}
+      extend={{
+        link: [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
+      }}
+    />
   </head>
   <body>
     <div un-max-lg="animate-fadein-down" un-lg="flex flex-row-reverse justify-center gap-4 px-8" class="container contain-layout m-a">

@@ -1,7 +1,7 @@
 ---
 import ListItem from '~/components/ListItem.astro'
 import ListSection from '~/components/ListSection.astro'
-import Default from '~/layouts/Default.astro'
+import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import { getCategories } from '~/utils/index'
 
 const { translate: t } = Astro.locals
@@ -9,8 +9,8 @@ const { translate: t } = Astro.locals
 const categories = await getCategories()
 ---
 
-<Default>
+<LayoutDefault>
   <ListSection title={t('Categories')}>
     {Array.from(categories).map(([key, value]) => <ListItem title={key} href={`/categories/${key}`} description={t('CategoriesCount', value.length)} />)}
   </ListSection>
-</Default>
+</LayoutDefault>

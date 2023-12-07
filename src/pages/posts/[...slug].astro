@@ -1,7 +1,6 @@
 ---
-import { SEO } from 'astro-seo'
 import Post from '~/components/Post.astro'
-import Default from '~/layouts/Default.astro'
+import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import { getPosts } from '~/utils'
 
 export async function getStaticPaths() {
@@ -16,8 +15,8 @@ const { entry } = Astro.props
 const { Content } = await entry.render()
 ---
 
-<Default title={entry.data.title} desc={entry.data.description}>
+<LayoutDefault title={entry.data.title} desc={entry.data.description}>
   <Post post={entry}>
     <Content />
   </Post>
-</Default>
+</LayoutDefault>

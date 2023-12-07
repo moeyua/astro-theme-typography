@@ -1,5 +1,5 @@
 ---
-import Default from '~/layouts/Default.astro'
+import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import ListSection from '~/components/ListSection.astro'
 
 import { getCategories } from '~/utils/index'
@@ -20,8 +20,8 @@ const { category } = Astro.params
 const { locale } = Astro.locals.config
 ---
 
-<Default>
+<LayoutDefault>
   <ListSection title={category}>
     {posts.map((post) => <ListItem title={post.data.title} href={`/posts/${post.slug}/`} description={post.data.pubDate.toLocaleDateString(locale)} />)}
   </ListSection>
-</Default>
+</LayoutDefault>
