@@ -11,6 +11,6 @@ const categories = await getCategories()
 
 <LayoutDefault>
   <ListSection title={t('Categories')}>
-    {Array.from(categories).map(([key, value]) => <ListItem title={key} href={`/categories/${key}`} description={t('CategoriesCount', value.length)} />)}
+    {Array.from(categories).map(([key, value]) => <ListItem title={key} href={`/categories/${key}`} description={t('categories_count', value.length)} />)}
   </ListSection>
 </LayoutDefault>
