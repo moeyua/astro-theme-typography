@@ -1,26 +1,13 @@
 ---
 import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import Post from '~/components/Post.astro'
-import { getPosts } from '~/utils'
+import { getPosts, getPostDescription } from '~/utils'
 import Pagination from '~/components/Pagination.astro'
-import sanitizeHtml from 'sanitize-html'
-import MarkdownIt from 'markdown-it'
 
 const posts = (await getPosts()).slice(0, 5)
 
 const { translate: t, config } = Astro.locals
 
-const parser = new MarkdownIt()
-
-function getDescription(post: Post) {
-  if (post.data.description) {
-    return post.data.description
-  }
-
-  const html = parser.render(post.body)
-  const sanitized = sanitizeHtml(html, { allowedTags: [] })
-  return sanitized.slice(0, 400)
-}
 ---
 
 <LayoutDefault>
@@ -28,7 +15,7 @@ function getDescription(post: Post) {
     {
       posts.map((post) => (
         <Post post={post}>
-          <p class="line-clamp-4">{getDescription(post)}</p>
+          <p class="line-clamp-4">{getPostDescription(post)}</p>
         </Post>
       ))
     }
