@@ -5,6 +5,7 @@ import '~/styles/heti.min.css'
 import Header from '~/components/Header.astro'
 import Footer from '~/components/Footer.astro'
 import { SEO } from 'astro-seo'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 interface Props {
   title?: string
@@ -42,5 +43,6 @@ const desc = props.desc ?? themeConfig.desc
       </main>
       <Footer class="lg:hidden p-7.5" />
     </div>
+    <SpeedInsights />
   </body>
 </html>
