@@ -7,7 +7,7 @@ import MarkdownIt from 'markdown-it';
 
 const parser = new MarkdownIt();
 
-const { title, desc, website } = THEME_CONFIG
+const { title, desc, website, author } = THEME_CONFIG
 
 
 export async function GET(context: APIContext) {
@@ -18,6 +18,7 @@ export async function GET(context: APIContext) {
     site: website,
     items: posts.map((post) => ({
       link: `/posts/${post.slug}/`,
+      author: author,
       content: sanitizeHtml(parser.render(post.body)),
       ...post.data
     })),
