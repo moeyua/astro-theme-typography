@@ -2,6 +2,7 @@
 import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import Post from '~/components/Post.astro'
 import { getPosts } from '~/utils'
+import Pagination from '~/components/Pagination.astro'
 
 const posts = (await getPosts()).slice(0, 5)
 
@@ -18,14 +19,6 @@ const { translate: t, config } = Astro.locals
         </Post>
       ))
     }
-
-    <footer class="mt-5">
-      <p class="flex items-center gap-2">
-        <span class="inline-flex items-center">
-          <a href={'posts/page/1'}>{t('all_posts')}</a>
-          <i class="i-mdi-chevron-double-right icon"></i>
-        </span>
-      </p>
-    </footer>
+    <Pagination showLeft={false} showPageCount={false} rightTitle={t('all_posts')} rightUrl={'posts/page/1'} />
   </section>
 </LayoutDefault>

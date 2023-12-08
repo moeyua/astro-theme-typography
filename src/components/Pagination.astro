@@ -2,13 +2,51 @@
 const { translate: t } = Astro.locals
 
 interface Props {
-  page: Page
+  showLeft?: boolean
+  leftTitle?: string
+  leftUrl?: string
+
+  showRight?: boolean
+  rightTitle?: string
+  rightUrl?: string
+
+  showPageCount?: boolean
+  currentPage?: number
+  totalPage?: number
 }
 
-const { page } = Astro.props
+const { showLeft = true, showRight = true, leftTitle, rightTitle, leftUrl, rightUrl, showPageCount = true, currentPage, totalPage } = Astro.props
 ---
 
 <footer class="mt-5">
+  {
+    showPageCount && (
+      <p class="mb-2.5">
+        {t('page_number', currentPage)} / {t('page_count', totalPage)}
+      </p>
+    )
+  }
+  <p class="flex items-center gap-2">
+    {
+      showLeft && (
+        <span class="inline-flex items-center">
+          <i class="i-mdi-chevron-double-left icon" />
+          <a href={leftUrl}>{leftTitle}</a>
+        </span>
+      )
+    }
+    {
+      showRight && (
+        <span class="inline-flex items-center">
+          <a href={rightUrl}>{rightTitle}</a>
+          <i class="i-mdi-chevron-double-right icon" />
+        </span>
+      )
+    }
+  </p>
+</footer>
+
+<!-- <footer class="mt-5">
   <p class="mb-2.5">{t('page_number', page.currentPage)} / {t('page_count', page.lastPage)}</p>
   <p class="flex items-center gap-2">
     <span class="inline-flex items-center">
@@ -21,4 +59,4 @@ const { page } = Astro.props
       <i class="i-mdi-chevron-double-right icon"></i>
     </span>
   </p>
-</footer>
+</footer> -->

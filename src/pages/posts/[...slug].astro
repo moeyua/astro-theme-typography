@@ -2,21 +2,40 @@
 import Post from '~/components/Post.astro'
 import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import { getPosts } from '~/utils'
+import type { InferGetStaticParamsType, InferGetStaticPropsType, GetStaticPaths } from 'astro'
+import Pagination from '~/components/Pagination.astro'
 
-export async function getStaticPaths() {
+export const getStaticPaths = (async ({}) => {
   const posts = await getPosts()
-  return posts.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }))
-}
+  return posts.map((post, idx) => {
+    const prev = posts[idx - 1]
+    const next = posts[idx + 1]
+    return {
+      params: { slug: post.slug },
+      props: { entry: post, next, prev },
+    }
+  })
+}) satisfies GetStaticPaths
 
-const { entry } = Astro.props
+type Params = InferGetStaticParamsType<typeof getStaticPaths>
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
+
+const { entry, prev, next } = Astro.props
 const { Content } = await entry.render()
+const { translate: t} = Astro.locals
 ---
 
 <LayoutDefault title={entry.data.title} desc={entry.data.description}>
   <Post post={entry}>
     <Content />
   </Post>
+  <Pagination
+      showLeft={Boolean(prev)}
+      leftTitle={`${t('prev_post')}: ${prev?.data.title}`}
+      leftUrl={`/posts/${prev?.slug}/`}
+      showRight={Boolean(next)}
+      rightTitle={`${t('next_post')}: ${next?.data.title}`}
+      rightUrl={`/posts/${next?.slug}/`}
+      showPageCount={false}
+    />
 </LayoutDefault>

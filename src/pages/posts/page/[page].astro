@@ -5,12 +5,14 @@ import Pagination from '~/components/Pagination.astro'
 import { getPosts } from '~/utils'
 import type { InferGetStaticParamsType, InferGetStaticPropsType, GetStaticPaths } from 'astro'
 
+const { translate: t } = Astro.locals
+
 export const getStaticPaths = (async ({ paginate }) => {
   const posts = await getPosts()
-  return paginate(posts, { pageSize: 10 })
+  return paginate(posts, { pageSize: 1 })
 }) satisfies GetStaticPaths
 
-// type Params = InferGetStaticParamsType<typeof getStaticPaths>
+type Params = InferGetStaticParamsType<typeof getStaticPaths>
 type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { page } = Astro.props
@@ -26,6 +28,15 @@ const { page } = Astro.props
       ))
     }
 
-    <Pagination page={page} />
+    <Pagination
+      showLeft={Boolean(page.url.prev)}
+      leftTitle={t('prev')}
+      leftUrl={page.url.prev}
+      showRight={Boolean(page.url.next)}
+      rightTitle={t('next')}
+      rightUrl={page.url.next}
+      currentPage={page.currentPage}
+      totalPage={page.lastPage}
+    />
   </section>
 </LayoutDefault>
