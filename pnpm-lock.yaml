@@ -11,9 +11,6 @@ dependencies:
   '@astrojs/rss':
     specifier: ^4.0.0
     version: 4.0.0
-  '@vercel/speed-insights':
-    specifier: ^1.0.0
-    version: 1.0.0
   astro:
     specifier: ^4.0.2
     version: 4.0.2(@types/node@20.10.3)(typescript@5.3.2)
@@ -1165,11 +1162,6 @@ packages:
     transitivePeerDependencies:
       - rollup
     dev: true
-
-  /@vercel/speed-insights@1.0.0:
-    resolution: {integrity: sha512-5blmCVGGPn+3BqwBPb1jc3OnzRozNuLgJVr7xH6XjxCTvocs7z/Bml7lo+JzLKUXR1Q35qI/PlEllmNbZmP9Ew==}
-    requiresBuild: true
-    dev: false
 
   /@volar/kit@1.10.10(typescript@5.3.2):
     resolution: {integrity: sha512-V2SyUPCPUhueqH8j5t48LJ0QsjExGSXzTv/XOdkUHV7hJ/ekyRGFqKxcfBtMq/nK6Tgu2G1ba+6u0d7e6wKcQw==}
