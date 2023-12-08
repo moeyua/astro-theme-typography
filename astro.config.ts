@@ -9,8 +9,6 @@ import robotsTxt from "astro-robots-txt";
 export default defineConfig({
   site: THEME_CONFIG.website,
   redirects: {
-    '/': '/home/1',
-    '/home': '/home/1'
   },
   integrations: [
     UnoCSS({

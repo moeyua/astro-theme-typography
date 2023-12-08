@@ -31,8 +31,8 @@ export const THEME_CONFIG: App.Locals['config'] = {
   /** your navigation links */
   navs: [
     {
-      name: "Home",
-      href: "/home",
+      name: "Posts",
+      href: "/posts/page/1",
     },
     {
       name: "Archive",
@@ -70,6 +70,8 @@ export const LANGUAGES = {
     CategoriesCount: '%d 篇',
     PageCount: '共 %d 页',
     PageNumber: '第 %d 页',
+    AllPosts: '所有文章',
+    Posts: '文章',
   },
   'en-us': {
     share: 'Share',
@@ -91,6 +93,8 @@ export const LANGUAGES = {
     CategoriesCount: '%d post',
     PageCount: '%d',
     PageNumber: 'Page %d',
+    AllPosts: 'All Posts',
+    Posts: 'Posts',
   }
 }
 

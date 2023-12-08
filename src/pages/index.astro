@@ -1,7 +1,31 @@
 ---
-import LayoutDefault from "~/layouts/LayoutDefault.astro"
+import LayoutDefault from '~/layouts/LayoutDefault.astro'
+import Post from '~/components/Post.astro'
+import { getPosts } from '~/utils'
+
+const posts = (await getPosts()).slice(0, 5)
+
+const { translate: t, config } = Astro.locals
+
 ---
 
 <LayoutDefault>
-  
+  <section contain-layout un-flex="~ col gap-7.5">
+    {
+      posts.map((post) => (
+        <Post post={post}>
+          <p class="line-clamp-4">{post.data.description ?? post.body.slice(0, 400)}</p>
+        </Post>
+      ))
+    }
+
+    <footer class="mt-5">
+      <p class="flex items-center gap-2">
+        <span class="inline-flex items-center">
+          <a href={'posts/page/1'}>{t('AllPosts')}</a>
+          <i class="i-mdi-chevron-double-right icon"></i>
+        </span>
+      </p>
+    </footer>
+  </section>
 </LayoutDefault>
