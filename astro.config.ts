@@ -8,7 +8,8 @@ import robotsTxt from "astro-robots-txt";
 // https://astro.build/config
 export default defineConfig({
   site: THEME_CONFIG.website,
-  redirects: {
+  build: {
+    format: 'file'
   },
   integrations: [
     UnoCSS({
