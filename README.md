@@ -33,15 +33,75 @@ You can instantly clone this to your GitHub and deploy the site by clicking the 
 - [ ] WebSub
 - [ ] dark mode
 
-## Checklist
-When you use this theme, try follow the checklist to update your info properly
+## Config
+You can config the theme in [src/theme.config.ts](src/theme.config.ts)
 
-- [ ] Change the author name in LICENSE and package.json
-- [ ] Change the `site` in [astro.config.ts](astro.config.ts)
-- [ ] Change the favicon in public
-- [ ] Clean up the README.md
-- [ ] config the site in [src/theme.config.ts](src/theme.config.ts)
-And, enjoy :)
+```ts
+export const THEME_CONFIG: App.Locals['config'] = {
+  /** your blog title */
+  title: "Typography",
+  /** your name */
+  author: "Moeyua",
+  /** website description */
+  desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
+  /** your deployed domain, you should also change the site in astro.config.ts */
+  website: "https://astro-theme-typography.vercel.app/",
+  /** your locale */
+  locale: "en-us",
+  /** your socials */
+  socials: [
+    {
+      name: "github",
+      href: "https://github.com/moeyua/astro-theme-typography",
+    },
+    {
+      name: "rss",
+      href: "/atom.xml",
+    }
+  ],
+  /** your navigation links */
+  navs: [
+    {
+      name: "Posts",
+      href: "/posts/page/1",
+    },
+    {
+      name: "Archive",
+      href: "/archive",
+    },
+    {
+      name: "Categories",
+      href: "/categories"
+    },
+    {
+      name: "About",
+      href: "/about",
+    },
+  ]
+}
+
+```
+
+## i18n
+You can add language in [src/i18n](src/i18n.ts)
+
+```ts
+export const LANGUAGES = {
+  'en-us': {
+    Home: 'Home',
+    Posts: 'Posts',
+    Categories: 'Categories',
+    ...,
+  },
+  'zh-cn': {
+    Home: '首页',
+    Posts: '文章',
+    Categories: '分类',
+    ...,
+  },
+  ...,
+}
+```
 
 ## Update
 You can update the theme by running the following command in your project root directory.
