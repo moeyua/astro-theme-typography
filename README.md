@@ -4,6 +4,7 @@ This work astro-theme-Typography is rewrite from [hexo-theme-Typography](https:/
 
 ## Live Demo
 https://blog.moeyua.com/
+
 https://astro-theme-typography.vercel.app/
 
 ## Deploy
@@ -55,6 +56,6 @@ and then, fix the conflicts.
 
 ## Pagespeed Score
 
-[![Pagespeed Score](https://github.com/moeyua/astro-theme-typography/assets/45156493/26b37fd9-122a-48e5-90e9-db274c5dcbf6)](https://pagespeed.web.dev/analysis/https-astro-theme-typography-vercel-app-home-1/1enpbpw1e3?form_factor=desktop)
+[![Pagespeed Score](https://github.com/moeyua/astro-theme-typography/assets/45156493/2272f576-d6ff-49ef-a294-5c2acf365907)](https://pagespeed.web.dev/analysis/https-astro-theme-typography-vercel-app/j34nq9tx0s?form_factor=desktop)
 
 [![Built with Astro](https://astro.badg.es/v2/built-with-astro/small.svg)](https://astro.build)
