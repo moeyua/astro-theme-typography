@@ -31,6 +31,8 @@ You can instantly clone this to your GitHub and deploy the site by clicking the 
 - [x] rss
 - [x] i18n
 - [x] robots.txt
+- [ ] sitemap
+- [ ] WebSub
 - [ ] dark mode
 
 ## Checklist
@@ -47,9 +49,7 @@ And, enjoy :)
 You can update the theme by running the following command in your project root directory.
 
 ```bash
-git remote add template https://github.com/Moeyua/astro-theme-typography.git
-git fetch template
-git merge template/main --allow-unrelated-histories
+pnpm update-template
 ```
 
 and then, fix the conflicts.
