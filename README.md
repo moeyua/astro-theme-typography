@@ -1,11 +1,9 @@
 # Typography
 
-This work astro-theme-Typography is forked from [hexo-theme-Typography](https://github.com/sumimakito/hexo-theme-typography).
+This work astro-theme-Typography is rewrite from [hexo-theme-Typography](https://github.com/sumimakito/hexo-theme-typography).
 
-It is still under development.
-
-
-## Preview
+## Live Demo
+https://blog.moeyua.com/
 https://astro-theme-typography.vercel.app/
 
 ## Deploy
@@ -31,7 +29,7 @@ You can instantly clone this to your GitHub and deploy the site by clicking the 
 - [x] rss
 - [x] i18n
 - [x] robots.txt
-- [ ] sitemap
+- [x] sitemap
 - [ ] WebSub
 - [ ] dark mode
 
