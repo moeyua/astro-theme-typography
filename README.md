@@ -1,24 +1,26 @@
-# Typography
+# astro-theme-Typography
 
-This work astro-theme-Typography is rewrite from [hexo-theme-Typography](https://github.com/sumimakito/hexo-theme-typography).
+This work is rewrite from [hexo-theme-Typography](https://github.com/sumimakito/hexo-theme-typography).
+
+[![Built with Astro](https://astro.badg.es/v2/built-with-astro/small.svg)](https://astro.build)
 
 ## Live Demo
 https://blog.moeyua.com/
 
 https://astro-theme-typography.vercel.app/
 
+## Pagespeed Score
+
+[![Pagespeed Score](https://github.com/moeyua/astro-theme-typography/assets/45156493/2272f576-d6ff-49ef-a294-5c2acf365907)](https://pagespeed.web.dev/analysis/https-astro-theme-typography-vercel-app/j34nq9tx0s?form_factor=desktop)
+
 ## Deploy
 
 You can instantly clone this to your GitHub and deploy the site by clicking the below buttons to deploy to your chosen providers!
 
-### Deploy to Vercel
-
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmoeyua%2Fastro-theme-typography)
-
-### Deploy to Netlify
-  
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https%3A%2F%2Fgithub.com%2Fmoeyua%2Fastro-theme-typography)
 
+also, you can deploy it by create a repo from this template.
 
 ## Features
 - [x] archive
@@ -107,15 +109,13 @@ export const LANGUAGES = {
 ## Update
 You can update the theme by running the following command in your project root directory.
 
-```bash
+```shell
 pnpm update-template
 ```
 
 and then, fix the conflicts.
 
+## Customize
 
-## Pagespeed Score
+If you want deep customization, see [Astro docs](https://docs.astro.build/).
 
-[![Pagespeed Score](https://github.com/moeyua/astro-theme-typography/assets/45156493/2272f576-d6ff-49ef-a294-5c2acf365907)](https://pagespeed.web.dev/analysis/https-astro-theme-typography-vercel-app/j34nq9tx0s?form_factor=desktop)
-
-[![Built with Astro](https://astro.badg.es/v2/built-with-astro/small.svg)](https://astro.build)
