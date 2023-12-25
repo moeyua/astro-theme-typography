@@ -28,6 +28,11 @@ English | <b><a href="./README.zh-CN.md">简体中文</a></b>
 - i18n support.
 - Dark mode support.
 
+## Demo
+
+- [Live Demo](https://astro-theme-typography.vercel.app/)
+- [My Blog](https://blog.moeyua.com/)
+
 ## Getting Started
 
 Typography is a minimal, responsive and SEO-friendly Astro blog theme. This guide will help you get started with a new project. 
