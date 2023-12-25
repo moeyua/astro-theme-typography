@@ -15,6 +15,11 @@ const {translate: t} = Astro.locals
     </h1>
     <div class="mt-2 text-3.5">
       <span>{t('posted_at')}</span> <time>{formatDate(post.data.pubDate)}</time>
+      {
+        post.data.categories && 
+        post.data.categories.map((category) =>
+          (<a class="ml-2.5" href={`/categories/${category}`}># {category}</a>))
+      }
     </div>
   </header>
   <slot />
