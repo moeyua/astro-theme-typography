@@ -25,7 +25,8 @@ English | <b><a href="./README.zh-CN.md">简体中文</a></b>
 - **Accessible**. A well thought out semantic and accessible content.
 - **SEO friendly**.Open Graph and Twitter Cards support for a better social sharing experience.
 - **Sitemap** and **RSS feed** for search engines.
-- **i18n** support.
+- i18n support.
+- Dark mode support.
 
 ## Getting Started
 
@@ -110,6 +111,17 @@ export const THEME_CONFIG: App.Locals['config'] = {
 
 And then add the corresponding page in `src/pages`, see more in [Astro Pages](https://docs.astro.build/en/core-concepts/astro-pages/)
 
+### Dark mode
+
+Typography supports dark mode. You can change it in the config file:
+
+```ts
+export const THEME_CONFIG: App.Locals['config'] = {
+  themeStyle: 'dart' // 'light' | 'dark'
+}
+```
+
+
 ### Internationalization (i18n)
 
 Typography provides built-in support for multilingual sites. By default, the language is `en-us`, you can change it in the config file:
@@ -136,7 +148,6 @@ You can see all supported languages in [src/i18n.ts](src/i18n.ts), and add more 
 ## TODO 
 
 - [ ] WebSub
-- [ ] dark mode
 - [ ] comment
 - [ ] search
 - [ ] analytics

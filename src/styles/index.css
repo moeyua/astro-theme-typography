@@ -1,5 +1,5 @@
 body {
-  --uno: antialiased dark:color-background dark:bg-foreground;
+  --uno: antialiased;
   color: theme("colors.foreground");
   background-color: theme("colors.background");
   font-family: theme("fontFamily.sans");

@@ -10,7 +10,7 @@ export const THEME_CONFIG: App.Locals['config'] = {
   /** your locale */
   locale: "en-us",
   /** theme style */
-  themeStyle: "auto",
+  themeStyle: "dark",
   /** your socials */
   socials: [
     {
