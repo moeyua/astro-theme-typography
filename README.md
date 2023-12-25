@@ -1,125 +1,141 @@
 # astro-theme-Typography
 
-This work is rewrite from [hexo-theme-Typography](https://github.com/sumimakito/hexo-theme-typography).
+<p align='center'>
+  <img src='./preview.svg' alt='Typography' width='600'/>
+</p>
 
-[![Built with Astro](https://astro.badg.es/v2/built-with-astro/small.svg)](https://astro.build)
+<h6 align='center'>
+<a href="https://astro-theme-typography.vercel.app/">Live Demo</a>
+</h6>
 
-## Live Demo
-https://blog.moeyua.com/
+<h5 align='center'>
+<b>This work is rewrite from <a href="https://github.com/sumimakito/hexo-theme-typography">hexo-theme-Typography</a></b>
+</h5>
 
-https://astro-theme-typography.vercel.app/
+<p align='center'>
+English | <b><a href="./README.zh-CN.md">简体中文</a></b>
+</p>
+
+## Features
+
+- Build with **TypeScript** and **UnoCSS**
+- **Fast**. 100% [Pagespeed Score](https://pagespeed.web.dev/analysis/https-astro-theme-typography-vercel-app/j34nq9tx0s?form_factor=desktop).
+- **Responsive**. Responsive and works well on all screen sizes.
+- **Accessible**. A well thought out semantic and accessible content.
+- **SEO friendly**.Open Graph and Twitter Cards support for a better social sharing experience.
+- **Sitemap** and **RSS feed** for search engines.
+- **i18n** support.
+
+## Getting Started
+
+Typography is a minimal, responsive and SEO-friendly Astro blog theme. This guide will help you get started with a new project. 
+
+### Quick Start
+
+You can easily create a new project by licking the below button.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmoeyua%2Fastro-theme-typography)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https%3A%2F%2Fgithub.com%2Fmoeyua%2Fastro-theme-typography)
+
+Or, you can deploy it by create a repo from this template.
+
+[Click here to create a repo from this template on GitHub.](https://github.com/new?template_name=astro-theme-typography&template_owner=moeyua)
+
+### Add content
+
+You can add content by creating a new markdown file in `src/content/posts`. The file need metadata in the frontmatter, like this:
+
+```md
+---
+title: title
+pubDate: 2021-08-01
+categories: ['article']
+description: 'description'
+---
+```
+
+Or, you can use the following command in your terminal to create a new post:
+
+```bash
+pnpm new-post
+```
+
+## Updating the theme
+
+You can update the theme by running by running the following command in your terminal:
+  
+```bash
+pnpm update-theme
+```
+
+## Customization
+
+Typography is highly customizable. The config file is in [src/theme.config.ts](src/theme.config.ts)
+
+### Social links
+
+Typography has built-in support for adding links to your social media accounts to the site via the social option in the config file:
+
+```ts
+export const THEME_CONFIG: App.Locals['config'] = {
+  socials: [
+    {
+      name: "github",
+      href: "https://github.com/moeyua/astro-theme-typography"
+    }
+    ...
+  ]
+}
+```
+
+The name is the icon name in [Material Design Icons](https://pictogrammers.com/library/mdi/),
+which will be automatically generated as the icon.
+
+### Navigation links
+
+By default, the navigation are `Posts`, `Archive`, `Categories` and `About`. You can add more in the config file:
+
+```ts
+export const THEME_CONFIG: App.Locals['config'] = {
+  navs: [
+    {
+      name: "Categories",
+      href: "/categories"
+    }
+    ...
+  ]
+}
+```
+
+And then add the corresponding page in `src/pages`, see more in [Astro Pages](https://docs.astro.build/en/core-concepts/astro-pages/)
+
+### Internationalization (i18n)
+
+Typography provides built-in support for multilingual sites. By default, the language is `en-us`, you can change it in the config file:
+
+```ts
+export const THEME_CONFIG: App.Locals['config'] = {
+  locale: "zh-cn"
+}
+```
+
+For now, Typography supports below languages:
+
+- `en-us`
+- `zh-cn`
+- `zh-tw`
+- `ja-jp`
+
+You can see all supported languages in [src/i18n.ts](src/i18n.ts), and add more if you need.
 
 ## Pagespeed Score
 
 [![Pagespeed Score](https://github.com/moeyua/astro-theme-typography/assets/45156493/2272f576-d6ff-49ef-a294-5c2acf365907)](https://pagespeed.web.dev/analysis/https-astro-theme-typography-vercel-app/j34nq9tx0s?form_factor=desktop)
 
-## Deploy
+## TODO 
 
-You can instantly clone this to your GitHub and deploy the site by clicking the below buttons to deploy to your chosen providers!
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmoeyua%2Fastro-theme-typography)
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https%3A%2F%2Fgithub.com%2Fmoeyua%2Fastro-theme-typography)
-
-also, you can deploy it by create a repo from this template.
-
-## TODO
-- [x] archive
-- [x] category
-- [x] pagination
-- [x] config file
-- [x] responsive
-- [x] seo
-- [x] i18n
-- [x] robots.txt
-- [x] sitemap
-- [x] rss
-  - [ ] WebSub
-- [ ] new post command
+- [ ] WebSub
 - [ ] dark mode
 - [ ] comment
 - [ ] search
 - [ ] analytics
-
-## Config
-You can config the theme in [src/theme.config.ts](src/theme.config.ts)
-
-```ts
-export const THEME_CONFIG: App.Locals['config'] = {
-  /** your blog title */
-  title: "Typography",
-  /** your name */
-  author: "Moeyua",
-  /** website description */
-  desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
-  /** your deployed domain, you should also change the site in astro.config.ts */
-  website: "https://astro-theme-typography.vercel.app/",
-  /** your locale */
-  locale: "en-us",
-  /** your socials */
-  socials: [
-    {
-      name: "github",
-      href: "https://github.com/moeyua/astro-theme-typography",
-    },
-    {
-      name: "rss",
-      href: "/atom.xml",
-    }
-  ],
-  /** your navigation links */
-  navs: [
-    {
-      name: "Posts",
-      href: "/posts/page/1",
-    },
-    {
-      name: "Archive",
-      href: "/archive",
-    },
-    {
-      name: "Categories",
-      href: "/categories"
-    },
-    {
-      name: "About",
-      href: "/about",
-    },
-  ]
-}
-
-```
-
-## i18n
-You can add language in [src/i18n](src/i18n.ts)
-
-```ts
-export const LANGUAGES = {
-  'en-us': {
-    Home: 'Home',
-    Posts: 'Posts',
-    Categories: 'Categories',
-    ...,
-  },
-  'zh-cn': {
-    Home: '首页',
-    Posts: '文章',
-    Categories: '分类',
-    ...,
-  },
-  ...,
-}
-```
-
-## Update
-You can update the theme by running the following command in your project root directory.
-
-```shell
-pnpm update-template
-```
-
-and then, fix the conflicts.
-
-## Customize
-
-If you want deep customization, see [Astro docs](https://docs.astro.build/).
-
