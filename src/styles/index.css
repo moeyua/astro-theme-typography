@@ -1,6 +1,7 @@
 body {
-  --uno: antialiased;
-  color: theme("colors.primary");
+  --uno: antialiased dark:color-background dark:bg-foreground;
+  color: theme("colors.foreground");
+  background-color: theme("colors.background");
   font-family: theme("fontFamily.sans");
   line-height: normal;
   text-align: left;
@@ -14,14 +15,14 @@ body {
 a {
   transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
   border-bottom: solid 2px;
-  border-color: theme("colors.primary");
+  border-color: theme("colors.foreground");
   padding: 0;
   cursor: pointer;
 }
 
 a:hover {
-  color: theme("colors.secondary");
-  background-color: theme("colors.primary");
+  color: theme("colors.background");
+  background-color: theme("colors.foreground");
   border-bottom: solid transparent 2px;
 }
 

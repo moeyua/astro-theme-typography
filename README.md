@@ -1,4 +1,4 @@
-# astro-theme-Typography
+# Typography
 
 <p align='center'>
   <img src='./preview.svg' alt='Typography' width='600'/>
@@ -20,6 +20,7 @@ English | <b><a href="./README.zh-CN.md">简体中文</a></b>
 
 - Build with **TypeScript** and **UnoCSS**
 - **Fast**. 100% [Pagespeed Score](https://pagespeed.web.dev/analysis/https-astro-theme-typography-vercel-app/j34nq9tx0s?form_factor=desktop).
+- **Typography** Derived from prevalent Chinese typographic norms and aims to provide an enhanced reading experience for website visitors.
 - **Responsive**. Responsive and works well on all screen sizes.
 - **Accessible**. A well thought out semantic and accessible content.
 - **SEO friendly**.Open Graph and Twitter Cards support for a better social sharing experience.

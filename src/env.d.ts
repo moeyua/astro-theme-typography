@@ -13,6 +13,8 @@ declare namespace App {
       website: string;
       /** your locale */
       locale: string;
+      /** theme style */
+      themeStyle: 'light'|'auto'|'dark';
       /** your socials */
       socials: Array<{
         name: string;

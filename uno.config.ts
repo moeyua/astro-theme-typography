@@ -7,39 +7,31 @@ import {
 import transformerDirectives from "@unocss/transformer-directives";
 import { THEME_CONFIG } from "./src/theme.config";
 
+const {socials, themeStyle} = THEME_CONFIG;
+
+let foreground = "#2e405b";
+let background = "#ffffff";
+
+if(THEME_CONFIG.themeStyle === 'dark') {
+  foreground = "#ffffff";
+  background = "#2e405b";
+}
+
 export default defineConfig({
   presets: [
-    presetUno(),
+    presetUno({
+      dark: themeStyle === 'auto' ? 'media' : 'class',
+    }),
     presetAttributify({ nonValuedAttribute: true }),
     presetIcons({
       scale: 1.2,
       warn: true,
     }),
-    // presetTypography({
-    //   cssExtend: {
-    //     ":not(pre) > code": {
-    //       color: "#c7254e",
-    //       padding: "2px 4px",
-    //       "white-space": "pre-wrap !important",
-    //       "background-color": "#f9f2f4 !important",
-    //       "border-radius": "4px",
-    //     },
-    //     ":not(pre) > code::before": {
-    //       content: "none",
-    //     },
-    //     ":not(pre) > code::after": {
-    //       content: "none",
-    //     },
-    //     a: {
-    //       "text-decoration": "none",
-    //     },
-    //   },
-    // }),
   ],
   theme: {
     colors: {
-      primary: "#2e405b",
-      secondary: "#ffffff",
+      foreground,
+      background
     },
     fontFamily: {
       sans: '"Source Sans Pro","Roboto","Helvetica","Helvetica Neue","Source Han Sans SC","Source Han Sans TC","PingFang SC","PingFang HK","PingFang TC",sans-serif',
@@ -62,6 +54,6 @@ export default defineConfig({
     transformerDirectives(),
   ],
   safelist: [
-    ...THEME_CONFIG.socials.map((social) => `i-mdi-${social.name}`),
+    ...socials.map((social) => `i-mdi-${social.name}`),
   ],
 })
