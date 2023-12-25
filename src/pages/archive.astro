@@ -2,7 +2,7 @@
 import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import ListSection from '~/components/ListSection.astro'
 import ListItem from '~/components/ListItem.astro'
-import { getPosts } from '~/utils'
+import { getPosts, formatDate } from '~/utils'
 
 const posts = await getPosts()
 
@@ -14,7 +14,7 @@ posts.forEach((post: Post) => {
   }
   postByYear.get(year)!.push(post)
 })
-const { locale } = Astro.locals.config
+
 ---
 
 <LayoutDefault>
@@ -23,7 +23,7 @@ const { locale } = Astro.locals.config
       Array.from(postByYear.entries()).map(([year, posts]) => (
         <ListSection title={year}>
           {posts.map((post) => (
-            <ListItem title={post.data.title} href={`/posts/${post.slug}/`} description={post.data.pubDate.toLocaleDateString(locale)} />
+            <ListItem title={post.data.title} href={`/posts/${post.slug}/`} description={formatDate(post.data.pubDate)} />
           ))}
         </ListSection>
       ))

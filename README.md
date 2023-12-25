@@ -22,19 +22,23 @@ You can instantly clone this to your GitHub and deploy the site by clicking the 
 
 also, you can deploy it by create a repo from this template.
 
-## Features
+## TODO
 - [x] archive
 - [x] category
 - [x] pagination
 - [x] config file
 - [x] responsive
 - [x] seo
-- [x] rss
 - [x] i18n
 - [x] robots.txt
 - [x] sitemap
-- [ ] WebSub
+- [x] rss
+  - [ ] WebSub
+- [ ] new post command
 - [ ] dark mode
+- [ ] comment
+- [ ] search
+- [ ] analytics
 
 ## Config
 You can config the theme in [src/theme.config.ts](src/theme.config.ts)

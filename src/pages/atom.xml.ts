@@ -10,7 +10,7 @@ const parser = new MarkdownIt();
 const { title, desc, website, author } = THEME_CONFIG
 
 
-export async function GET(context: APIContext) {
+export async function GET(_context: APIContext) {
   const posts = await getPosts()
   const allowedTags = sanitizeHtml.defaults.allowedTags.concat(['img'])
   return rss({

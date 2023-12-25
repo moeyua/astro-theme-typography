@@ -6,7 +6,7 @@ import Pagination from '~/components/Pagination.astro'
 
 const posts = (await getPosts()).slice(0, 5)
 
-const { translate: t, config } = Astro.locals
+const { translate: t } = Astro.locals
 
 ---
 

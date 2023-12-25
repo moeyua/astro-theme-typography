@@ -1,8 +1,7 @@
 ---
 import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import ListSection from '~/components/ListSection.astro'
-
-import { getCategories } from '~/utils/index'
+import { getCategories, formatDate } from '~/utils'
 import ListItem from '~/components/ListItem.astro'
 
 export async function getStaticPaths() {
@@ -17,11 +16,11 @@ export async function getStaticPaths() {
 
 const { posts } = Astro.props
 const { category } = Astro.params
-const { locale } = Astro.locals.config
+
 ---
 
 <LayoutDefault>
   <ListSection title={category}>
-    {posts.map((post) => <ListItem title={post.data.title} href={`/posts/${post.slug}/`} description={post.data.pubDate.toLocaleDateString(locale)} />)}
+    {posts.map((post) => <ListItem title={post.data.title} href={`/posts/${post.slug}/`} description={formatDate(post.data.pubDate)} />)}
   </ListSection>
 </LayoutDefault>
