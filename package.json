@@ -9,7 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "new-post": "./scripts/new-post.sh",
-    "update-theme": "./scripts/update-theme"
+    "update-theme": "./scripts/update-theme.sh"
   },
   "dependencies": {
     "@astrojs/check": "^0.3.4",

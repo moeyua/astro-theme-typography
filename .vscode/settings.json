@@ -1,0 +1,12 @@
+{
+  "[markdown]": {
+    "editor": {
+      "quickSuggestions": true
+    },
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "other": "on",
+      "strings": "on"
+    }
+  },
+}
