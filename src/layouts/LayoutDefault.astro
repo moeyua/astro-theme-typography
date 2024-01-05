@@ -16,6 +16,8 @@ const themeConfig = Astro.locals.config
 
 const title = props.title ?? themeConfig.title
 const desc = props.desc ?? themeConfig.desc
+const canonical = themeConfig.website
+const image = 'https://github.com/moeyua/astro-theme-typography/blob/85204bceb6dbc1314dd5d5e4ae5773af01ddea79/public/typograph-og.jpg'
 ---
 
 <html lang="en">
@@ -28,6 +30,22 @@ const desc = props.desc ?? themeConfig.desc
       description={desc}
       extend={{
         link: [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
+        meta: [
+          {
+            name: "twitter:image",
+            content: image,
+          },
+          { name: "twitter:title", content: title },
+          { name: "twitter:description", content: desc },
+        ],
+      }}
+      openGraph={{
+        basic: {
+          title: title,
+          type: "article",
+          image: image,
+          url: canonical,
+        }
       }}
     />
   </head>

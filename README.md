@@ -1,7 +1,7 @@
 # Typography
 
 <p align='center'>
-  <img src='./preview.svg' alt='Typography' width='600'/>
+  <img src='./public/typograph-og.jpg' alt='Typography' width='600'/>
 </p>
 
 <h6 align='center'>
