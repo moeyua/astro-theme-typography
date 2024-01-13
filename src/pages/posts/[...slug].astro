@@ -39,3 +39,58 @@ const { translate: t} = Astro.locals
       showPageCount={false}
     />
 </LayoutDefault>
+
+
+<script>
+  const copyButtonLabel = "Copy";
+  const codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+  for (let codeBlock of codeBlocks) {
+    let wrapper = document.createElement("div");
+    wrapper.style.position = "relative";
+
+    let copyButton = document.createElement("button");
+    copyButton.className = "copy-code";
+    copyButton.innerHTML = copyButtonLabel;
+
+    codeBlock.setAttribute("tabindex", "0");
+    codeBlock.appendChild(copyButton);
+
+    codeBlock.parentNode?.insertBefore(wrapper, codeBlock);
+    wrapper.appendChild(codeBlock);
+
+    copyButton.addEventListener("click", async () => {
+      await copyCode(codeBlock, copyButton);
+    });
+  }
+
+  async function copyCode(block: HTMLPreElement, button: HTMLButtonElement) {
+    let code = block.querySelector("code");
+    let text = code?.innerText;
+
+    await navigator.clipboard.writeText(text ?? "");
+
+    button.innerText = "Code Copied";
+
+    setTimeout(() => {
+      button.innerText = copyButtonLabel;
+    }, 700);
+  }
+</script>
+
+<style is:global>
+  .copy-code {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #3730a3;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    border-radius: 0 0 0 0.25rem;
+  }
+
+  .copy-code:hover {
+    background-color: #312e81;
+  }
+</style>
