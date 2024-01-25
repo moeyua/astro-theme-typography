@@ -14,7 +14,7 @@
   "dependencies": {
     "@astrojs/check": "^0.3.4",
     "@astrojs/rss": "^4.0.1",
-    "@astrojs/sitemap": "^3.0.4",
+    "@astrojs/sitemap": "^3.0.5",
     "astro": "^4.1.0",
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.0",
