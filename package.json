@@ -19,7 +19,7 @@
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.0",
     "typescript": "^5.3.3",
-    "vite": "^5.0.10"
+    "vite": "^5.0.12"
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.1.64",
