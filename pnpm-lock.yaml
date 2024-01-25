@@ -47,8 +47,8 @@ devDependencies:
     specifier: ^0.57.7
     version: 0.57.7
   '@unocss/transformer-directives':
-    specifier: ^0.57.7
-    version: 0.57.7
+    specifier: ^0.58.3
+    version: 0.58.3
   markdown-it:
     specifier: ^14.0.0
     version: 14.0.0
@@ -1227,6 +1227,10 @@ packages:
     resolution: {integrity: sha512-1d36M0CV3yC80J0pqOa5rH1BX6g2iZdtKmIb3oSBN4AWnMCSrrJEPBrUikyMq2TEQTrYWJIVDzv5A9hBUat3TA==}
     dev: true
 
+  /@unocss/core@0.58.3:
+    resolution: {integrity: sha512-9hTxzsrSLh+07ql/lGhE+8ZbE9MTTeZeMx131cPf2jDJUxAZooLE5pBCoK0k77ZJGcribRrwPGkUScBNOK0cYQ==}
+    dev: true
+
   /@unocss/extractor-arbitrary-variants@0.57.7:
     resolution: {integrity: sha512-JdyhPlsgS0x4zoF8WYXDcusPcpU4ysE6Rkkit4a9+xUZEvg7vy7InH6PQ8dL8B9oY7pbxF7G6eFguUDpv9xx4Q==}
     dependencies:
@@ -1330,6 +1334,14 @@ packages:
       magic-string: 0.30.5
     dev: true
 
+  /@unocss/rule-utils@0.58.3:
+    resolution: {integrity: sha512-0Px9gIW+VOKetZuYET19uamIRpk7A9c8sCzQuGlNvCLXKEWamqXz5asLtnvPzw6SwCXEQDgWXE9i+aeoXaM0Jg==}
+    engines: {node: '>=14'}
+    dependencies:
+      '@unocss/core': 0.58.3
+      magic-string: 0.30.5
+    dev: true
+
   /@unocss/scope@0.57.7:
     resolution: {integrity: sha512-pqWbKXcrTJ2ovVRTYFLnUX5ryEhdSXp7YfyBQT3zLtQb4nQ2XZcLTvGdWo7F+9jZ09yP7NdHscBLkeWgx+mVgw==}
     dev: true
@@ -1362,6 +1374,14 @@ packages:
     dependencies:
       '@unocss/core': 0.57.7
       '@unocss/rule-utils': 0.57.7
+      css-tree: 2.3.1
+    dev: true
+
+  /@unocss/transformer-directives@0.58.3:
+    resolution: {integrity: sha512-JMfeA8GJz106UqafqsCDp6BBEU7TozZHpLw414CKZjOW1CuMmaKEGrlr2UCjCYgM1vH7KEFKRMwTRUEV3NvywQ==}
+    dependencies:
+      '@unocss/core': 0.58.3
+      '@unocss/rule-utils': 0.58.3
       css-tree: 2.3.1
     dev: true
 
