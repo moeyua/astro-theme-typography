@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.3.4",
-    "@astrojs/rss": "^4.0.1",
-    "@astrojs/sitemap": "^3.0.4",
-    "astro": "^4.1.0",
+    "@astrojs/rss": "^4.0.3",
+    "@astrojs/sitemap": "^3.0.5",
+    "astro": "^4.2.4",
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.0",
     "typescript": "^5.3.3",
@@ -24,7 +24,7 @@
   "devDependencies": {
     "@iconify-json/mdi": "^1.1.64",
     "@types/markdown-it": "^13.0.7",
-    "@types/node": "^20.10.6",
+    "@types/node": "^20.11.6",
     "@types/sanitize-html": "^2.9.5",
     "@unocss/reset": "^0.57.7",
     "@unocss/transformer-directives": "^0.57.7",
