@@ -28,7 +28,7 @@
     "@types/sanitize-html": "^2.9.5",
     "@unocss/reset": "^0.57.7",
     "@unocss/transformer-directives": "^0.57.7",
-    "markdown-it": "^13.0.2",
+    "markdown-it": "^14.0.0",
     "sanitize-html": "^2.11.0",
     "unocss": "^0.57.7"
   }
