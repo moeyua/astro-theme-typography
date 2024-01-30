@@ -8,7 +8,8 @@ const posts = await getPosts()
 
 const postByYear = new Map<number, Post[]>()
 posts.forEach((post: Post) => {
-  const year = new Date(post.data.pubDate).getFullYear()
+  const pubDate = post.data.pubDate ?? new Date()
+  const year = pubDate.getFullYear()
   if (!postByYear.has(year)) {
     postByYear.set(year, [])
   }
