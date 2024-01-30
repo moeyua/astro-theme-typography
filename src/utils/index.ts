@@ -22,7 +22,11 @@ export async function getCategories() {
 
 export async function getPosts() {
   const posts = await getCollection('posts')
-  posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  posts.sort((a, b) => {
+    const aDate = a.data.pubDate || new Date()
+    const bDate = b.data.pubDate || new Date()
+    return aDate.getTime() - bDate.getTime()
+  })
   return posts
 }
 
@@ -38,10 +42,11 @@ export function getPostDescription(post: Post) {
   return sanitized.slice(0, 400)
 }
 
-export function formatDate(date: Date) {
+export function formatDate(date?: Date) {
+  if(!date) return '--'
   const year = date.getFullYear().toString().padStart(4, '0')
   const month = (date.getMonth() + 1).toString().padStart(2, '0')
   const day = date.getDate().toString().padStart(2, '0')
-  
+
   return `${year}-${month}-${day}`
 }
