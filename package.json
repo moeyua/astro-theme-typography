@@ -30,6 +30,6 @@
     "@unocss/transformer-directives": "^0.58.4",
     "markdown-it": "^14.0.0",
     "sanitize-html": "^2.11.0",
-    "unocss": "^0.57.7"
+    "unocss": "^0.58.5"
   }
 }
