@@ -24,7 +24,12 @@ declare namespace App {
       navs: Array<{
         name: string;
         href: string;
-      }>
+      }>,
+      /** category mapping */
+      category_map: Array<{
+        name: string;
+        path: string;
+      }>,
     }
     translate: (key: string, param?: string | number) => string;
   }

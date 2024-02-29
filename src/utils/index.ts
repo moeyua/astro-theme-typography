@@ -50,3 +50,8 @@ export function formatDate(date?: Date) {
 
   return `${year}-${month}-${day}`
 }
+
+export function getPathFromCategory(category: string, category_map: {name: string, path: string}[]) {
+  const mappingPath = category_map.find(l => l.name === category)
+  return mappingPath ? mappingPath.path : category
+}
