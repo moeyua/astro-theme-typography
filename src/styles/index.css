@@ -12,39 +12,71 @@ body {
   background-size: 7px 7px;
 }
 
-a {
+a,
+article.heti a,
+article.heti a code {
   transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
-  border-bottom: solid 2px;
-  border-color: theme("colors.foreground");
-  padding: 0;
-  cursor: pointer;
+  /* border-bottom: solid 2px; */
+  /* border-color: theme("colors.foreground"); */
+  padding: 2px;
+
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
+
+a:hover,
+article.heti a:hover,
+article.heti a code:hover {
+  text-decoration-line: none;
+}
+
 
 a:hover {
   color: theme("colors.background");
   background-color: theme("colors.foreground");
-  border-bottom: solid transparent 2px;
-}
-
-.heti a:hover {
-  padding-block-end: 0px !important;
-  border-block-end: 1px solid rgba(0, 0, 0, 0) !important;
+  /* border-bottom: solid transparent 2px; */
+  /* text-decoration: none; */
 }
 
 a.normal {
-  border: none;
+  /* border: none; */
   transition: none;
+  text-decoration: none;
 }
 
-a:hover.normal {
+a.normal:hover {
   color: inherit;
   background-color: transparent;
 }
 
-.heti code {
+article.heti a:hover {
+  padding-block-end: 0px;
+  border-block-end: 1px solid rgba(0, 0, 0, 0);
+}
+
+article.heti a:has(code) {
+  transition: none;
+  text-decoration: none;
+}
+
+article.heti a:has(code):hover {
+  color: inherit;
+  background-color: transparent;
+}
+
+article.heti code {
   padding: 2px 4px;
   font-size: 90%;
   color: #c7254e;
   background-color: #f9f2f4;
   border-radius: 4px;
+}
+
+article.heti a code:hover {
+  /* color: theme("colors.background"); */
+  /* background-color: theme("colors.foreground"); */
+  /* border-bottom: solid transparent 2px; */
+  color: #f9f2f4;
+  background-color: #c7254e;
 }
