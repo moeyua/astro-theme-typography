@@ -30,6 +30,10 @@ export const THEME_CONFIG: App.Locals['config'] = {
       href: "https://github.com/moeyua/astro-theme-typography",
     }
   ],
+  /** your header info */
+  header: {
+    twitter: "@moeyua13",
+  },
   /** your navigation links */
   navs: [
     {
