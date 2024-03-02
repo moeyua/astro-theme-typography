@@ -25,7 +25,11 @@ const { Content } = await entry.render()
 const { translate: t} = Astro.locals
 ---
 
-<LayoutDefault title={entry.data.title} desc={entry.data.description}>
+<LayoutDefault
+  title={entry.data.title}
+  desc={entry.data.description}
+  banner={entry.data.banner}
+>
   <Post post={entry}>
     <Content />
   </Post>
