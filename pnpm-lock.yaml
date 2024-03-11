@@ -15,8 +15,8 @@ dependencies:
     specifier: ^3.0.5
     version: 3.1.1
   astro:
-    specifier: ^4.4.4
-    version: 4.4.9(@types/node@20.11.24)(typescript@5.3.3)
+    specifier: ^4.4.15
+    version: 4.4.15(@types/node@20.11.24)(typescript@5.3.3)
   astro-robots-txt:
     specifier: ^1.0.0
     version: 1.0.0
@@ -1383,8 +1383,8 @@ packages:
       - typescript
     dev: false
 
-  /astro@4.4.9(@types/node@20.11.24)(typescript@5.3.3):
-    resolution: {integrity: sha512-FTWhzKjao7rHHiF/CqPqPS18AFad+fmUcYUFhWWIsYETHcc9g0IIIiv6cHXUE7g6mEZf7ycAa+WdboeEHUhraQ==}
+  /astro@4.4.15(@types/node@20.11.24)(typescript@5.3.3):
+    resolution: {integrity: sha512-RTiAnlO8hDp6GqMVvaeJxyuCJhHNEho09lHshMNQBqgRabYPOJGW0HZZrbLRGNOqN9I14ivhZIunYGgAaGQpWw==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
     dependencies:
@@ -1709,6 +1709,7 @@ packages:
 
   /color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+    requiresBuild: true
     dev: false
 
   /color-string@1.9.1:
