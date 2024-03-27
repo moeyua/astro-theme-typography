@@ -24,7 +24,7 @@
   "devDependencies": {
     "@iconify-json/mdi": "^1.1.64",
     "@types/markdown-it": "^13.0.7",
-    "@types/node": "^20.11.22",
+    "@types/node": "^20.11.30",
     "@types/sanitize-html": "^2.9.5",
     "@unocss/reset": "^0.58.5",
     "@unocss/transformer-directives": "^0.58.5",
