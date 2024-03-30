@@ -23,7 +23,7 @@ export const THEME_CONFIG: App.Locals['config'] = {
     },
     {
       name: "twitter",
-      href: "https://github.com/tianpeicool",
+      href: "https://twitter.com/tianpeicool",
     }
   ],
   /** your header info */
