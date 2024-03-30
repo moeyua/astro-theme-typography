@@ -33,19 +33,19 @@ export const THEME_CONFIG: App.Locals['config'] = {
   /** your navigation links */
   navs: [
     {
-      name: "文章",
+      name: "Posts",
       href: "/posts/page/1",
     },
     {
-      name: "归档",
+      name: "Archive",
       href: "/archive",
     },
     {
-      name: "分类",
+      name: "Categories",
       href: "/categories"
     },
     {
-      name: "关于",
+      name: "About",
       href: "/about",
     },
   ],
