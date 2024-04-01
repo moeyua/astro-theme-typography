@@ -1,7 +1,11 @@
 ---
-import LayoutDefault from "~/layouts/LayoutDefault.astro"
+import LayoutDefault from "~/layouts/LayoutDefault.astro";
+import * as AboutContent from '~/content/about/about.md';
+
 ---
 
 <LayoutDefault>
-  
+  <article class="heti">
+    <AboutContent.Content/>
+  </article>
 </LayoutDefault>
