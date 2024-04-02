@@ -7,13 +7,13 @@
 <h6 align='center'>
 <a href="https://astro-theme-typography.vercel.app/">Live Demo</a>
 </h6>
-
 <h5 align='center'>
-<b>This work is rewrite from <a href="https://github.com/sumimakito/hexo-theme-typography">hexo-theme-Typography</a></b>
+<b>This work is rewrite from <a href="https://github.com/sumimakito/hexo-theme-typography">活版印字</a></b>
 </h5>
 
+
 <p align='center'>
-English | <b><a href="./README.zh-CN.md">简体中文</a></b>
+<a href="./README.md">English</a> | <b><a href="./README.zh-CN.md">简体中文</a></b>
 </p>
 
 ## 特性
