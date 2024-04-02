@@ -1,4 +1,4 @@
-# 排版
+# 活版印字
 
 <p align='center'>
   <img src='./public/typograph-og.jpg' alt='Typography' width='600'/>
