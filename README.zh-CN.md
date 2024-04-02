@@ -3,18 +3,19 @@
 <p align='center'>
   <img src='./public/typograph-og.jpg' alt='Typography' width='600'/>
 </p>
-
 <h6 align='center'>
 <a href="https://astro-theme-typography.vercel.app/">Live Demo</a>
 </h6>
 <h5 align='center'>
-<b>This work is rewrite from <a href="https://github.com/sumimakito/hexo-theme-typography">活版印字</a></b>
+<b>感谢原版作者 <a href="https://github.com/sumimakito/hexo-theme-typography">活版印字</a></b>
 </h5>
 
 
+
 <p align='center'>
-<a href="./README.md">English</a> | <b><a href="./README.zh-CN.md">简体中文</a></b>
+<a href="https://github.com/moeyua/astro-theme-typography/blob/main/README.md">English</a> | <b><a href="https://github.com/moeyua/astro-theme-typography/blob/main/README.zh-CN.md">简体中文</a></b>
 </p>
+
 
 ## 特性
 
