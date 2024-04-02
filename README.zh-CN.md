@@ -4,18 +4,15 @@
   <img src='./public/typograph-og.jpg' alt='Typography' width='600'/>
 </p>
 <h6 align='center'>
-<a href="https://astro-theme-typography.vercel.app/">Live Demo</a>
+<a href="https://astro-theme-typography.vercel.app/">在线预览</a>
 </h6>
 <h5 align='center'>
-<b>感谢原版作者 <a href="https://github.com/sumimakito/hexo-theme-typography">活版印字</a></b>
+<b>此主题系 Hexo 主题 <a href="https://github.com/sumimakito/hexo-theme-typography">活版印字</a> 在 Astro 平台上的移植版本</b>
 </h5>
-
 
 <p align='center'>
 <a href="./README.md">English</a> |<b>简体中文</b>
 </p>
-
-
 
 ## 特性
 
@@ -31,13 +28,14 @@
 
 ## Demo
 
+> 提交一个 PR 来添加你的博客 Demo。
+
 - [Live Demo](https://astro-theme-typography.vercel.app/)
 - [My Blog](https://blog.moeyua.com/)
 
 ## 开始使用
 
-
-这是一个最小化、响应式且对 SEO 友好的 Astro 博客主题。本指南将帮助您开始一个新项目。
+这是一个轻巧、响应式设计且对 SEO 友好的 Astro 博客主题。本指南将帮助您开始一个新项目。
 
 ### 快速开始
 
@@ -80,11 +78,11 @@ pnpm update-theme
 
 ## 定制化
 
-排版是高度可定制的。配置文件在[src/theme.config.ts](src/theme.config.ts)
+「活版印字」主题是高度可定制的。配置文件在[src/theme.config.ts](src/theme.config.ts)
 
 ### 社交链接
 
-排版内置支持通过配置文件中的社交选项将指向您的社交媒体帐户的链接添加到网站：
+「活版印字」主题内置支持通过配置文件中的社交选项将指向您的社交媒体帐户的链接添加到网站：
 
 ```ts
 export const THEME_CONFIG: App.Locals['config'] = {
@@ -103,7 +101,7 @@ name字段填写对应的社交平台名称，参考 [Material Design Icons](htt
 
 ### 导航链接
 
-默认情况下，导航是“帖子”、“存档”、“类别”和“关于”。您可以在配置文件中添加更多内容：
+默认情况下，导航是「文章」、「归档」、「分类」和「关于」。您可以在配置文件中添加更多内容：
 
 ```ts
 export const THEME_CONFIG: App.Locals['config'] = {
@@ -121,7 +119,7 @@ export const THEME_CONFIG: App.Locals['config'] = {
 
 ### 黑暗模式
 
-排版支持深色模式。您可以在配置文件中更改它：
+「活版印字」主题支持深色模式。您可以在配置文件中更改它：
 
 ```ts
 export const THEME_CONFIG: App.Locals['config'] = {
@@ -132,7 +130,7 @@ export const THEME_CONFIG: App.Locals['config'] = {
 
 ### 国际化 (i18n)
 
-排版为多语言站点提供内置支持。默认情况下，语言为'en-us'，您可以在配置文件中更改它：
+「活版印字」主题为多语言站点提供内置支持。默认情况下，语言为'en-us'，您可以在配置文件中更改它：
 
 ```ts
 export const THEME_CONFIG: App.Locals['config'] = {
@@ -140,7 +138,7 @@ export const THEME_CONFIG: App.Locals['config'] = {
 }
 ```
 
-目前，排版支持以下语言：
+目前，「活版印字」主题支持以下语言：
 - `en-us`
 - `zh-cn`
 - `zh-tw`

@@ -30,6 +30,8 @@
 
 ## Demo
 
+> Submit a PR to add your blog Demo.
+
 - [Live Demo](https://astro-theme-typography.vercel.app/)
 - [My Blog](https://blog.moeyua.com/)
 
