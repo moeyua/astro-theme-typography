@@ -11,10 +11,10 @@
 </h5>
 
 
-
 <p align='center'>
-<a href="https://github.com/moeyua/astro-theme-typography/blob/main/README.md">English</a> | <b><a href="https://github.com/moeyua/astro-theme-typography/blob/main/README.zh-CN.md">简体中文</a></b>
+<a href="./README.md">English</a> |<b>简体中文</b>
 </p>
+
 
 
 ## 特性
