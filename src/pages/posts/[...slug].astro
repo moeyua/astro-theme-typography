@@ -22,79 +22,72 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { entry, prev, next } = Astro.props
 const { Content } = await entry.render()
-const { translate: t} = Astro.locals
+const { translate: t } = Astro.locals
 ---
 
-<LayoutDefault
-  title={entry.data.title}
-  desc={entry.data.description}
-  banner={entry.data.banner}
->
+<LayoutDefault title={entry.data.title} desc={entry.data.description} banner={entry.data.banner}>
   <Post post={entry}>
     <Content />
   </Post>
   <Pagination
-      showLeft={Boolean(prev)}
-      leftTitle={`${t('prev_post')}: ${prev?.data.title}`}
-      leftUrl={`/posts/${prev?.slug}/`}
-      showRight={Boolean(next)}
-      rightTitle={`${t('next_post')}: ${next?.data.title}`}
-      rightUrl={`/posts/${next?.slug}/`}
-      showPageCount={false}
-    />
+    showLeft={Boolean(prev)}
+    leftTitle={`${t('prev_post')}: ${prev?.data.title}`}
+    leftUrl={`/posts/${prev?.slug}/`}
+    showRight={Boolean(next)}
+    rightTitle={`${t('next_post')}: ${next?.data.title}`}
+    rightUrl={`/posts/${next?.slug}/`}
+    showPageCount={false}
+  />
 </LayoutDefault>
 
-
 <script>
-  const copyButtonLabel = "Copy";
-  const codeBlocks = Array.from(document.querySelectorAll("pre"));
+  import '@github/clipboard-copy-element'
 
-  for (let codeBlock of codeBlocks) {
-    let wrapper = document.createElement("div");
-    wrapper.style.position = "relative";
-
-    let copyButton = document.createElement("button");
-    copyButton.className = "copy-code";
-    copyButton.innerHTML = copyButtonLabel;
-
-    codeBlock.setAttribute("tabindex", "0");
-    codeBlock.appendChild(copyButton);
-
-    codeBlock.parentNode?.insertBefore(wrapper, codeBlock);
-    wrapper.appendChild(codeBlock);
-
-    copyButton.addEventListener("click", async () => {
-      await copyCode(codeBlock, copyButton);
-    });
-  }
-
-  async function copyCode(block: HTMLPreElement, button: HTMLButtonElement) {
-    let code = block.querySelector("code");
-    let text = code?.innerText;
-
-    await navigator.clipboard.writeText(text ?? "");
-
-    button.innerText = "Code Copied";
-
+  document.addEventListener('clipboard-copy', function (event) {
+    const target = event.target as HTMLElement
+    const icon = target.querySelector('.icon') as HTMLElement
+    icon.classList.replace('i-mdi-content-copy', 'i-mdi-check')
     setTimeout(() => {
-      button.innerText = copyButtonLabel;
-    }, 700);
+      icon.classList.replace('i-mdi-check', 'i-mdi-content-copy')
+    }, 1500)
+  })
+
+  const codeBlocks = Array.from(document.querySelectorAll('pre'))
+  const icon = "<div class='i-mdi-content-copy icon text-white'></div>"
+  for (let codeBlock of codeBlocks) {
+    let wrapper = document.createElement('div')
+    wrapper.className = 'code-container'
+
+    let copyButton = document.createElement('clipboard-copy')
+    let code = codeBlock.querySelector('code')
+    copyButton.value = code?.innerText ?? ''
+    copyButton.className = 'clipboard-copy'
+    copyButton.innerHTML = icon
+
+    codeBlock.appendChild(copyButton)
+
+    codeBlock.parentNode?.insertBefore(wrapper, codeBlock)
+    wrapper.appendChild(codeBlock)
   }
 </script>
 
 <style is:global>
-  .copy-code {
+  .code-container {
+    position: relative;
+  }
+  .clipboard-copy {
     position: absolute;
-    top: 0;
-    right: 0;
-    background-color: #3730a3;
-    padding: 0.25rem 0.5rem;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    border-radius: 0 0 0 0.25rem;
+    top: .5rem;
+    right: .5rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.25rem;
   }
 
-  .copy-code:hover {
-    background-color: #312e81;
+  .clipboard-copy:hover {
+    background-color: #30363d;
   }
 </style>
