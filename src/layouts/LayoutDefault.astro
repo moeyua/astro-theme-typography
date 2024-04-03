@@ -5,19 +5,29 @@ import '~/styles/heti.min.css'
 import Header from '~/components/Header.astro'
 import Footer from '~/components/Footer.astro'
 import { SEO } from 'astro-seo'
+import { getImage } from 'astro:assets'
 
 interface Props {
   title?: string
   desc?: string
+  banner?: ImageMetadata
 }
 
 const props = Astro.props
 const themeConfig = Astro.locals.config
+const { header } = Astro.locals.config
 
 const title = props.title ?? themeConfig.title
 const desc = props.desc ?? themeConfig.desc
 const canonical = themeConfig.website
-const image = 'https://github.com/moeyua/astro-theme-typography/blob/85204bceb6dbc1314dd5d5e4ae5773af01ddea79/public/typograph-og.jpg'
+
+const image =
+  props.banner &&
+  (await getImage({
+    src: props.banner,
+    format: "jpeg"
+  }))
+const optimizedImage = new URL(image?.src??"/placeholder.png", Astro.url).toString()
 ---
 
 <html lang="en">
@@ -31,10 +41,11 @@ const image = 'https://github.com/moeyua/astro-theme-typography/blob/85204bceb6d
       extend={{
         link: [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
         meta: [
-          {
-            name: "twitter:image",
-            content: image,
-          },
+          { name: "twitter:image:src", content: optimizedImage },
+          { name: "twitter:image:alt", content: desc },
+          { name: "twitter:creator", content: header.twitter },
+          { name: "twitter:site", content: header.twitter },
+          { name: "twitter:card", content: "summary_large_image" },
           { name: "twitter:title", content: title },
           { name: "twitter:description", content: desc },
         ],
@@ -43,7 +54,7 @@ const image = 'https://github.com/moeyua/astro-theme-typography/blob/85204bceb6d
         basic: {
           title: title,
           type: "article",
-          image: image,
+          image: optimizedImage,
           url: canonical,
         }
       }}

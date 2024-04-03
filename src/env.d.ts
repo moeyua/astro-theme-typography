@@ -20,6 +20,10 @@ declare namespace App {
         name: string;
         href: string;
       }>,
+      /** your header info */
+      header: Object<{
+        twitter: String;
+      }>,
       /** your navigation links */
       navs: Array<{
         name: string;

@@ -7,14 +7,14 @@
 <h6 align='center'>
 <a href="https://astro-theme-typography.vercel.app/">Live Demo</a>
 </h6>
-
 <h5 align='center'>
 <b>This work is rewrite from <a href="https://github.com/sumimakito/hexo-theme-typography">hexo-theme-Typography</a></b>
 </h5>
-
 <p align='center'>
-English | <b><a href="./README.zh-CN.md">简体中文</a></b>
+<b>English</b> | <a href="./README.zh-CN.md">简体中文</a>
 </p>
+
+
 
 ## Features
 
@@ -29,6 +29,8 @@ English | <b><a href="./README.zh-CN.md">简体中文</a></b>
 - Dark mode support.
 
 ## Demo
+
+> Submit a PR to add your blog Demo.
 
 - [Live Demo](https://astro-theme-typography.vercel.app/)
 - [My Blog](https://blog.moeyua.com/)
@@ -70,7 +72,7 @@ pnpm new-post
 ## Updating the theme
 
 You can update the theme by running by running the following command in your terminal:
-  
+
 ```bash
 pnpm update-theme
 ```
