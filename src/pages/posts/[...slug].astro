@@ -43,7 +43,8 @@ function getUrl(slug: string) {
     rightUrl={getUrl(next?.slug)}
     showPageCount={false}
   />
-  <Comments client:visible title={entry.data.title} url={ `${config.website}${getUrl(entry.slug)}` } identifier={entry.id} />
+  <!-- BUG 这里使用 client:visible 会导致构建失败。ref: https://github.com/withastro/astro/issues/7329 -->
+    <Comments title={entry.data.title} url={ `${config.website}${getUrl(entry.slug)}` } identifier={entry.id} />
 </LayoutDefault>
 
 <script>
