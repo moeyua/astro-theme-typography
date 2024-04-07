@@ -1,5 +1,6 @@
 ---
 import Disqus from './Disqus.astro'
+import Giscus from './Giscus.astro'
 interface Props {
   identifier: string
   url: string
@@ -9,5 +10,7 @@ interface Props {
 const { identifier, url, title } = Astro.props
 const { comments } = Astro.locals.config
 ---
-
-{comments && comments.disqus && <Disqus identifier={identifier} url={url} title={title} />}
+<div py-16>
+  {comments && comments.disqus && <Disqus identifier={identifier} url={url} title={title} />}
+  {comments && comments.giscus && <Giscus />}
+</div>

@@ -43,7 +43,7 @@ function getUrl(slug: string) {
     rightUrl={getUrl(next?.slug)}
     showPageCount={false}
   />
-  <Comments title={entry.data.title} url={ `${config.website}${getUrl(entry.slug)}` } identifier={entry.id} />
+  <Comments client:visible title={entry.data.title} url={ `${config.website}${getUrl(entry.slug)}` } identifier={entry.id} />
 </LayoutDefault>
 
 <script>
