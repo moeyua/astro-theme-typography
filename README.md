@@ -124,7 +124,7 @@ Typography supports dark mode. You can change it in the config file:
 
 ```ts
 export const THEME_CONFIG: App.Locals['config'] = {
-  themeStyle: 'dart' // 'light' | 'dark'
+  themeStyle: 'dark' // 'light' | 'dark'
 }
 ```
 
