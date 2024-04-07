@@ -4,6 +4,7 @@ import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import { getPosts } from '~/utils'
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro'
 import Pagination from '~/components/Pagination.astro'
+import Comments from '~/components/Comments.astro'
 
 export const getStaticPaths = (async ({}) => {
   const posts = await getPosts()
@@ -22,7 +23,11 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { entry, prev, next } = Astro.props
 const { Content } = await entry.render()
-const { translate: t } = Astro.locals
+const { translate: t, config } = Astro.locals
+
+function getUrl(slug: string) {
+  return `/posts/${entry}`
+}
 ---
 
 <LayoutDefault title={entry.data.title} desc={entry.data.description} banner={entry.data.banner}>
@@ -32,12 +37,13 @@ const { translate: t } = Astro.locals
   <Pagination
     showLeft={Boolean(prev)}
     leftTitle={`${t('prev_post')}: ${prev?.data.title}`}
-    leftUrl={`/posts/${prev?.slug}/`}
+    leftUrl={getUrl(prev?.slug)}
     showRight={Boolean(next)}
     rightTitle={`${t('next_post')}: ${next?.data.title}`}
-    rightUrl={`/posts/${next?.slug}/`}
+    rightUrl={getUrl(next?.slug)}
     showPageCount={false}
   />
+  <Comments title={entry.data.title} url={ `${config.website}${getUrl(entry.slug)}` } identifier={entry.id} />
 </LayoutDefault>
 
 <script>

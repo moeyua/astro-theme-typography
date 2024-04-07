@@ -34,6 +34,12 @@ declare namespace App {
         name: string;
         path: string;
       }>,
+      /** comments */
+      comments?: {
+        disqus?: {
+          shortname: string;
+        }
+      }
     }
     translate: (key: string, param?: string | number) => string;
   }

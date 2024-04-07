@@ -1,0 +1,13 @@
+---
+import Disqus from './Disqus.astro'
+interface Props {
+  identifier: string
+  url: string
+  title: string
+}
+
+const { identifier, url, title } = Astro.props
+const { comments } = Astro.locals.config
+---
+
+{comments && comments.disqus && <Disqus identifier={identifier} url={url} title={title} />}
