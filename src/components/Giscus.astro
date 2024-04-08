@@ -1,0 +1,31 @@
+---
+const { comments } = Astro.locals.config
+
+if (!comments || !comments.giscus) {
+  throw new Error('Giscus comments are not configured')
+}
+
+const giscus = comments.giscus
+---
+
+<giscus-widget
+  id="comments"
+  repo={giscus.repo}
+  repoId={giscus.repoId}
+  category={giscus.category}
+  categoryId={giscus.categoryId}
+  mapping={giscus.mapping}
+  term={giscus.term}
+  strict={giscus.strict}
+  reactionsEnabled={giscus.reactionsEnabled}
+  emitMetadata={giscus.emitMetadata}
+  inputPosition={giscus.inputPosition}
+  theme={giscus.theme}
+  lang={giscus.lang}
+  loading={giscus.loading}
+>
+</giscus-widget>
+
+<script>
+  import 'giscus'
+</script>
