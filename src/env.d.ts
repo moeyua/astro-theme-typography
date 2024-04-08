@@ -40,19 +40,24 @@ declare namespace App {
           shortname: string;
         },
         giscus?: {
-          repo: import ('giscus').Repo;
+          repo: import('giscus').Repo;
           repoId?: string;
           category?: string;
           categoryId?: string;
-          mapping?: import ('giscus').Mapping;
+          mapping?: import('giscus').Mapping;
           term?: string;
-          strict: import ('giscus').BooleanString;
-          reactionsEnabled: import ('giscus').BooleanString;
-          emitMetadata: import ('giscus').BooleanString;
-          inputPosition: import ('giscus').InputPosition;
-          theme: import ('giscus').Theme;
-          lang: import ('giscus').AvailableLanguage;
-          loading: import ('giscus').Loading;
+          strict: import('giscus').BooleanString;
+          reactionsEnabled: import('giscus').BooleanString;
+          emitMetadata: import('giscus').BooleanString;
+          inputPosition: import('giscus').InputPosition;
+          theme: import('giscus').Theme;
+          lang: import('giscus').AvailableLanguage;
+          loading: import('giscus').Loading;
+        },
+        twikoo?: {
+          envId: string;
+          region?: string;
+          lang?: string;
         }
       }
     }

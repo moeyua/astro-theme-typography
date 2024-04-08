@@ -1,16 +1,30 @@
 ---
 import Disqus from './Disqus.astro'
 import Giscus from './Giscus.astro'
+import Twikoo from './Twikoo.astro'
 interface Props {
-  identifier: string
-  url: string
-  title: string
+  post: Post
+
 }
 
-const { identifier, url, title } = Astro.props
+const { id, data, slug } = Astro.props.post
 const { comments } = Astro.locals.config
+
+const path = `/posts/${slug}`
+const url = `${Astro.site?.href}${path}`
+
+let commentService = ''
+if (comments && comments.disqus) {
+  commentService = 'disqus'
+} else if (comments && comments.giscus) {
+  commentService = 'giscus'
+} else if (comments && comments.twikoo) {
+  commentService = 'twikoo'
+}
 ---
 <div py-16>
-  {comments && comments.disqus && <Disqus identifier={identifier} url={url} title={title} />}
-  {comments && comments.giscus && <Giscus />}
+  {commentService === 'disqus' && <Disqus identifier={id} url={url} title={data.title} />}
+  {commentService === 'giscus' && <Giscus />}
+  {commentService === 'twikoo' && <Twikoo path={path} />}
+  {commentService === '' && null}
 </div>

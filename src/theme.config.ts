@@ -62,19 +62,22 @@ export const THEME_CONFIG: App.Locals['config'] = {
     // disqus: {
     //   shortname: "typography-astro",
     // },
-    giscus: {
-      repo: 'moeyua/astro-theme-typography',
-      repoId: 'R_kgDOKy9HOQ',
-      category: 'General',
-      categoryId: 'DIC_kwDOKy9HOc4CegmW',
-      mapping: 'title',
-      strict: '0',
-      reactionsEnabled: '1',
-      emitMetadata: '1',
-      inputPosition: 'top',
-      theme: 'light',
-      lang: 'zh-CN',
-      loading: 'lazy',
+    // giscus: {
+    //   repo: 'moeyua/astro-theme-typography',
+    //   repoId: 'R_kgDOKy9HOQ',
+    //   category: 'General',
+    //   categoryId: 'DIC_kwDOKy9HOc4CegmW',
+    //   mapping: 'title',
+    //   strict: '0',
+    //   reactionsEnabled: '1',
+    //   emitMetadata: '1',
+    //   inputPosition: 'top',
+    //   theme: 'light',
+    //   lang: 'zh-CN',
+    //   loading: 'lazy',
+    // },
+    twikoo: {
+      envId: "https://twikoo-tau-flame.vercel.app",
     }
   }
 }

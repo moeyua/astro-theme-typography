@@ -23,10 +23,10 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { entry, prev, next } = Astro.props
 const { Content } = await entry.render()
-const { translate: t, config } = Astro.locals
+const { translate: t } = Astro.locals
 
 function getUrl(slug: string) {
-  return `/posts/${entry}`
+  return `/posts/${slug}`
 }
 ---
 
@@ -44,7 +44,7 @@ function getUrl(slug: string) {
     showPageCount={false}
   />
   <!-- BUG 这里使用 client:visible 会导致构建失败。ref: https://github.com/withastro/astro/issues/7329 -->
-    <Comments title={entry.data.title} url={ `${config.website}${getUrl(entry.slug)}` } identifier={entry.id} />
+    <Comments post={entry} />
 </LayoutDefault>
 
 <script>
