@@ -139,7 +139,9 @@ locale: "zh-cn"
 
 ### 评论
 
-「活版印字」主题支持多种评论服务，目前支持 Disqus、Giscus 和 Twikoo。
+「活版印字」主题支持多种评论服务，目前支持 [Disqus](https://disqus.com/)、[Giscus](https://giscus.app/) 和 [Twikoo](https://twikoo.js.org/)。
+
+通过添加配置文件来启用对应的评论服务，填写多个评论服务时，只会按照顺序显示第一个服务。
 
 #### Disqus
 

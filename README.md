@@ -14,8 +14,6 @@
 <b>English</b> | <a href="./README.zh-CN.md">简体中文</a>
 </p>
 
-
-
 ## Features
 
 - Build with **Astro**, **TypeScript** and **UnoCSS**
@@ -144,7 +142,9 @@ You can see all supported languages in [src/i18n.ts](src/i18n.ts), and add more 
 
 ### Comment
 
-Typography supports multiple comment services, currently supports Disqus, Giscus and Twikoo.
+Typography supports multiple comment services, currently supports [Disqus](https://disqus.com/), [Giscus](https://giscus.app/) and [Twikoo](https://twikoo.js.org/).
+
+Enable the corresponding comment service by adding the configuration to the config file, when you fill in multiple comment services, only the first service will be displayed.
 
 #### Disqus
 
