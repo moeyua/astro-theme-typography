@@ -87,3 +87,14 @@ article.heti a code:hover {
   color: #f9f2f4;
   background-color: #c7254e;
 }
+
+article.heti blockquote {
+  padding: 2px 16px;
+  margin: 24px 0;
+  border-left: 4px solid #eee;
+}
+
+article.heti blockquote p {
+  margin-block-start: 12px;
+  margin-block-end: 12px;
+}
