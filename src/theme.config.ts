@@ -59,9 +59,9 @@ export const THEME_CONFIG: App.Locals['config'] = {
   ],
   /** your comment provider */
   comments: {
-    // disqus: {
-    //   shortname: "typography-astro",
-    // },
+    disqus: {
+      shortname: "typography-astro",
+    },
     // giscus: {
     //   repo: 'moeyua/astro-theme-typography',
     //   repoId: 'R_kgDOKy9HOQ',
@@ -76,9 +76,9 @@ export const THEME_CONFIG: App.Locals['config'] = {
     //   lang: 'zh-CN',
     //   loading: 'lazy',
     // },
-    twikoo: {
-      envId: "https://twikoo-tau-flame.vercel.app",
-    }
+    // twikoo: {
+    //   envId: "https://twikoo-tau-flame.vercel.app",
+    // }
   }
 }
 
