@@ -40,14 +40,12 @@ Typography is a minimal, responsive and SEO-friendly Astro blog theme. This guid
 
 ### Quick Start
 
-You can easily create a new project by licking the below button.
+You can fork the repository to your account by clicking the Fork button in the upper right corner, click the button below, select the repository you just forked, click the Import button, and you will be taken to the project configuration page.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmoeyua%2Fastro-theme-typography)
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https%3A%2F%2Fgithub.com%2Fmoeyua%2Fastro-theme-typography)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start)
 
-Or, you can deploy it by create a repo from this template.
-
-[Click here to create a repo from this template on GitHub.](https://github.com/new?template_name=astro-theme-typography&template_owner=moeyua)
+Or you can refer to the [Astro](https://docs.astro.build/guides/deploy/) documentation to deploy to your favorite platform.
 
 ### Add post
 
@@ -70,11 +68,7 @@ pnpm new-post
 
 ## Updating the theme
 
-You can update the theme by running by running the following command in your terminal:
-
-```bash
-pnpm update-theme
-```
+You can simply [`Sync Fork`](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) on your own forked project (do not click Discard Changes, otherwise you will lose your own changes).
 
 ## Customization
 

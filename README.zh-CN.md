@@ -40,18 +40,16 @@
 
 ### 快速开始
 
-您可以通过点击下面的按钮轻松创建一个新项目。
+您可以通过点击右上角的 Fork 按钮，将仓库克隆到你的账号下，点击下面的按钮，选择你刚刚 Fork 的仓库，点击 Import 按钮，即可进入到项目配置页面。
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmoeyua%2Fastro-theme-typography)
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https%3A%2F%2Fgithub.com%2Fmoeyua%2Fastro-theme-typography)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start)
 
-或者，您可以通过从这个模板创建一个仓库来部署它。
-
-[Click here to create a repo from this template on GitHub.](https://github.com/new?template_name=astro-theme-typography&template_owner=moeyua)
+或者你也可以参考[Astro](https://docs.astro.build/zh-cn/guides/deploy/)的文档，部署到你喜欢的平台。
 
 ### 添加文章
 
-您可以通过在 `src/content/posts`中创建一个新的降价文件来添加内容。该文件需要前面的元数据，如下所示：
+您可以通过在 `src/content/posts`中创建一个新的文件来添加内容。该文件需要前面的元数据，如下所示：
 
 ```md
 ---
@@ -70,11 +68,7 @@ pnpm new-post
 
 ## 更新主题
 
-您可以通过在终端中运行以下命令来更新主题：
-
-```bash
-pnpm update-theme
-```
+您只需在自己 Fork 的项目上 [`Sync Fork`](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) 即可（不要点击 Discard Changes，否则会丢失你自己的更改）。
 
 ## 定制化
 
