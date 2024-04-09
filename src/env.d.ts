@@ -12,7 +12,7 @@ declare namespace App {
       /** your deployed domain */
       website: string;
       /** your locale */
-      locale: string;
+      locale: keyof typeof import('./i18n.ts').LANGUAGES;
       /** theme style */
       themeStyle: 'light' | 'auto' | 'dark';
       /** your socials */
@@ -36,31 +36,37 @@ declare namespace App {
       }>,
       /** comments */
       comments?: {
-        disqus?: {
-          shortname: string;
-        },
-        giscus?: {
-          repo: import('giscus').Repo;
-          repoId?: string;
-          category?: string;
-          categoryId?: string;
-          mapping?: import('giscus').Mapping;
-          term?: string;
-          strict: import('giscus').BooleanString;
-          reactionsEnabled: import('giscus').BooleanString;
-          emitMetadata: import('giscus').BooleanString;
-          inputPosition: import('giscus').InputPosition;
-          theme: import('giscus').Theme;
-          lang: import('giscus').AvailableLanguage;
-          loading: import('giscus').Loading;
-        },
-        twikoo?: {
-          envId: string;
-          region?: string;
-          lang?: string;
-        }
+        disqus?: Disqus,
+        giscus?: Giscus,
+        twikoo?: Twikoo
       }
     }
     translate: (key: string, param?: string | number) => string;
   }
+}
+
+interface Twikoo {
+  envId: string;
+  region?: string;
+  lang?: string;
+}
+
+interface Disqus {
+  shortname: string;
+}
+
+interface Giscus {
+  repo: import('giscus').Repo;
+  repoId?: string;
+  category?: string;
+  categoryId?: string;
+  mapping?: import('giscus').Mapping;
+  term?: string;
+  strict: import('giscus').BooleanString;
+  reactionsEnabled: import('giscus').BooleanString;
+  emitMetadata: import('giscus').BooleanString;
+  inputPosition: import('giscus').InputPosition;
+  theme: import('giscus').Theme;
+  lang: import('giscus').AvailableLanguage;
+  loading: import('giscus').Loading;
 }

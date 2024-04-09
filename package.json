@@ -1,14 +1,15 @@
 {
   "name": "astro-theme-typography",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.4",
+  "repository": "https://github.com/moeyua/astro-theme-typography",
   "scripts": {
     "dev": "astro check && astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
     "preview": "astro preview",
+    "build": "astro check && astro build",
+    "release": "changelogen --release",
     "astro": "astro",
-    "new-post": "./scripts/new-post.sh",
+    "new-post": "esno scripts/new-post.ts",
     "update-theme": "./scripts/update-theme.sh"
   },
   "dependencies": {
@@ -30,6 +31,9 @@
     "@types/sanitize-html": "^2.9.5",
     "@unocss/reset": "^0.58.5",
     "@unocss/transformer-directives": "^0.58.5",
+    "changelogen": "^0.5.5",
+    "consola": "^3.2.3",
+    "esno": "^4.7.0",
     "markdown-it": "^14.0.0",
     "sanitize-html": "^2.11.0",
     "unocss": "^0.58.5"
