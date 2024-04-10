@@ -1,13 +1,13 @@
 {
   "name": "astro-theme-typography",
   "type": "module",
-  "version": "0.0.4",
+  "version": "0.0.0",
   "repository": "https://github.com/moeyua/astro-theme-typography",
   "scripts": {
     "dev": "astro check && astro dev",
     "preview": "astro preview",
     "build": "astro check && astro build",
-    "release": "changelogen --release",
+    "release": "esno scripts/release.ts",
     "astro": "astro",
     "new-post": "esno scripts/new-post.ts",
     "update-theme": "./scripts/update-theme.sh"
