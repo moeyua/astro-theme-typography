@@ -1,50 +1,54 @@
 import fs from 'fs';
-import path from "path"
+import path from 'path';
 import consola from 'consola';
-import { execSync } from 'node:child_process'
+import { execSync } from 'child_process';
 
-consola.start('Ready to create a new post!');
-const filename = await consola.prompt('Enter file name: ', {type: 'text'});
-// const draft = await consola.prompt('Draft or publish? (default: publish)', {type: 'confirm', initial: false});
-const ext = await consola.prompt('Select file extension: ', {type: 'select', options: ['.md', '.mdx']});
-
-const targetDir = `./src/content/posts/`;
-
-function getDate() {
-  const today = new Date()
-  const year = today.getFullYear()
-  const month = String(today.getMonth() + 1).padStart(2, "0")
-  const day = String(today.getDate()).padStart(2, "0")
-
-  return `${year}-${month}-${day}`
+/**
+ * Get the current date in the format "YYYY-MM-DD".
+ * @returns The current date as a string.
+ */
+function getDate(): string {
+  let today: Date = new Date();
+  let year: number = today.getFullYear();
+  let month: string = String(today.getMonth() + 1).padStart(2, '0');
+  let day: string = String(today.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
 }
 
-const frontmatter = `---
-title: ${filename}
-pubDate: ${getDate()}
-categories: []
-description: ''
----
-`;
+/**
+ * Create a new post.
+ * Prompts the user for a file name and extension, and creates a new post file with frontmatter.
+ * If successful, opens the new post file in the default editor.
+ */
+async function createPost(): Promise<void> {
+  consola.start('Ready to create a new post!');
+  let filename: string = await consola.prompt('Enter file name: ', { type: 'text' });
+  let ext: string = await consola.prompt('Select file extension: ', { type: 'select', options: ['.md', '.mdx'] });
 
-try {
-  fs.writeFileSync(path.join(targetDir, `${filename}${ext}`), frontmatter)
-} catch (error) {
-  consola.error(error || 'Failed to create new post!')
-}
+  let targetDir: string = './src/content/posts/';
+  let fullPath: string = path.join(targetDir, `${filename}${ext}`);
 
-const fullPath = `${targetDir}${filename}${ext}`
+  let frontmatter: string = 
+  `---
+  title: ${filename}
+  pubDate: ${getDate()}
+  categories: []
+  description: ''
+  ---
+  `;
 
-consola.success('New post created successfully!')
+  try {
+    fs.writeFileSync(fullPath, frontmatter);
+    consola.success('New post created successfully!');
 
-consola.prompt('Open the new post?', {type: 'confirm', initial: true}).then((open) => {
-  if (open) {
-    consola.info(`Opening ${fullPath}...`)
-    execSync(`code ${fullPath}`)
+    const open: boolean = await consola.prompt('Open the new post?', { type: 'confirm', initial: true });
+    if (open) {
+      consola.info(`Opening ${fullPath}...`);
+      execSync(`code ${fullPath}`);
+    }
+  } catch (error) {
+    consola.error((error as Error).message || 'Failed to create new post!');
   }
-})
+}
 
-
-
-
-
+createPost();
