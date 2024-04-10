@@ -5,18 +5,19 @@ import { LANGUAGES } from "~/i18n.ts";
 export const onRequest = defineMiddleware(async (context, next) => {
   // Adding properties in env.d.ts
   context.locals.config = THEME_CONFIG;
-  const locale = context.locals.config.locale;
+
+  let locale = context.locals.config.locale;
+
+  const localeTranslate = LANGUAGES[locale];
+
+  function validateKey(key: string): key is keyof typeof localeTranslate {
+    return key in localeTranslate;
+  }
+
   context.locals.translate = (key, param) => {
-    // @ts-ignore
-    if (!LANGUAGES[locale]) {
-      return key;
-    }
-    if (param) {
-      // @ts-ignore
-      return LANGUAGES[locale][key].replace('%d', param.toString());
-    }
-    // @ts-ignore
-    return LANGUAGES[locale][key];
+    if (!validateKey(key)) return key;
+    else if (!param) return localeTranslate[key];
+    else return localeTranslate[key].replace('%d', param.toString());
   }
   return next();
 });

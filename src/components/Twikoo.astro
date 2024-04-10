@@ -1,0 +1,23 @@
+---
+interface Props {
+  path: string
+}
+
+const config = {
+  ...Astro.locals.config.comments?.twikoo,
+  el: '#tcomment',
+  path: Astro.props.path,
+}
+---
+
+<div id="tcomment"></div>
+<script is:inline src="https://cdn.staticfile.org/twikoo/1.6.32/twikoo.all.min.js"></script>
+<script is:inline define:vars={{ config }}>
+  twikoo.init(config)
+</script>
+
+<style is:global>
+.tk-meta-input {
+  background-color: white;
+}
+</style>

@@ -55,5 +55,7 @@ export default defineConfig({
   ],
   safelist: [
     ...socials.map((social) => `i-mdi-${social.name}`),
+    'i-mdi-content-copy',
+    'i-mdi-check',
   ],
 })
