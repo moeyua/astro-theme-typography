@@ -1,18 +1,15 @@
 import { execSync } from 'node:child_process'
 import bumpp from 'bumpp'
-// import { syncGithubRelease } from 'changelogen'
 
-execSync('git tag -l | xargs git tag -d')
+async function release() {
+  const { newVersion } = await bumpp({
+    tag: true, commit: true
+  })
 
-let isChangelogenDone = false
+  execSync(`changelogen --output -r ${newVersion}`)
+  execSync('git add CHANGELOG.md')
+  execSync('git commit --amend --no-edit')
+  execSync('changelogen gh release')
+}
 
-await bumpp({
-  tag: true, commit: true, progress: (progress) => {
-    const { newVersion } = progress
-    if (isChangelogenDone) return
-    execSync(`changelogen --output -r ${newVersion}`)
-    isChangelogenDone = true
-  }
-})
-
-
+release()
