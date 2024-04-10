@@ -25,7 +25,7 @@ export async function getPosts() {
   posts.sort((a, b) => {
     const aDate = a.data.pubDate || new Date()
     const bDate = b.data.pubDate || new Date()
-    return aDate.getTime() - bDate.getTime()
+    return bDate.getTime() - aDate.getTime()
   })
   return posts
 }
