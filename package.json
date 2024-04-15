@@ -22,7 +22,7 @@
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.3",
     "giscus": "^1.5.0",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.5",
     "vite": "^5.2.8"
   },
   "devDependencies": {
