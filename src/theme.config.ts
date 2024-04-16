@@ -1,38 +1,34 @@
-export const THEME_CONFIG: App.Locals['config'] = {
+export const THEME_CONFIG: App.Locals["config"] = {
   /** blog title */
-  title: "活版印字",
+  title: "分布式代码",
   /** your name */
-  author: "Typography",
+  author: "LR.Snow",
   /** website description */
-  desc: "Rediscory the beauty of typography",
+  desc: "记录我的无聊生活",
   /** your deployed domain */
-  website: "https://astro-theme-typography.vercel.app/",
+  website: "https://distributed.codes/",
   /** your locale */
-  locale: "en-us",
+  locale: "zh-cn",
   /** theme style */
   themeStyle: "light",
   /** your socials */
   socials: [
     {
       name: "github",
-      href: "https://github.com/moeyua/astro-theme-typography",
+      href: "https://github.com/lrsnowx",
+    },
+    {
+      name: "twitter",
+      href: "https://x.com/lrsnowx",
     },
     {
       name: "rss",
       href: "/atom.xml",
     },
-    {
-      name: "twitter",
-      href: "https://github.com/moeyua/astro-theme-typography",
-    },
-    {
-      name: "mastodon",
-      href: "https://github.com/moeyua/astro-theme-typography",
-    }
   ],
   /** your header info */
   header: {
-    twitter: "@moeyua13",
+    twitter: "@lrsnowx",
   },
   /** your navigation links */
   navs: [
@@ -46,7 +42,7 @@ export const THEME_CONFIG: App.Locals['config'] = {
     },
     {
       name: "Categories",
-      href: "/categories"
+      href: "/categories",
     },
     {
       name: "About",
@@ -54,31 +50,28 @@ export const THEME_CONFIG: App.Locals['config'] = {
     },
   ],
   /** your category name mapping, which the `path` will be shown in the url */
-  category_map: [
-    { name: "胡适", path: "hu-shi" },
-  ],
+  category_map: [{ name: "生活", path: "sheng-huo" }],
   /** your comment provider */
   comments: {
-    disqus: {
-      shortname: "typography-astro",
-    },
-    // giscus: {
-    //   repo: 'moeyua/astro-theme-typography',
-    //   repoId: 'R_kgDOKy9HOQ',
-    //   category: 'General',
-    //   categoryId: 'DIC_kwDOKy9HOc4CegmW',
-    //   mapping: 'title',
-    //   strict: '0',
-    //   reactionsEnabled: '1',
-    //   emitMetadata: '1',
-    //   inputPosition: 'top',
-    //   theme: 'light',
-    //   lang: 'zh-CN',
-    //   loading: 'lazy',
+    // disqus: {
+    //   shortname: "typography-astro",
     // },
+    giscus: {
+      repo: 'lrsnowx/lrsnowx.github.io',
+      repoId: 'R_kgDOLqrttA',
+      category: 'General',
+      categoryId: 'DIC_kwDOLqrttM4Cef6d',
+      mapping: 'og:title',
+      strict: '0',
+      reactionsEnabled: '1',
+      emitMetadata: '1',
+      inputPosition: 'top',
+      theme: 'light_protanopia',
+      lang: 'zh-CN',
+      loading: 'lazy',
+    },
     // twikoo: {
     //   envId: "https://twikoo-tau-flame.vercel.app",
     // }
-  }
-}
-
+  },
+};
