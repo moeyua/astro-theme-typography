@@ -39,5 +39,6 @@
     "markdown-it": "^14.0.0",
     "sanitize-html": "^2.11.0",
     "unocss": "^0.58.5"
-  }
+  },
+  "packageManager": "pnpm@8.15.5"
 }
