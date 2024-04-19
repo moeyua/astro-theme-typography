@@ -142,7 +142,7 @@ touch Resources/Info.plist
 open -a Xcode Resources/Info.plist
 ```
 
-然后把[示例Info.plist文件中的内容粘贴的里面[(https://github.com/bazelbuild/rules_apple/blob/master/examples/ios/HelloWorldSwift/Info.plist)]]
+然后把[[示例Info.plist文件中的内容粘贴的里面](https://github.com/bazelbuild/rules_apple/blob/master/examples/ios/HelloWorldSwift/Info.plist)]
 
 ```html
 <?xml version="1.0" encoding="UTF-8"?>
