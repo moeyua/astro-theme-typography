@@ -1,38 +1,30 @@
 export const THEME_CONFIG: App.Locals['config'] = {
   /** blog title */
-  title: "活版印字",
+  title: "认识圣经",
   /** your name */
-  author: "Typography",
+  author: "耶和华见证人",
   /** website description */
-  desc: "Rediscory the beauty of typography",
+  desc: "认识圣经，从0到1.",
   /** your deployed domain */
   website: "https://astro-theme-typography.vercel.app/",
   /** your locale */
-  locale: "en-us",
+  locale: "zh-cn",
   /** theme style */
   themeStyle: "light",
   /** your socials */
   socials: [
     {
       name: "github",
-      href: "https://github.com/moeyua/astro-theme-typography",
+      href: "https://costalk.github.io/bible",
     },
     {
-      name: "rss",
-      href: "/atom.xml",
+      name: "Email",
+      href: "luyao0087@gmail.com",
     },
-    {
-      name: "twitter",
-      href: "https://github.com/moeyua/astro-theme-typography",
-    },
-    {
-      name: "mastodon",
-      href: "https://github.com/moeyua/astro-theme-typography",
-    }
   ],
   /** your header info */
   header: {
-    twitter: "@moeyua13",
+    Email: "luyao0087@gmail.com",
   },
   /** your navigation links */
   navs: [
@@ -55,7 +47,7 @@ export const THEME_CONFIG: App.Locals['config'] = {
   ],
   /** your category name mapping, which the `path` will be shown in the url */
   category_map: [
-    { name: "胡适", path: "hu-shi" },
+    { name: "圣经", path: "sheng-jing" },
   ],
   /** your comment provider */
   comments: {
