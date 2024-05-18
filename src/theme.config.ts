@@ -1,12 +1,12 @@
 export const THEME_CONFIG: App.Locals['config'] = {
   /** blog title */
-  title: "活版印字",
+  title: "天地人",
   /** your name */
-  author: "Typography",
+  author: "贵棠",
   /** website description */
   desc: "Rediscory the beauty of typography",
   /** your deployed domain */
-  website: "https://astro-theme-typography.vercel.app/",
+  website: "https://https://www.jiayuguo.homes/",
   /** your locale */
   locale: "en-us",
   /** theme style */
@@ -56,11 +56,12 @@ export const THEME_CONFIG: App.Locals['config'] = {
   /** your category name mapping, which the `path` will be shown in the url */
   category_map: [
     { name: "胡适", path: "hu-shi" },
+    { name: "古中医", path: "chinese-traditional-medicine" },
   ],
   /** your comment provider */
   comments: {
     disqus: {
-      shortname: "typography-astro",
+      shortname: "https-www-jiayuguo-homes",
     },
     // giscus: {
     //   repo: 'moeyua/astro-theme-typography',
