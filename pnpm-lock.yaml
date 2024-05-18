@@ -9,8 +9,8 @@ dependencies:
     specifier: ^0.5.10
     version: 0.5.10(typescript@5.3.3)
   '@astrojs/mdx':
-    specifier: ^3.0.0
-    version: 3.0.0(astro@4.5.9)
+    specifier: ^2.3.3
+    version: 2.3.3(astro@4.5.9)
   '@astrojs/rss':
     specifier: ^4.0.4
     version: 4.0.5
