@@ -1,10 +1,10 @@
 ---
-import Post from '~/components/Post.astro'
 import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import { getPosts } from '~/utils'
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro'
 import Pagination from '~/components/Pagination.astro'
 import Comments from '~/components/Comments.astro'
+import Article from '~/components/Article.astro'
 
 export const getStaticPaths = (async ({}) => {
   const posts = await getPosts()
@@ -31,9 +31,9 @@ function getUrl(slug: string) {
 ---
 
 <LayoutDefault title={entry.data.title} desc={entry.data.description} banner={entry.data.banner}>
-  <Post post={entry}>
+  <Article post={entry}>
     <Content />
-  </Post>
+  </Article>
   <Pagination
     showLeft={Boolean(prev)}
     leftTitle={`${t('prev_post')}: ${prev?.data.title}`}

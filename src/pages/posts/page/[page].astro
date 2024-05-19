@@ -1,18 +1,18 @@
 ---
-import LayoutDefault from '~/layouts/LayoutDefault.astro'
-import Post from '~/components/Post.astro'
-import Pagination from '~/components/Pagination.astro'
-import { getPosts, getPostDescription } from '~/utils'
-import type { InferGetStaticPropsType, GetStaticPaths } from 'astro'
+import LayoutDefault from "~/layouts/LayoutDefault.astro";
+import Post from "~/components/Post.astro";
+import Pagination from "~/components/Pagination.astro";
+import { getPosts, getPostDescription } from "~/utils";
+import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
 
-const { translate: t } = Astro.locals
+const { translate: t } = Astro.locals;
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const posts = await getPosts()
-  return paginate(posts, { pageSize: 5 })
-}) satisfies GetStaticPaths
+  const posts = await getPosts();
+  return paginate(posts, { pageSize: 5 });
+}) satisfies GetStaticPaths;
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { page } = Astro.props
 ---
@@ -26,13 +26,12 @@ const { page } = Astro.props
         </Post>
       ))
     }
-
     <Pagination
       showLeft={Boolean(page.url.prev)}
-      leftTitle={t('prev')}
+      leftTitle={t("prev")}
       leftUrl={page.url.prev}
       showRight={Boolean(page.url.next)}
-      rightTitle={t('next')}
+      rightTitle={t("next")}
       rightUrl={page.url.next}
       currentPage={page.currentPage}
       totalPage={page.lastPage}

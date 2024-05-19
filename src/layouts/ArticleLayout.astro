@@ -1,0 +1,86 @@
+---
+import "~/styles/index.css";
+// https://sivan.github.io/heti
+import "~/styles/heti.min.css";
+import Header from "~/components/Header.astro";
+import Footer from "~/components/Footer.astro";
+import { SEO } from "astro-seo";
+import { getImage } from "astro:assets";
+import TableOfContents from "~/pages/posts/TableOfContents.astro";
+
+interface Props {
+  title?: string;
+  desc?: string;
+  banner?: ImageMetadata;
+}
+
+const props = Astro.props;
+const { headings } = Astro.props;
+const themeConfig = Astro.locals.config;
+const { header } = Astro.locals.config;
+
+const title = props.title ?? themeConfig.title;
+const desc = props.desc ?? themeConfig.desc;
+const canonical = themeConfig.website;
+
+const image =
+  props.banner &&
+  (await getImage({
+    src: props.banner,
+    format: "jpeg",
+  }));
+const optimizedImage = new URL(
+  image?.src ?? "/placeholder.png",
+  Astro.url
+).toString();
+---
+
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <SEO
+      charset="utf-8"
+      title={title}
+      description={desc}
+      extend={{
+        link: [{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml" }],
+        meta: [
+          { name: "twitter:image:src", content: optimizedImage },
+          { name: "twitter:image:alt", content: desc },
+          { name: "twitter:creator", content: header.twitter },
+          { name: "twitter:site", content: header.twitter },
+          { name: "twitter:card", content: "summary_large_image" },
+          { name: "twitter:title", content: title },
+          { name: "twitter:description", content: desc },
+        ],
+      }}
+      openGraph={{
+        basic: {
+          title: title,
+          type: "article",
+          image: optimizedImage,
+          url: canonical,
+        },
+      }}
+    />
+  </head>
+  <body>
+    <div
+      un-max-lg="animate-fadein-down"
+      un-lg="flex flex-row justify-between gap-4 px-0 mx-auto max-w-6xl"
+      class="container contain-layout m-a"
+    >
+      <main un-lg="py-20 min-w-xl animate-fadein-down" class="p-0">
+        <slot />
+      </main>
+      <div
+        un-lg="sticky top-0 h-screen pt-20 animate-fadein-left gap-8"
+        un-lg:flex="~ col justify-between items-start gap-4"
+        class="p-0"
+      >
+        <TableOfContents headings={headings} />
+      </div>
+    </div>
+  </body>
+</html>

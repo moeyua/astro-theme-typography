@@ -14,6 +14,7 @@ function getCategoryUrl(category: string) {
 ---
 
 <article class="heti">
+  <div class="ml-[0px]">
     <header>
       <h1 class="post-title!">
         <a href={`/posts/${post.slug}/`}>{post.data.title}</a>
@@ -31,5 +32,6 @@ function getCategoryUrl(category: string) {
         }
       </div>
     </header>
+  </div>
   <slot />
 </article>
