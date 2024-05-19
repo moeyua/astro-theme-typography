@@ -29,25 +29,13 @@ function buildToc(headings: any) {
 }
 ---
 
-<nav class="text-sm">
+<nav class="toc text-sm">
   <ul>
     {
       toc.length > 0 &&
         toc.map((heading: any) => <TableOfContentsHeading heading={heading} />)
     }
   </ul>
-  <svg class="toc-progress" xmlns="http://www.w3.org/2000/svg">
-    <path
-      class="toc-marker"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-dasharray="1 0 0 1000"
-      stroke-dashoffset="1"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    ></path>
-  </svg>
 </nav>
 
 <style>
