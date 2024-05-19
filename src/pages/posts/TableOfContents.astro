@@ -7,7 +7,7 @@ const toc = buildToc(headings);
 function buildToc(headings: any) {
   const toc: any = [];
   const parentHeadings = new Map();
-  console.log(headings);
+  if (!headings || headings.length == 0) return toc;
   let min_depth = 100;
   headings.forEach((h: any) => {
     min_depth = Math.min(min_depth, h.depth);
@@ -15,7 +15,6 @@ function buildToc(headings: any) {
   headings.forEach((h: any) => {
     h.depth -= min_depth - 1;
   });
-  if (!headings || headings.length == 0) return toc;
   headings.forEach((h: any) => {
     const heading = { ...h, subheadings: [] };
     parentHeadings.set(heading.depth, heading);
