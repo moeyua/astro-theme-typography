@@ -3,7 +3,7 @@
 const { heading } = Astro.props;
 ---
 
-{heading && <li>
+{heading && <li class="whitespace-nowrap">
   <a href={'#' + heading.slug}>
     {heading.text}
   </a>
