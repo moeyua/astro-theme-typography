@@ -36,4 +36,26 @@ function buildToc(headings: any) {
         toc.map((heading: any) => <TableOfContentsHeading heading={heading} />)
     }
   </ul>
+  <svg class="toc-progress" xmlns="http://www.w3.org/2000/svg">
+    <path
+      class="toc-marker"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-dasharray="1 0 0 1000"
+      stroke-dashoffset="1"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+  </svg>
 </nav>
+
+<style>
+  .toc-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
