@@ -2,8 +2,6 @@
 import "~/styles/index.css";
 // https://sivan.github.io/heti
 import "~/styles/heti.min.css";
-import Header from "~/components/Header.astro";
-import Footer from "~/components/Footer.astro";
 import { SEO } from "astro-seo";
 import { getImage } from "astro:assets";
 import TableOfContents from "~/pages/posts/TableOfContents.astro";
@@ -12,6 +10,7 @@ interface Props {
   title?: string;
   desc?: string;
   banner?: ImageMetadata;
+  headings?: any;
 }
 
 const props = Astro.props;

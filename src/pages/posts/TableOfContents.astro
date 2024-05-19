@@ -8,7 +8,7 @@ const toc = buildToc(headings);
 function buildToc(headings: any) {
   const toc: any = [];
   const parentHeadings = new Map();
-  if (headings.length == 0) return toc;
+  if (!headings || headings.length == 0) return toc;
   headings.forEach((h: any) => {
     const heading = { ...h, subheadings: [] };
     parentHeadings.set(heading.depth, heading);
@@ -25,6 +25,6 @@ function buildToc(headings: any) {
 
 <nav class="text-sm">
   <ul>
-    {toc.map((heading: any) => <TableOfContentsHeading heading={heading} />)}
+    {toc.length>0 && toc.map((heading: any) => <TableOfContentsHeading heading={heading} />)}
   </ul>
 </nav>

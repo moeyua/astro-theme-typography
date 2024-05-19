@@ -3,7 +3,7 @@
 const { heading } = Astro.props;
 ---
 
-<li>
+{heading && <li>
   <a href={'#' + heading.slug}>
     {heading.text}
   </a>
@@ -16,4 +16,4 @@ const { heading } = Astro.props;
       </ul>
     )
   }
-</li>
+</li>}
