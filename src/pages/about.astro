@@ -1,7 +1,42 @@
 ---
-import LayoutDefault from "~/layouts/LayoutDefault.astro"
+import ReverseLayout from "~/layouts/ReverseLayout.astro";
 ---
 
-<LayoutDefault>
-  
-</LayoutDefault>
+<ReverseLayout>
+    <div
+      un-lg="items-start px-2.5 pb-12 text-left flex-col"
+      un-flex="~ col gap-2.5"
+      class="transition-[padding,background] duration-800 ease-in-out"
+    >
+      <a
+        href="https://tategaki.github.io/"
+        class="text-5 font-extrabold"
+        target="_blank"
+      >
+        縦書きとは何か
+      </a>
+      <p class="text-4 font-serif">竪排</p>
+      <p class="text-4 font-serif">並不是古籍或傳統文化的專利</p>
+    </div>
+    <div
+      un-lg="items-start px-2.5 pb-12 text-left flex-col"
+      un-flex="~ col gap-2.5"
+      class="transition-[padding,background] duration-800 ease-in-out"
+    >
+      <h3 class="text-4 font-serif">中医、古典吉他、传统文化、计算机、物理</h3>
+      <p class="text-4 font-serif">
+        公元<b>2</b><b>0</b><b>2</b><b>4</b>年<b>5</b>月<b>13</b>日
+      </p>
+    </div>
+</ReverseLayout>
+<style>
+  div b {
+    text-combine-upright: all;
+  }
+
+  /* #content {
+    width: 100%; /* 比视窗宽度大的容器，使页面内容溢出 */
+    white-space: nowrap; /* 防止内容换行 */
+    overflow-x: auto; /* 水平溢出部分隐藏 */
+  } */
+</style>

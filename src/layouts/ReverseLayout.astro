@@ -2,19 +2,21 @@
 import "~/styles/index.css";
 // https://sivan.github.io/heti
 import "~/styles/heti.min.css";
+import Header from "~/components/Header.astro";
+import Footer from "~/components/Footer.astro";
 import { SEO } from "astro-seo";
 import { getImage } from "astro:assets";
-import TableOfContents from "~/pages/posts/TableOfContents.astro";
 
 interface Props {
   title?: string;
   desc?: string;
   banner?: ImageMetadata;
-  headings?: any;
+  pt?: string;
+  md?: string;
+  jb?: string;
 }
 
 const props = Astro.props;
-const { headings } = Astro.props;
 const themeConfig = Astro.locals.config;
 const { header } = Astro.locals.config;
 
@@ -38,6 +40,8 @@ const optimizedImage = new URL(
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="baidu-site-verification" content="codeva-4XvEX9iV16" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <SEO
       charset="utf-8"
       title={title}
@@ -67,19 +71,24 @@ const optimizedImage = new URL(
   <body>
     <div
       un-max-lg="animate-fadein-down"
-      un-lg="flex flex-row justify-between gap-4 px-0 mx-auto max-w-6xl"
+      un-lg={"flex flex-row-reverse gap-4 px-8 mx-auto max-w-[75rem]"}
       class="container contain-layout m-a"
     >
-      <main id="article" un-lg="py-20 min-w-xl animate-fadein-down font-serif" class="p-0">
+      <div
+        un-lg="sticky top-0 h-screen py-20 animate-fadein-left gap-8"
+        un-lg:flex="~ col justify-between items-start gap-4"
+        class="p-7.5"
+      >
+        <Header />
+        <Footer class="max-lg:hidden" />
+      </div>
+      <main
+        un-lg={`py-20 pt-${props.pt ?? 20} min-w-xl animate-fadein-down`}
+        class={`write-vertical-right flex flex-row p-7.5`}
+      >
         <slot />
       </main>
-      <div
-        un-lg="sticky top-0 h-screen pt-20 animate-fadein-left gap-0"
-        un-lg:flex="~ col justify-between items-start gap-0"
-        class="p-4"
-      >
-        <TableOfContents headings={headings} />
-      </div>
+      <Footer class="lg:hidden p-7.5" />
     </div>
   </body>
 </html>
