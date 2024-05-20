@@ -144,12 +144,15 @@ function getUrl(slug: string) {
         const previousHTag = findPreviousHTag(maxVisiblePElement);
         if (previousHTag) {
           const links = document.querySelectorAll(`nav.toc li a`);
-          links.forEach((link: any) => (link.style.color = "black"));
+          links.forEach((link: any) => {
+            link.style = {};
+          });
           const link: any = document.querySelector(
             `nav.toc li a[href="#${previousHTag.id}"]`
           );
           if (!link) return;
-          link.style.color = "blue";
+          link.style.color = "white";
+          link.style.backgroundColor = "black";
         }
       }
     });
