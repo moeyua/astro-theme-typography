@@ -23,11 +23,11 @@ export const THEME_CONFIG: App.Locals['config'] = {
     },
     {
       name: "twitter",
-      href: "https://github.com/moeyua/astro-theme-typography",
+      href: "https://twitter.com/Evan360728392",
     },
     {
       name: "mastodon",
-      href: "https://github.com/moeyua/astro-theme-typography",
+      href: "/sitemap-0.xml",
     }
   ],
   /** your header info */
