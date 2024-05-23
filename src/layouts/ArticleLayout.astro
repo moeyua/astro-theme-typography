@@ -21,7 +21,7 @@ const { headings } = Astro.props;
 const themeConfig = Astro.locals.config;
 const { header } = Astro.locals.config;
 const title = props.content.title ?? themeConfig.title;
-const desc = props.content.desc ?? themeConfig.desc;
+const desc = props.content.description ?? themeConfig.desc;
 const canonical = themeConfig.website;
 
 const image =
