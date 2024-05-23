@@ -4,7 +4,7 @@ export const THEME_CONFIG: App.Locals['config'] = {
   /** your name */
   author: "贵棠",
   /** website description */
-  desc: "Rediscory the beauty of typography",
+  desc: "中医、伤寒论、传统文化、计算机、物理、古典音乐",
   /** your deployed domain */
   website: "https://www.jiayuguo.homes/",
   /** your locale */
@@ -32,7 +32,7 @@ export const THEME_CONFIG: App.Locals['config'] = {
   ],
   /** your header info */
   header: {
-    twitter: "@moeyua13",
+    twitter: "@Evan360728392",
   },
   /** your navigation links */
   navs: [
