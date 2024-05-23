@@ -7,9 +7,12 @@ import { getImage } from "astro:assets";
 import TableOfContents from "~/pages/posts/TableOfContents.astro";
 
 interface Props {
-  title?: string;
-  desc?: string;
-  banner?: ImageMetadata;
+  content:{
+    title?: string;
+    desc?: string;
+    description?: string;
+    banner?: ImageMetadata;
+  }
   headings?: any;
 }
 
@@ -17,15 +20,14 @@ const props = Astro.props;
 const { headings } = Astro.props;
 const themeConfig = Astro.locals.config;
 const { header } = Astro.locals.config;
-
-const title = props.title ?? themeConfig.title;
-const desc = props.desc ?? themeConfig.desc;
+const title = props.content.title ?? themeConfig.title;
+const desc = props.content.desc ?? themeConfig.desc;
 const canonical = themeConfig.website;
 
 const image =
-  props.banner &&
+  props.content.banner &&
   (await getImage({
-    src: props.banner,
+    src: props.content.banner,
     format: "jpeg",
   }));
 const optimizedImage = new URL(
