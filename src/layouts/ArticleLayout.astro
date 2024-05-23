@@ -47,8 +47,7 @@ const optimizedImage = new URL(
       extend={{
         link: [{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml" }],
         meta: [
-          { name: "twitter:image:src", content: optimizedImage },
-          { name: "twitter:image:alt", content: desc },
+          { name: "twitter:image", content: optimizedImage },
           { name: "twitter:creator", content: header.twitter },
           { name: "twitter:site", content: header.twitter },
           { name: "twitter:card", content: "summary_large_image" },
