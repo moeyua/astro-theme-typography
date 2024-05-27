@@ -18,7 +18,7 @@
     "@astrojs/rss": "^4.0.4",
     "@astrojs/sitemap": "^3.0.5",
     "@github/clipboard-copy-element": "^1.3.0",
-    "astro": "^4.5.9",
+    "astro": "^4.9.1",
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.3",
     "giscus": "^1.5.0",
