@@ -31,7 +31,7 @@
     "@types/node": "^20.12.7",
     "@types/sanitize-html": "^2.9.5",
     "@unocss/reset": "^0.59.0",
-    "@unocss/transformer-directives": "^0.58.5",
+    "@unocss/transformer-directives": "^0.60.4",
     "bumpp": "^9.4.0",
     "changelogen": "^0.5.5",
     "consola": "^3.2.3",
