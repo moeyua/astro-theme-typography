@@ -60,6 +60,7 @@ export const THEME_CONFIG: App.Locals['config'] = {
   /** your comment provider */
   comments: {
     disqus: {
+      // please change this to your disqus shortname
       shortname: "typography-astro",
     },
     // giscus: {
