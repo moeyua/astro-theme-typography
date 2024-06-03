@@ -13,7 +13,7 @@
     "update-theme": "./scripts/update-theme.sh"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
+    "@astrojs/check": "^0.7.0",
     "@astrojs/mdx": "^2.3.1",
     "@astrojs/rss": "^4.0.4",
     "@astrojs/sitemap": "^3.1.5",
