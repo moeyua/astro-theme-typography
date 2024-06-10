@@ -41,8 +41,8 @@ dependencies:
 
 devDependencies:
   '@iconify-json/mdi':
-    specifier: ^1.1.64
-    version: 1.1.64
+    specifier: ^1.1.66
+    version: 1.1.66
   '@types/markdown-it':
     specifier: ^14.1.1
     version: 14.1.1
@@ -1246,8 +1246,8 @@ packages:
     resolution: {integrity: sha512-wyntkQkwoLbLo+Hqg2LIVMXDIzcvUb9bSDz+clX6nVJItwzh103rHxdXFRZD+DmxVbuEW5xSznYQXkz1jZT+xg==}
     dev: false
 
-  /@iconify-json/mdi@1.1.64:
-    resolution: {integrity: sha512-zGeo5TjhNFAY6FmSDBLAzDO811t77r6v/mDi7CAL9w5eXqKez6bIjk8R9AL/RHIeq44ALP4Ozr4lMqFTkHr7ug==}
+  /@iconify-json/mdi@1.1.66:
+    resolution: {integrity: sha512-7KPF2RVUUWav/hXCM8Ti/smqu3cmgePJpiX9CSkldiL+80+eBRBeKlc4vPOc9jhAItlqIU1vKsbKoPP0JIfgbg==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
@@ -5710,7 +5710,7 @@ packages:
     dependencies:
       '@volar/language-service': 2.1.6
       '@vscode/emmet-helper': 2.9.2
-      vscode-html-languageservice: 5.1.2
+      vscode-html-languageservice: 5.2.0
     dev: false
 
   /volar-service-emmet@0.0.45(@volar/language-service@2.2.5):
@@ -5736,7 +5736,7 @@ packages:
         optional: true
     dependencies:
       '@volar/language-service': 2.1.6
-      vscode-html-languageservice: 5.1.2
+      vscode-html-languageservice: 5.2.0
       vscode-languageserver-textdocument: 1.0.11
       vscode-uri: 3.0.8
     dev: false
