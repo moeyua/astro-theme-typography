@@ -9,8 +9,8 @@ dependencies:
     specifier: ^0.7.0
     version: 0.7.0(typescript@5.4.5)
   '@astrojs/mdx':
-    specifier: ^3.0.1
-    version: 3.0.1(astro@4.9.2)
+    specifier: ^3.1.0
+    version: 3.1.0(astro@4.9.2)
   '@astrojs/rss':
     specifier: ^4.0.4
     version: 4.0.5
@@ -235,8 +235,8 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/mdx@3.0.1(astro@4.9.2):
-    resolution: {integrity: sha512-UcPja14Qt6OEm7Wjak41Qa5f7G1M0oB2ARCsyIkXy6+Z65fJ6c1648UqEOqnEgR6Xtqq+V47wtK2qSP6KQKrAg==}
+  /@astrojs/mdx@3.1.0(astro@4.9.2):
+    resolution: {integrity: sha512-yuGDaOcCAfYgLQvUAlJDezYGK4twHlzW1Kvpyg3inxtDJuAsHdyVyYLWl0Wo5nwkyrbZktdrjnoW5scqzoAqAg==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
     peerDependencies:
       astro: ^4.8.0
@@ -5710,7 +5710,7 @@ packages:
     dependencies:
       '@volar/language-service': 2.1.6
       '@vscode/emmet-helper': 2.9.2
-      vscode-html-languageservice: 5.1.2
+      vscode-html-languageservice: 5.2.0
     dev: false
 
   /volar-service-emmet@0.0.45(@volar/language-service@2.2.5):
@@ -5736,7 +5736,7 @@ packages:
         optional: true
     dependencies:
       '@volar/language-service': 2.1.6
-      vscode-html-languageservice: 5.1.2
+      vscode-html-languageservice: 5.2.0
       vscode-languageserver-textdocument: 1.0.11
       vscode-uri: 3.0.8
     dev: false
