@@ -38,12 +38,6 @@
     "esno": "^4.7.0",
     "markdown-it": "^14.1.0",
     "sanitize-html": "^2.11.0",
-<<<<<<< HEAD
-    "unocss": "^0.58.5"
-  },
-  "packageManager": "pnpm@8.15.5"
-=======
     "unocss": "^0.60.4"
   }
->>>>>>> e521601dd92f1328d6e6ab2b8bac44187eb0c884
 }
