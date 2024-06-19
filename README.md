@@ -91,6 +91,8 @@ socials: [
 The `name` is the icon name in [Material Design Icons](https://pictogrammers.com/library/mdi/),
 which will be automatically generated as the icon.
 
+> Note that you need to restart the development server to see the changes.
+
 ### Navigation links
 
 By default, the navigation are `Posts`, `Archive`, `Categories` and `About`. You can add more in the config file:

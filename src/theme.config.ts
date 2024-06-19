@@ -53,8 +53,28 @@ export const THEME_CONFIG: App.Locals["config"] = {
   category_map: [{ name: "生活", path: "sheng-huo" }],
   /** your comment provider */
   comments: {
+<<<<<<< HEAD
     // disqus: {
     //   shortname: "typography-astro",
+=======
+    disqus: {
+      // please change this to your disqus shortname
+      shortname: "typography-astro",
+    },
+    // giscus: {
+    //   repo: 'moeyua/astro-theme-typography',
+    //   repoId: 'R_kgDOKy9HOQ',
+    //   category: 'General',
+    //   categoryId: 'DIC_kwDOKy9HOc4CegmW',
+    //   mapping: 'title',
+    //   strict: '0',
+    //   reactionsEnabled: '1',
+    //   emitMetadata: '1',
+    //   inputPosition: 'top',
+    //   theme: 'light',
+    //   lang: 'zh-CN',
+    //   loading: 'lazy',
+>>>>>>> e521601dd92f1328d6e6ab2b8bac44187eb0c884
     // },
     giscus: {
       repo: 'lrsnowx/lrsnowx.github.io',

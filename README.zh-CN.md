@@ -90,6 +90,8 @@ socials: [
 
 字段 `name` 是 [Material Design Icons](https://pictogrammers.com/library/mdi/) 中的图标名称，将自动生成为图标。
 
+> 请注意，您需要重新启动开发服务器才能看到更改。
+
 ### 导航链接
 
 默认情况下，导航是「文章」、「归档」、「分类」和「关于」。您可以在配置文件中添加更多内容：
