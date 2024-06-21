@@ -11,6 +11,8 @@ export const THEME_CONFIG: App.Locals['config'] = {
   locale: "en-us",
   /** theme style */
   themeStyle: "light",
+
+  animate: true,
   /** your socials */
   socials: [
     {

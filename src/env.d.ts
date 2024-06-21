@@ -15,6 +15,8 @@ declare namespace App {
       locale: keyof typeof import('./i18n.ts').LANGUAGES;
       /** theme style */
       themeStyle: 'light' | 'auto' | 'dark';
+      /** enable animation */
+      animate: boolean;
       /** your socials */
       socials: Array<{
         name: string;

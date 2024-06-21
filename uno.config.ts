@@ -7,15 +7,24 @@ import {
 import transformerDirectives from "@unocss/transformer-directives";
 import { THEME_CONFIG } from "./src/theme.config";
 
-const {socials, themeStyle} = THEME_CONFIG;
+const { socials, themeStyle, animate } = THEME_CONFIG;
 
 let foreground = "#2e405b";
 let background = "#ffffff";
 
-if(THEME_CONFIG.themeStyle === 'dark') {
+if (themeStyle === 'dark') {
   foreground = "#ffffff";
   background = "#2e405b";
 }
+
+let animation = animate ? {
+  keyframes: {
+    "fadein-down":
+      "{from {opacity: 0.1;transform: translateY(-20px);}to {opacity: 1;transform: translateY(0);}}",
+    "fadein-left":
+      "{from {opacity: 0.1;transform: translateX(20px);}to {opacity: 1;transform: translateX(0);}}",
+  },
+} : null
 
 export default defineConfig({
   presets: [
@@ -37,14 +46,7 @@ export default defineConfig({
       sans: '"Source Sans Pro","Roboto","Helvetica","Helvetica Neue","Source Han Sans SC","Source Han Sans TC","PingFang SC","PingFang HK","PingFang TC",sans-serif',
       serif: '"HiraMinProN-W6","Source Han Serif CN","Source Han Serif SC","Source Han Serif TC",serif',
     },
-    animation: {
-      keyframes: {
-        "fadein-down":
-          "{from {opacity: 0.1;transform: translateY(-20px);}to {opacity: 1;transform: translateY(0);}}",
-        "fadein-left":
-          "{from {opacity: 0.1;transform: translateX(20px);}to {opacity: 1;transform: translateX(0);}}",
-      },
-    },
+    animation
   },
   shortcuts: [
     ['icon', 'inline-block '],
