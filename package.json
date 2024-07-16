@@ -33,7 +33,6 @@
     "@unocss/reset": "^0.59.0",
     "@unocss/transformer-directives": "^0.60.4",
     "bumpp": "^9.4.0",
-    "changelogen": "^0.5.5",
     "consola": "^3.2.3",
     "esno": "^4.7.0",
     "markdown-it": "^14.1.0",

@@ -6,6 +6,9 @@ import {
 } from "unocss";
 import transformerDirectives from "@unocss/transformer-directives";
 import { THEME_CONFIG } from "./src/theme.config";
+import config from './src/./.config'
+
+console.log('config', config)
 
 const {socials, themeStyle} = THEME_CONFIG;
 
