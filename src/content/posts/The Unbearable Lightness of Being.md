@@ -1,7 +1,7 @@
 ---
 title: The Unbearable Lightness of Being
 pubDate: 1984-01-24
-categories: ['MILAN KUNDERA']
+categories: ['JAMET']
 description: ''
 ---
 
