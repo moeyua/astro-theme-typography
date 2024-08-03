@@ -22,6 +22,10 @@ export const THEME_CONFIG: App.Locals['config'] = {
       href: "https://t.me/miaoinx",
     },  
     {
+      name: "qqchat",
+      href: "http://res.abeim.cn/api-qq?qq=3431903681",
+    },     
+    {
       name: "rss",
       href: "/atom.xml",
     }
