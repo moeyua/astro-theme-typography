@@ -18,12 +18,12 @@ export const THEME_CONFIG: App.Locals['config'] = {
       href: "https://github.com/W-Boat",
     },
     {
-      name: "send-variant",
+      name: "message-text-outline",
       href: "https://t.me/miaoinx",
     },  
     {
-      name: "qqchat",
-      href: "http://res.abeim.cn/api-qq?qq=3431903681",
+      name: "mail",
+      href: "mailto:xbywhiteboat@gmail.com",
     },     
     {
       name: "rss",
