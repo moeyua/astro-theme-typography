@@ -1,38 +1,30 @@
 export const THEME_CONFIG: App.Locals['config'] = {
   /** blog title */
-  title: "活版印字",
+  title: "喵墨",
   /** your name */
-  author: "Typography",
+  author: "Nekoink",
   /** website description */
-  desc: "Rediscory the beauty of typography",
+  desc: "Writing Stories with Ink on Cat’s Claws.",
   /** your deployed domain */
-  website: "https://astro-theme-typography.vercel.app/",
+  website: "https://nekoneko.ink/",
   /** your locale */
-  locale: "en-us",
+  locale: "zh-cn",
   /** theme style */
   themeStyle: "light",
   /** your socials */
   socials: [
     {
       name: "github",
-      href: "https://github.com/moeyua/astro-theme-typography",
+      href: "https://github.com/W-Boat",
     },
     {
       name: "rss",
       href: "/atom.xml",
-    },
-    {
-      name: "twitter",
-      href: "https://github.com/moeyua/astro-theme-typography",
-    },
-    {
-      name: "mastodon",
-      href: "https://github.com/moeyua/astro-theme-typography",
     }
   ],
   /** your header info */
   header: {
-    twitter: "@moeyua13",
+    twitter: "@whiteboatx",
   },
   /** your navigation links */
   navs: [
@@ -48,20 +40,16 @@ export const THEME_CONFIG: App.Locals['config'] = {
       name: "Categories",
       href: "/categories"
     },
-    {
-      name: "About",
-      href: "/about",
-    },
   ],
   /** your category name mapping, which the `path` will be shown in the url */
   category_map: [
-    { name: "胡适", path: "hu-shi" },
+    { name: "白舟", path: "boat" },
   ],
   /** your comment provider */
   comments: {
     disqus: {
       // please change this to your disqus shortname
-      shortname: "typography-astro",
+      shortname: "nekoink",
     },
     // giscus: {
     //   repo: 'moeyua/astro-theme-typography',
