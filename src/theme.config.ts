@@ -1,6 +1,6 @@
 export const THEME_CONFIG: App.Locals['config'] = {
   /** blog title */
-  title: "喵墨 — 猫爪摹渺生",
+  title: "喵墨 – 猫爪摹渺生",
   /** your name */
   author: "Nekoink",
   /** website description */
@@ -17,10 +17,6 @@ export const THEME_CONFIG: App.Locals['config'] = {
       name: "github",
       href: "https://github.com/W-Boat",
     },
-    {
-      name: "message-text-outline",
-      href: "https://t.me/miaoinx",
-    },  
     {
       name: "mail",
       href: "mailto:xbywhiteboat@gmail.com",
