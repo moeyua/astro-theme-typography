@@ -10,7 +10,7 @@ export const THEME_CONFIG: App.Locals['config'] = {
   /** your locale */
   locale: "zh-cn",
   /** theme style */
-  themeStyle: "light",
+  themeStyle: "dark",
   /** your socials */
   socials: [
     {
@@ -31,6 +31,10 @@ export const THEME_CONFIG: App.Locals['config'] = {
     {
       name: "Posts",
       href: "/posts/page/1",
+    },
+    {
+      name: "丝竹",
+      href: "https://music.nekoneko.ink",
     },
     {
       name: "Archive",
