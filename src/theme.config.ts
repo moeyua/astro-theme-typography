@@ -18,6 +18,10 @@ export const THEME_CONFIG: App.Locals['config'] = {
       href: "https://github.com/W-Boat",
     },
     {
+      name: "send-variant",
+      href: "https://t.me/miaoinx",
+    },  
+    {
       name: "rss",
       href: "/atom.xml",
     }
