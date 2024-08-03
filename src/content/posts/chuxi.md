@@ -6,11 +6,10 @@ description: '别急着红温，看完再喷。'
 ---
 
 >我支持韩国对「除夕」申遗。
+搬运自 微信公众号“何李圆桌”
 实际上，春节也可以拿去。
 
-国务院办公厅刚刚发布了[《2024年放假安排》](https://mp.weixin.qq.com/s?__biz=Mzg4NjcwMzI1Mg==&mid=2247751511&idx=1&sn=8b001a684f6737ef0371e4d013b60d14&scene=21#wechat_redirect)，春节假期从大年初一开始，除夕不放假：
-
-![Image](https://mmbiz.qpic.cn/sz_mmbiz_png/dkm7OZzSj8B8FOv9RG7qfujPdicv9ppD6tfFHHMIGdRGJLwn2dLHhqAnxic5LNJGZbcdoWA2alWzsHTbxt12vRrA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+国务院办公厅刚刚发布了[《2024年放假安排》]，春节假期从大年初一开始，除夕不放假：
 
 这件事我感觉真的非常离谱。
 
@@ -63,5 +62,3 @@ description: '别急着红温，看完再喷。'
 请回答。
 
 **\-**  **E**   **N**   **D**  **\-**
-> 搬运自 微信公众号“何李圆桌”
-![Image](https://mmbiz.qpic.cn/mmbiz_jpg/dkm7OZzSj8BPebWibPONBCWddyUYOPuOXHoibVGdicgKPw7TrlkticmVoHx78XcKf5athfwzQCFAicUlkHIjlXnm7WA/640?wx_fmt=jpeg)
