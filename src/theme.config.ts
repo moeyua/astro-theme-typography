@@ -1,6 +1,6 @@
 export const THEME_CONFIG: App.Locals['config'] = {
   /** blog title */
-  title: "喵墨",
+  title: "喵墨 — 猫爪摹渺生",
   /** your name */
   author: "Nekoink",
   /** website description */
