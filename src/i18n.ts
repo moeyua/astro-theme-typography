@@ -1,9 +1,9 @@
 export const LANGUAGES = {
   'zh-cn': {
     Home: '首页',
-    Posts: '文章',
-    Categories: '分类',
-    Archive: '归档',
+    Posts: '猫毛',
+    Categories: '猫爪',
+    Archive: '拾穗',
     Tags: '标签',
     About: '关于',
     Links: '链接',
