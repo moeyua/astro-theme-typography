@@ -6,7 +6,7 @@ description: '浮生梦，三生渺渺，因缘无踪，虽堪恋，何必重逢
 ---
 
 > 没啥好说的，直接上链接
-https://hxoxby.lanzouj.com/b01vce38f（提取码：
+https://hxoxby.lanzouj.com/b01vce38f（提取码：d8in)
 
 ![](https://image.coolapk.com/feed/2022/0501/12/3640336_00015480_9085_9302_41@1080x2248.jpeg)
 
