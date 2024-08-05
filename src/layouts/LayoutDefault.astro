@@ -4,6 +4,7 @@ import '~/styles/index.css'
 import '~/styles/heti.min.css'
 import Header from '~/components/Header.astro'
 import Footer from '~/components/Footer.astro'
+import { ViewTransitions } from 'astro:transitions';
 import { SEO } from 'astro-seo'
 import { getImage } from 'astro:assets'
 
@@ -34,6 +35,7 @@ const optimizedImage = new URL(image?.src??"/placeholder.png", Astro.url).toStri
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <ViewTransitions />
     <SEO
       charset="utf-8"
       title={title}
