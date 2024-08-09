@@ -2,8 +2,7 @@
 title: 学习子网知识
 pubDate: 2024-08-06
 description: 本文详细介绍了计算机网络中子网的定义、组成、作用、子网划分方法及其性能指标。
-tags: [网络, 子网, IP地址, 子网划分, 子网掩码]
-category: 网络基础
+categories: 网络基础
 ---
 
 
