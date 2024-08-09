@@ -2,7 +2,7 @@ export const THEME_CONFIG: App.Locals['config'] = {
   /** blog title */
   title: "梅花易博客",
   /** your name */
-  author: "梅花易",
+  author: "Plum Blossom Divination",
   /** website description */
   desc: "欢迎来到梅花易博客！这是一个个人博客，记录生活点滴与成长足迹，同时分享我对易经的热爱与研究心得。作为一名易学爱好者，我在这里探讨中华传统文化中的智慧与奥秘，提供深入浅出的易经解读和实用的生活建议。无论您是对易学感兴趣，还是希望了解我的生活故事，梅花易博客都将带给您丰富的内容与独特的视角。",
   /** your deployed domain */
