@@ -2,7 +2,7 @@
 title: 学习第5层会话层知识
 pubDate: 2024-08-04
 description: 本文详细介绍了计算机网络中会话层的定义、组成、作用、协议、会话管理及其性能指标。
-categories: 网络基础
+categories:['网络基础']
 ---
 
 

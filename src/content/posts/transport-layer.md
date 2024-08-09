@@ -2,7 +2,7 @@
 title: 学习第4层传输层知识
 pubDate: 2024-08-03
 description: 本文详细介绍了计算机网络中传输层的定义、组成、作用、协议、传输控制及其性能指标。
-categories: 网络基础
+categories:['网络基础']
 ---
 
 
