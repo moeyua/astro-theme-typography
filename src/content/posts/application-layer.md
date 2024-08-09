@@ -2,7 +2,7 @@
 title: 学习第7层应用层知识
 pubDate: 2024-08-06
 description: 本文详细介绍了计算机网络中应用层的定义、组成、作用、协议、常见技术及其性能指标。
-categories:['网络基础']
+categories: ['网络基础']
 ---
 
 

@@ -2,7 +2,7 @@
 title: 学习第3层网络层知识
 pubDate: 2024-08-02
 description: 本文详细介绍了计算机网络中网络层的定义、组成、作用、协议、路由算法及其性能指标。
-categories:['网络基础']
+categories: ['网络基础']
 ---
 
 
