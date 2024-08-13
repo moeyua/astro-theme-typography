@@ -23,5 +23,14 @@ export default defineConfig({
     robotsTxt(),
     sitemap(),
     mdx()
-  ]
+  ],
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: () => 'bundle.js',  // 将所有代码打包成一个文件
+        },
+      },
+    },
+  }
 });
