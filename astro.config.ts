@@ -5,7 +5,6 @@ import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 
-// https://astro.build/config
 export default defineConfig({
   site: THEME_CONFIG.website,
   prefetch: true,
@@ -28,7 +27,8 @@ export default defineConfig({
     build: {
       rollupOptions: {
         output: {
-          manualChunks: () => 'bundle.js',  // 将所有代码打包成一个文件
+          inlineDynamicImports: true,  // 禁用动态导入，强制将所有代码打包到一个文件中
+          manualChunks: undefined,     // 禁用手动代码分块
         },
       },
     },
