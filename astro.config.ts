@@ -27,13 +27,14 @@ export default defineConfig({
     build: {
       rollupOptions: {
         output: {
-          // 禁用手动拆分代码块
-          manualChunks: () => 'bundle.js',
-          // 确保输出为一个文件
+          // 强制所有的chunk使用相同的文件名
+          manualChunks: null,
           entryFileNames: 'bundle.js',
           chunkFileNames: 'bundle.js',
           assetFileNames: 'bundle.[ext]',
         },
+        // 禁用代码拆分
+        inlineDynamicImports: true,
       },
     },
   }
