@@ -27,7 +27,9 @@ export default defineConfig({
     build: {
       rollupOptions: {
         output: {
-          manualChunks: undefined,  // 禁用手动代码分块，尝试强制合并
+          // 禁用手动拆分代码块
+          manualChunks: () => 'bundle.js',
+          // 确保输出为一个文件
           entryFileNames: 'bundle.js',
           chunkFileNames: 'bundle.js',
           assetFileNames: 'bundle.[ext]',
