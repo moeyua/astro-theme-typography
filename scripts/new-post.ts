@@ -44,7 +44,7 @@ async function createPost(): Promise<void> {
     const open: boolean = await consola.prompt('Open the new post?', { type: 'confirm', initial: true });
     if (open) {
       consola.info(`Opening ${fullPath}...`);
-      execSync(`code ${fullPath}`);
+      execSync(`cursor ${fullPath}`);
     }
   } catch (error) {
     consola.error((error as Error).message || 'Failed to create new post!');
