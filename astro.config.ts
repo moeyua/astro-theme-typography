@@ -16,9 +16,7 @@ export default defineConfig({
     },
   },
   integrations: [
-    UnoCSS({
-      injectReset: true
-    }),
+    UnoCSS(),
     robotsTxt(),
     sitemap(),
     mdx()
@@ -27,12 +25,11 @@ export default defineConfig({
     build: {
       rollupOptions: {
         output: {
-          // 禁用手动拆分代码块
+          // 合并 JavaScript 为一个文件
           manualChunks: () => 'bundle.js',
-          // 确保输出为一个文件
-          entryFileNames: 'bundle.js',
-          chunkFileNames: 'bundle.js',
-          assetFileNames: 'bundle.[ext]',
+          entryFileNames: 'index.js', // 這個設定可以改成任意名稱，但不一定能夠合并所有 JavaScript。
+          chunkFileNames: false, // 如果設置為 `false`，則會將所有 JavaScript 合并到一個文件中
+          assetFileNames: 'asset.[ext]',
         },
       },
     },
