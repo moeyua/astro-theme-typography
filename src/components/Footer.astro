@@ -10,12 +10,18 @@ const year = new Date().getFullYear()
 const { website, author } = Astro.locals.config
 ---
 
-<footer class="font-bold text-3 flex flex-col gap-2 lg:gap-3.5" {...attrs}>
+<footer font-bold text-3 un-flex="~ col gap-2" un-lg="gap-3.5" {...attrs}>
   <p>
     © {year}
-    <a href={website} rel="noopener noreferrer">{author}</a>
+    <a target="_blank" href={website} rel="noopener noreferrer">{author}</a>
   </p>
   <p>
-    Theme Typography by <a href="https://moeyua.com" rel="noopener noreferrer">Moeyua</a>
+    Theme
+    Typography
+     by <a target="_blank" href="https://moeyua.com" rel="noopener noreferrer">Moeyua</a>
   </p>
+  <!-- <p>
+    Proudly published with
+    <a target="_blank" href="https://astro.build" rel="noopener noreferrer">Astro</a>
+  </p> -->
 </footer>

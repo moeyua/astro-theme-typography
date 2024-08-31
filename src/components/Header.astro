@@ -10,9 +10,12 @@ const { title, author, socials, navs } = Astro.locals.config
 const { translate: t } = Astro.locals
 ---
 
-<header class="text-center flex flex-col gap-2.5 lg:grow-1 lg:justify-between lg:items-start" {...attrs}>
+<header un-lg="grow-1 justify-between items-start" un-flex="~ col gap-2.5" class="text-center" {...attrs}>
   <hgroup
-    class="cursor-pointer transition-[padding,background] duration-800 ease-in-out flex flex-col gap-2.5 lg:write-vertical-right lg:items-start lg:px-2.5 lg:pb-12 lg:border-l-2 lg:border-l-foreground lg:text-left lg:hover:bg-foreground lg:hover:text-background lg:hover:pt-3.75 lg:hover:pb-8.75"
+    un-hover:lg="bg-foreground color-background pt-3.75 pb-8.75 "
+    un-lg=" write-vertical-right items-start px-2.5 pb-12 b-l-2px b-l-foreground-solid text-left"
+    un-flex="~ col gap-2.5"
+    class="cursor-pointer transition-[padding,background] duration-800 ease-in-out"
   >
     <a class="normal" href="/">
       <h3 class="text-5 font-extrabold font-serif">{author}</h3>
@@ -20,8 +23,8 @@ const { translate: t } = Astro.locals
     </a>
   </hgroup>
 
-  <nav class="text-center font-bold flex flex-col gap-4">
-    <ul class="text-3.5 flex flex-row gap-4 justify-center lg:flex-col lg:items-start lg:text-4">
+  <nav class="text-center font-bold" un-flex="~ col gap-4">
+    <ul un-lg="flex-col items-start text-4" class="text-3.5" un-flex="~ row gap-4 justify-center">
       {
         navs.map((nav) => (
           <li>
@@ -30,11 +33,11 @@ const { translate: t } = Astro.locals
         ))
       }
     </ul>
-    <ul class="flex flex-row gap-4 justify-center">
+    <ul un-flex="~ row gap-4 justify-center">
       {
         socials.map((soc) => (
           <li>
-            <a href={soc.href} rel="noopener noreferrer" title={soc.name} class={`icon i-mdi-${soc.name}`} />
+            <a href={soc.href} target="_blank" title={soc.name} class={`icon i-mdi-${soc.name}`} />
           </li>
         ))
       }
