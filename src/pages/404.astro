@@ -1,11 +1,16 @@
 ---
 import LayoutDefault from "~/layouts/LayoutDefault.astro"
+
+const title = "404 - 页面未找到";
+const description = "抱歉，您访问的页面不存在。";
 ---
 
-<LayoutDefault>
-  <div style="text-align: center; margin-top: 50px;">
-    <h1>404 - 页面未找到</h1>
-    <p>抱歉，您访问的页面不存在。</p>
-    <a href="/" style="color: rgb(254, 254, 255); text-decoration: underline;">返回主页</a>
+<LayoutDefault title={title} desc={description}>
+  <div class="flex flex-col items-center justify-center min-h-screen text-center">
+    <h1 class="text-4xl font-bold mb-4">404 - 页面未找到</h1>
+    <p class="text-xl mb-8">抱歉，您访问的页面不存在。</p>
+    <a href="/" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition-colors duration-300">
+      返回主页
+    </a>
   </div>
 </LayoutDefault>

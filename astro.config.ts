@@ -30,6 +30,8 @@ export default defineConfig({
           // 不再合并所有 JS 文件为一个文件
           manualChunks: (id) => {
             if (id.includes('node_modules')) {
+              if (id.includes('react')) return 'react-vendor';
+              if (id.includes('@astro')) return 'astro-vendor';
               return 'vendor';
             }
           },
@@ -46,6 +48,24 @@ export default defineConfig({
           },
         },
       },
+      // 启用 minification 和 tree-shaking
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true,
+        },
+      },
     },
-  }
+    // 启用构建时优化
+    optimizeDeps: {
+      include: ['react', 'react-dom'],
+    },
+  },
+  
+  // 考虑添加图片优化集成
+  // import image from '@astrojs/image';
+  // integrations: [
+  //   // ... existing integrations ...
+  //   image(),
+  // ],
 });
