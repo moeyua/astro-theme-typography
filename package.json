@@ -38,6 +38,7 @@
     "esno": "^4.7.0",
     "markdown-it": "^14.1.0",
     "sanitize-html": "^2.11.0",
+    "terser": "^5.31.6",
     "unocss": "^0.60.4"
   }
 }
