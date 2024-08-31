@@ -2,20 +2,43 @@
 import LayoutDefault from "~/layouts/LayoutDefault.astro"
 
 const title = "关于我 - 梅花易博客";
+const description = "梅花易，一个热爱生活、喜欢记录和思考的博主。探索命理奥秘，分享生活见解。";
 ---
 
-<LayoutDefault title={title}>
-    <h1 class="text-8 font-extrabold font-serif">我是梅花易</h1>
-    <p class="text-4 font-light">一个热爱生活、喜欢记录和思考的人。</p>
-    <p class="text-4 font-light">我的博客"梅花易博客"主要分享生活记录、命理研究和个人杂谈。</p>
-    <p class="text-4 font-light">在这里，我通过文字记录生活的点滴，探索命理的奥秘，并分享我的见解和思考。</p>
-    <div>
-        <img 
-            src="/snake-Dark.svg" 
-            alt="Snake Dark" 
-            width="765"
-            height="765"
-            loading="lazy"
-        />
-    </div>
+<LayoutDefault title={title} desc={description}>
+    <article class="prose prose-lg mx-auto">
+        <h1 class="text-8 font-extrabold font-serif">我是梅花易</h1>
+        <p class="text-4 font-light">一个热爱生活、喜欢记录和思考的人。</p>
+        <p class="text-4 font-light">我的博客"梅花易博客"主要分享生活记录、命理研究和个人杂谈。</p>
+        <p class="text-4 font-light">在这里，我通过文字记录生活的点滴，探索命理的奥秘，并分享我的见解和思考。</p>
+        
+        <h2 class="text-6 font-bold font-serif mt-8">我的兴趣爱好</h2>
+        <ul class="list-disc list-inside">
+            <li>命理研究：探索生命的奥秘和规律</li>
+            <li>阅读：涉猎广泛，尤其喜欢哲学和心理学相关书籍</li>
+            <li>写作：通过文字表达思想，记录生活</li>
+            <li>摄影：捕捉生活中的美好瞬间</li>
+        </ul>
+
+        <h2 class="text-6 font-bold font-serif mt-8">博客内容</h2>
+        <p>在这里，你可以找到以下主题的文章：</p>
+        <ul class="list-disc list-inside">
+            <li>生活随笔：记录日常生活中的所思所感</li>
+            <li>命理研究：分享我对命理学的理解和见解</li>
+            <li>个人成长：探讨自我提升和心灵成长的话题</li>
+            <li>读书笔记：分享阅读心得和书籍推荐</li>
+        </ul>
+
+        <div class="mt-12">
+            <img 
+                src="/snake-Dark.svg" 
+                alt="Snake Dark" 
+                width="765"
+                height="765"
+                loading="lazy"
+                decoding="async"
+                class="mx-auto"
+            />
+        </div>
+    </article>
 </LayoutDefault>
