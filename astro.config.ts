@@ -27,12 +27,16 @@ export default defineConfig({
     build: {
       rollupOptions: {
         output: {
-          // 禁用手动拆分代码块
-          manualChunks: () => 'bundle.js',
-          // 确保输出为一个文件
+          // 合并所有 JS 文件为一个文件
+          manualChunks: undefined,
           entryFileNames: 'bundle.js',
           chunkFileNames: 'bundle.js',
-          assetFileNames: 'bundle.[ext]',
+          assetFileNames: ({ name }) => {
+            if (/\.(js|css)$/.test(name ?? '')) {
+              return 'bundle.[ext]';
+            }
+            return 'assets/[name][extname]';
+          },
         },
       },
     },
