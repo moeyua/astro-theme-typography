@@ -6,28 +6,30 @@ import { getPosts, formatDate } from '~/utils'
 
 const posts = await getPosts()
 
-const postByYear = new Map<number, Post[]>()
-posts.forEach((post: Post) => {
-  const pubDate = post.data.pubDate ?? new Date()
-  const year = pubDate.getFullYear()
-  if (!postByYear.has(year)) {
-    postByYear.set(year, [])
+const postByYear = posts.reduce((acc, post) => {
+  const year = (post.data.pubDate ?? new Date()).getFullYear()
+  if (!acc.has(year)) {
+    acc.set(year, [])
   }
-  postByYear.get(year)!.push(post)
-})
+  acc.get(year)!.push(post)
+  return acc
+}, new Map<number, Post[]>())
 
+const sortedYears = Array.from(postByYear.keys()).sort((a, b) => b - a)
 ---
 
 <LayoutDefault>
   <div un-flex="~ col gap-4">
-    {
-      Array.from(postByYear.entries()).map(([year, posts]) => (
-        <ListSection title={year}>
-          {posts.map((post) => (
-            <ListItem title={post.data.title} href={`/posts/${post.slug}/`} description={formatDate(post.data.pubDate)} />
-          ))}
-        </ListSection>
-      ))
-    }
+    {sortedYears.map((year) => (
+      <ListSection title={year}>
+        {postByYear.get(year)!.map((post) => (
+          <ListItem 
+            title={post.data.title} 
+            href={`/posts/${post.slug}/`} 
+            description={formatDate(post.data.pubDate)} 
+          />
+        ))}
+      </ListSection>
+    ))}
   </div>
 </LayoutDefault>
