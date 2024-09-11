@@ -73,7 +73,7 @@ You can simply [`Sync Fork`](https://docs.github.com/en/pull-requests/collaborat
 
 ## Customization
 
-Typography is highly customizable. The config file is in [src/theme.config.ts](src/theme.config.ts)
+Typography is highly customizable. The default configuration file is [src/.config/default.ts](src/.config/default.ts), you can override the default configuration in [src/.config/user.ts](src/.config/user.ts) as needed.
 
 ### Social links
 

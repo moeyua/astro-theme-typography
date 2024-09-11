@@ -1,13 +1,13 @@
 import { defineConfig } from 'astro/config';
 import UnoCSS from 'unocss/astro';
-import { THEME_CONFIG } from "./src/theme.config";
+import { config } from "./src/.config";
 import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  site: THEME_CONFIG.website,
+  site: config.website,
   prefetch: true,
   markdown: {
     shikiConfig: {

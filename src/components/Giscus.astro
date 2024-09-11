@@ -1,5 +1,7 @@
 ---
-const { comments } = Astro.locals.config
+import { config } from '~/.config'
+
+const { comments } = config
 
 if (!comments || !comments.giscus) {
   throw new Error('Giscus comments are not configured')

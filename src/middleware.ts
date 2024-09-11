@@ -1,10 +1,10 @@
 import { defineMiddleware } from 'astro:middleware';
-import { THEME_CONFIG } from "~/theme.config.ts";
+import { config } from "~/.config";
 import { LANGUAGES } from "~/i18n.ts";
 
 export const onRequest = defineMiddleware(async (context, next) => {
   // Adding properties in env.d.ts
-  context.locals.config = THEME_CONFIG;
+  context.locals.config = config
 
   let locale = context.locals.config.locale;
 

@@ -1,4 +1,6 @@
 ---
+import { config } from '~/.config'
+
 interface Props {
   identifier: string
   url: string
@@ -6,7 +8,7 @@ interface Props {
 }
 
 const { identifier, url, title } = Astro.props
-const { comments } = Astro.locals.config
+const { comments } = config
 
 if(!comments || !comments.disqus) {
   throw new Error('Disqus comments are not configured')

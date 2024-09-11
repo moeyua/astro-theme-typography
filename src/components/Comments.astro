@@ -2,13 +2,15 @@
 import Disqus from './Disqus.astro'
 import Giscus from './Giscus.astro'
 import Twikoo from './Twikoo.astro'
+import { config } from '~/.config'
+
 interface Props {
   post: Post
 
 }
 
 const { id, data, slug } = Astro.props.post
-const { comments } = Astro.locals.config
+const { comments } = config
 
 const path = `/posts/${slug}`
 const url = `${Astro.site?.href}${path}`

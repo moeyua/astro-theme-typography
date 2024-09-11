@@ -1,11 +1,12 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
+import { config } from '~/.config'
 
 type Props = HTMLAttributes<'header'>
 
 const { ...attrs } = Astro.props
 
-const { title, author, socials, navs } = Astro.locals.config
+const { title, author, socials, navs } = config
 
 const { translate: t } = Astro.locals
 ---

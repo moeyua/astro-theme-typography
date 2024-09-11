@@ -5,14 +5,14 @@ import {
   presetIcons,
 } from "unocss";
 import transformerDirectives from "@unocss/transformer-directives";
-import { THEME_CONFIG } from "./src/theme.config";
+import { config } from "./src/.config";
 
-const {socials, themeStyle} = THEME_CONFIG;
+const {socials, themeStyle} = config;
 
 let foreground = "#2e405b";
 let background = "#ffffff";
 
-if(THEME_CONFIG.themeStyle === 'dark') {
+if(themeStyle === 'dark') {
   foreground = "#ffffff";
   background = "#2e405b";
 }

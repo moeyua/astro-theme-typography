@@ -1,5 +1,6 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
+import { config } from '~/.config'
 
 type Props = HTMLAttributes<'footer'>
 
@@ -7,7 +8,7 @@ const { ...attrs } = Astro.props
 
 const year = new Date().getFullYear()
 
-const { website, author } = Astro.locals.config
+const { website, author } = config
 ---
 
 <footer font-bold text-3 un-flex="~ col gap-1" un-lg="gap-3.5" {...attrs}>
