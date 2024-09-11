@@ -3,6 +3,7 @@ import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import ListSection from '~/components/ListSection.astro'
 import ListItem from '~/components/ListItem.astro'
 import { getPosts, formatDate } from '~/utils'
+import type { Post } from '~/types'
 
 const posts = await getPosts()
 

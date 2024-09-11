@@ -1,3 +1,5 @@
+import type { Config } from '~/types'
+
 export const configDefault: Config = {
   /** blog title */
   title: "活版印字",
