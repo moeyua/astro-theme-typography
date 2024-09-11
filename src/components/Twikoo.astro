@@ -1,15 +1,15 @@
 ---
-import { config } from '~/.config'
+import { config } from "~/.config";
 
 interface Props {
-  path: string
+	path: string;
 }
 
 const twikooConfig = {
-  ...config.comments?.twikoo,
-  el: '#tcomment',
-  path: Astro.props.path,
-}
+	...config.comments?.twikoo,
+	el: "#tcomment",
+	path: Astro.props.path,
+};
 ---
 
 <div id="tcomment"></div>

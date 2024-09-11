@@ -1,33 +1,36 @@
 ---
-import '~/styles/index.css'
+import { getImage } from "astro:assets";
+import { ViewTransitions } from "astro:transitions";
+import "~/styles/index.css";
 // https://sivan.github.io/heti
-import '~/styles/heti.min.css'
-import Header from '~/components/Header.astro'
-import Footer from '~/components/Footer.astro'
-import { ViewTransitions } from 'astro:transitions';
-import { SEO } from 'astro-seo'
-import { getImage } from 'astro:assets'
-import { config } from '~/.config'
+import { SEO } from "astro-seo";
+import { config } from "~/.config";
+import Footer from "~/components/Footer.astro";
+import Header from "~/components/Header.astro";
+import "~/styles/heti.min.css";
 
 interface Props {
-  title?: string
-  desc?: string
-  banner?: ImageMetadata
+	title?: string;
+	desc?: string;
+	banner?: ImageMetadata;
 }
 
-const props = Astro.props
+const props = Astro.props;
 
-const title = props.title ?? config.title
-const desc = props.desc ?? config.desc
-const canonical = config.website
+const title = props.title ?? config.title;
+const desc = props.desc ?? config.desc;
+const canonical = config.website;
 
 const image =
-  props.banner &&
-  (await getImage({
-    src: props.banner,
-    format: "jpeg"
-  }))
-const optimizedImage = new URL(image?.src??"/placeholder.png", Astro.url).toString()
+	props.banner &&
+	(await getImage({
+		src: props.banner,
+		format: "jpeg",
+	}));
+const optimizedImage = new URL(
+	image?.src ?? "/placeholder.png",
+	Astro.url,
+).toString();
 ---
 
 <html lang="en">

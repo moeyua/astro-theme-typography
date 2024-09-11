@@ -1,13 +1,12 @@
 ---
-import LayoutDefault from '~/layouts/LayoutDefault.astro'
-import Post from '~/components/Post.astro'
-import { getPosts, getPostDescription } from '~/utils'
-import Pagination from '~/components/Pagination.astro'
+import Pagination from "~/components/Pagination.astro";
+import Post from "~/components/Post.astro";
+import LayoutDefault from "~/layouts/LayoutDefault.astro";
+import { getPostDescription, getPosts } from "~/utils";
 
-const posts = (await getPosts()).slice(0, 5)
+const posts = (await getPosts()).slice(0, 5);
 
-const { translate: t } = Astro.locals
-
+const { translate: t } = Astro.locals;
 ---
 
 <LayoutDefault>

@@ -1,6 +1,3 @@
-import type { Config } from '~/types'
+import type { Config } from "~/types";
 
-export const configUser: Partial<Config> = {
-
-}
-
+export const configUser: Partial<Config> = {};

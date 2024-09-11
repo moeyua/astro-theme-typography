@@ -1,21 +1,31 @@
 ---
-const { translate: t } = Astro.locals
+const { translate: t } = Astro.locals;
 
 interface Props {
-  showLeft?: boolean
-  leftTitle?: string
-  leftUrl?: string
+	showLeft?: boolean;
+	leftTitle?: string;
+	leftUrl?: string;
 
-  showRight?: boolean
-  rightTitle?: string
-  rightUrl?: string
+	showRight?: boolean;
+	rightTitle?: string;
+	rightUrl?: string;
 
-  showPageCount?: boolean
-  currentPage?: number
-  totalPage?: number
+	showPageCount?: boolean;
+	currentPage?: number;
+	totalPage?: number;
 }
 
-const { showLeft = true, showRight = true, leftTitle, rightTitle, leftUrl, rightUrl, showPageCount = true, currentPage, totalPage } = Astro.props
+const {
+	showLeft = true,
+	showRight = true,
+	leftTitle,
+	rightTitle,
+	leftUrl,
+	rightUrl,
+	showPageCount = true,
+	currentPage,
+	totalPage,
+} = Astro.props;
 ---
 
 <footer class="mt-5">
