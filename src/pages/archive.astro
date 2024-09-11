@@ -8,14 +8,14 @@ import { formatDate, getPosts } from "~/utils";
 const posts = await getPosts();
 
 const postByYear = new Map<number, Post[]>();
-posts.forEach((post: Post) => {
+for (const post of posts) {
 	const pubDate = post.data.pubDate ?? new Date();
 	const year = pubDate.getFullYear();
 	if (!postByYear.has(year)) {
 		postByYear.set(year, []);
 	}
-	postByYear.get(year)!.push(post);
-});
+	postByYear.get(year)?.push(post);
+}
 ---
 
 <LayoutDefault>

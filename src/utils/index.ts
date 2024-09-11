@@ -8,15 +8,15 @@ export async function getCategories() {
 
 	const categories = new Map<string, Post[]>();
 
-	posts.forEach((post) => {
+	for (const post of posts) {
 		if (post.data.categories) {
-			post.data.categories.forEach((c) => {
+			for (const c of post.data.categories) {
 				const posts = categories.get(c) || [];
 				posts.push(post);
 				categories.set(c, posts);
-			});
+			}
 		}
-	});
+	}
 
 	return categories;
 }

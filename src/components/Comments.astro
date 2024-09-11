@@ -16,11 +16,11 @@ const path = `/posts/${slug}`;
 const url = `${Astro.site?.href}${path}`;
 
 let commentService = "";
-if (comments && comments.disqus) {
+if (comments?.disqus) {
 	commentService = "disqus";
-} else if (comments && comments.giscus) {
+} else if (comments?.giscus) {
 	commentService = "giscus";
-} else if (comments && comments.twikoo) {
+} else if (comments?.twikoo) {
 	commentService = "twikoo";
 }
 ---

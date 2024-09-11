@@ -6,7 +6,7 @@ import Post from "~/components/Post.astro";
 import LayoutDefault from "~/layouts/LayoutDefault.astro";
 import { getPosts } from "~/utils";
 
-export const getStaticPaths = (async ({}) => {
+export const getStaticPaths = (async () => {
 	const posts = await getPosts();
 	return posts.map((post, idx) => {
 		const prev = posts[idx - 1];
