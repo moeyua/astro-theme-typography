@@ -1,18 +1,20 @@
 ---
+import { config } from "~/.config";
+
 interface Props {
-  path: string
+	path: string;
 }
 
-const config = {
-  ...Astro.locals.config.comments?.twikoo,
-  el: '#tcomment',
-  path: Astro.props.path,
-}
+const twikooConfig = {
+	...config.comments?.twikoo,
+	el: "#tcomment",
+	path: Astro.props.path,
+};
 ---
 
 <div id="tcomment"></div>
 <script is:inline src="https://cdn.staticfile.org/twikoo/1.6.32/twikoo.all.min.js"></script>
-<script is:inline define:vars={{ config }}>
+<script is:inline define:vars={{ config: twikooConfig }}>
   twikoo.init(config)
 </script>
 

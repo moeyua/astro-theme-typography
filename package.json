@@ -1,43 +1,44 @@
 {
-  "name": "astro-theme-typography",
-  "type": "module",
-  "version": "0.1.0",
-  "repository": "https://github.com/moeyua/astro-theme-typography",
-  "scripts": {
-    "dev": "astro check && astro dev",
-    "preview": "astro preview",
-    "build": "astro check && astro build",
-    "release": "esno scripts/release.ts",
-    "astro": "astro",
-    "new-post": "esno scripts/new-post.ts",
-    "update-theme": "./scripts/update-theme.sh"
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.7.0",
-    "@astrojs/mdx": "^3.0.1",
-    "@astrojs/rss": "^4.0.4",
-    "@astrojs/sitemap": "^3.1.5",
-    "@github/clipboard-copy-element": "^1.3.0",
-    "astro": "^4.9.2",
-    "astro-robots-txt": "^1.0.0",
-    "astro-seo": "^0.8.4",
-    "giscus": "^1.5.0",
-    "typescript": "^5.4.5",
-    "vite": "^5.2.8"
-  },
-  "devDependencies": {
-    "@iconify-json/mdi": "^1.1.64",
-    "@types/markdown-it": "^14.1.1",
-    "@types/node": "^20.12.7",
-    "@types/sanitize-html": "^2.9.5",
-    "@unocss/reset": "^0.59.0",
-    "@unocss/transformer-directives": "^0.60.4",
-    "bumpp": "^9.4.0",
-    "changelogen": "^0.5.5",
-    "consola": "^3.2.3",
-    "esno": "^4.7.0",
-    "markdown-it": "^14.1.0",
-    "sanitize-html": "^2.11.0",
-    "unocss": "^0.60.4"
-  }
+	"name": "astro-theme-typography",
+	"type": "module",
+	"version": "0.1.0",
+	"repository": "https://github.com/moeyua/astro-theme-typography",
+	"scripts": {
+		"dev": "astro check && astro dev",
+		"preview": "astro preview",
+		"build": "astro check && astro build",
+		"astro": "astro",
+		"new-post": "esno scripts/new-post.ts",
+		"update-theme": "./scripts/update-theme.sh",
+		"format": "biome format --write ./src",
+		"lint": "biome check --write ./src"
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.7.0",
+		"@astrojs/mdx": "^3.0.1",
+		"@astrojs/rss": "^4.0.4",
+		"@astrojs/sitemap": "^3.1.5",
+		"@github/clipboard-copy-element": "^1.3.0",
+		"astro": "^4.9.2",
+		"astro-robots-txt": "^1.0.0",
+		"astro-seo": "^0.8.4",
+		"giscus": "^1.5.0",
+		"typescript": "^5.4.5",
+		"vite": "^5.2.8"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.3",
+		"@iconify-json/mdi": "^1.1.64",
+		"@types/markdown-it": "^14.1.1",
+		"@types/node": "^20.12.7",
+		"@types/sanitize-html": "^2.9.5",
+		"@unocss/reset": "^0.59.0",
+		"@unocss/transformer-directives": "^0.60.4",
+		"bumpp": "^9.4.0",
+		"consola": "^3.2.3",
+		"esno": "^4.7.0",
+		"markdown-it": "^14.1.0",
+		"sanitize-html": "^2.11.0",
+		"unocss": "^0.60.4"
+	}
 }

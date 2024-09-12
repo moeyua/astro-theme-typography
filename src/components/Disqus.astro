@@ -1,18 +1,19 @@
 ---
+import { config } from "~/.config";
+
 interface Props {
-  identifier: string
-  url: string
-  title: string
+	identifier: string;
+	url: string;
+	title: string;
 }
 
-const { identifier, url, title } = Astro.props
-const { comments } = Astro.locals.config
+const { identifier, url, title } = Astro.props;
+const { comments } = config;
 
-if(!comments || !comments.disqus) {
-  throw new Error('Disqus comments are not configured')
+if (!comments || !comments.disqus) {
+	throw new Error("Disqus comments are not configured");
 }
-const shortname = comments.disqus.shortname
-
+const shortname = comments.disqus.shortname;
 ---
 
 <div id="disqus_thread"></div>
@@ -23,6 +24,8 @@ const shortname = comments.disqus.shortname
     this.page.identifier = identifier
     this.page.title = title
   }
+
+  console.debug('disqus_config', disqus_config)
 
   ;(function () {
     var d = document,

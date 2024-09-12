@@ -1,24 +1,22 @@
 ---
-import LayoutDefault from '~/layouts/LayoutDefault.astro'
-import ListSection from '~/components/ListSection.astro'
-import { getCategories, formatDate, getPathFromCategory } from '~/utils'
-import ListItem from '~/components/ListItem.astro'
-import { THEME_CONFIG } from '~/theme.config'
+import { config } from "~/.config";
+import ListItem from "~/components/ListItem.astro";
+import ListSection from "~/components/ListSection.astro";
+import LayoutDefault from "~/layouts/LayoutDefault.astro";
+import { formatDate, getCategories, getPathFromCategory } from "~/utils";
 
 export async function getStaticPaths() {
-  const categories = await getCategories()
-  return Array.from(categories).map(([key, value]) => {
-    const path = getPathFromCategory(key, THEME_CONFIG.category_map);
-    return {
-      params: { category: path, name: key },
-      props: { posts: value },
-    }
-  })
+	const categories = await getCategories();
+	return Array.from(categories).map(([key, value]) => {
+		const path = getPathFromCategory(key, config.category_map);
+		return {
+			params: { category: path, name: key },
+			props: { posts: value },
+		};
+	});
 }
-
-const { posts } = Astro.props
-const { category, name } = Astro.params
-
+const { posts } = Astro.props;
+const { name } = Astro.params;
 ---
 
 <LayoutDefault>

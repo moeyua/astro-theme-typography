@@ -1,12 +1,16 @@
 {
-  "[markdown]": {
-    "editor": {
-      "quickSuggestions": true
-    },
-    "editor.quickSuggestions": {
-      "comments": "on",
-      "other": "on",
-      "strings": "on"
-    }
-  },
+	"editor.defaultFormatter": "biomejs.biome",
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "never",
+		"quickfix.biome": "explicit",
+		"source.organizeImports.biome": "explicit"
+	},
+	"[markdown]": {
+		"editor.quickSuggestions": {
+			"comments": "on",
+			"other": "on",
+			"strings": "on"
+		}
+	}
 }

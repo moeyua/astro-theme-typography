@@ -1,25 +1,27 @@
 ---
-import Disqus from './Disqus.astro'
-import Giscus from './Giscus.astro'
-import Twikoo from './Twikoo.astro'
-interface Props {
-  post: Post
+import { config } from "~/.config";
+import type { Post } from "~/types";
+import Disqus from "./Disqus.astro";
+import Giscus from "./Giscus.astro";
+import Twikoo from "./Twikoo.astro";
 
+interface Props {
+	post: Post;
 }
 
-const { id, data, slug } = Astro.props.post
-const { comments } = Astro.locals.config
+const { id, data, slug } = Astro.props.post;
+const { comments } = config;
 
-const path = `/posts/${slug}`
-const url = `${Astro.site?.href}${path}`
+const path = `/posts/${slug}`;
+const url = `${Astro.site?.href}${path}`;
 
-let commentService = ''
-if (comments && comments.disqus) {
-  commentService = 'disqus'
-} else if (comments && comments.giscus) {
-  commentService = 'giscus'
-} else if (comments && comments.twikoo) {
-  commentService = 'twikoo'
+let commentService = "";
+if (comments?.disqus) {
+	commentService = "disqus";
+} else if (comments?.giscus) {
+	commentService = "giscus";
+} else if (comments?.twikoo) {
+	commentService = "twikoo";
 }
 ---
 <div py-16>

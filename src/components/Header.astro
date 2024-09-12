@@ -1,13 +1,14 @@
 ---
-import type { HTMLAttributes } from 'astro/types'
+import type { HTMLAttributes } from "astro/types";
+import { config } from "~/.config";
 
-type Props = HTMLAttributes<'header'>
+type Props = HTMLAttributes<"header">;
 
-const { ...attrs } = Astro.props
+const { ...attrs } = Astro.props;
 
-const { title, author, socials, navs } = Astro.locals.config
+const { title, author, socials, navs } = config;
 
-const { translate: t } = Astro.locals
+const { translate: t } = Astro.locals;
 ---
 
 <header un-lg="grow-1 justify-between items-start" un-flex="~ col gap-2.5" class="text-center" {...attrs}>

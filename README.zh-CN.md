@@ -73,7 +73,7 @@ pnpm new-post
 
 ## 定制化
 
-「活版印字」主题是高度可定制的。配置文件在[src/theme.config.ts](src/theme.config.ts)
+「活版印字」主题是高度可定制的。默认配置文件为 [src/.config/default.ts](src/.config/default.ts)，您可以根据需要在 [src/.config/user.ts](src/.config/user.ts) 中覆盖默认配置。
 
 ### 社交链接
 

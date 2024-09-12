@@ -1,34 +1,35 @@
 ---
-import '~/styles/index.css'
-// https://sivan.github.io/heti
-import '~/styles/heti.min.css'
-import Header from '~/components/Header.astro'
-import Footer from '~/components/Footer.astro'
-import { ViewTransitions } from 'astro:transitions';
-import { SEO } from 'astro-seo'
-import { getImage } from 'astro:assets'
+import { getImage } from "astro:assets";
+import { ViewTransitions } from "astro:transitions";
+import { SEO } from "astro-seo";
+import { config } from "~/.config";
+import Footer from "~/components/Footer.astro";
+import Header from "~/components/Header.astro";
+import "~/styles/heti.min.css";
+import "~/styles/index.css";
 
 interface Props {
-  title?: string
-  desc?: string
-  banner?: ImageMetadata
+	title?: string;
+	desc?: string;
+	banner?: ImageMetadata;
 }
 
-const props = Astro.props
-const themeConfig = Astro.locals.config
-const { header } = Astro.locals.config
+const props = Astro.props;
 
-const title = props.title ?? themeConfig.title
-const desc = props.desc ?? themeConfig.desc
-const canonical = themeConfig.website
+const title = props.title ?? config.title;
+const desc = props.desc ?? config.desc;
+const canonical = config.website;
 
 const image =
-  props.banner &&
-  (await getImage({
-    src: props.banner,
-    format: "jpeg"
-  }))
-const optimizedImage = new URL(image?.src??"/placeholder.png", Astro.url).toString()
+	props.banner &&
+	(await getImage({
+		src: props.banner,
+		format: "jpeg",
+	}));
+const optimizedImage = new URL(
+	image?.src ?? "/placeholder.png",
+	Astro.url,
+).toString();
 ---
 
 <html lang="en">
@@ -45,8 +46,8 @@ const optimizedImage = new URL(image?.src??"/placeholder.png", Astro.url).toStri
         meta: [
           { name: "twitter:image:src", content: optimizedImage },
           { name: "twitter:image:alt", content: desc },
-          { name: "twitter:creator", content: header.twitter },
-          { name: "twitter:site", content: header.twitter },
+          { name: "twitter:creator", content: config.header.twitter },
+          { name: "twitter:site", content: config.header.twitter },
           { name: "twitter:card", content: "summary_large_image" },
           { name: "twitter:title", content: title },
           { name: "twitter:description", content: desc },

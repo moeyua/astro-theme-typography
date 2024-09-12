@@ -1,13 +1,14 @@
 ---
-import ListItem from '~/components/ListItem.astro'
-import ListSection from '~/components/ListSection.astro'
-import LayoutDefault from '~/layouts/LayoutDefault.astro'
-import { getCategories, getPathFromCategory } from '~/utils/index'
+import { config } from "~/.config";
+import ListItem from "~/components/ListItem.astro";
+import ListSection from "~/components/ListSection.astro";
+import LayoutDefault from "~/layouts/LayoutDefault.astro";
+import { getCategories, getPathFromCategory } from "~/utils/index";
 
-const { translate: t } = Astro.locals
-const { category_map } = Astro.locals.config;
+const { translate: t } = Astro.locals;
+const { category_map } = config;
 
-const categories = await getCategories()
+const categories = await getCategories();
 ---
 
 <LayoutDefault>
