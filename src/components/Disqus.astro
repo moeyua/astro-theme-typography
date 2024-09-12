@@ -1,5 +1,5 @@
 ---
-import { config } from "~/.config";
+import { themeConfig } from "~/.config";
 
 interface Props {
 	identifier: string;
@@ -8,12 +8,12 @@ interface Props {
 }
 
 const { identifier, url, title } = Astro.props;
-const { comments } = config;
+const { comment } = themeConfig;
 
-if (!comments || !comments.disqus) {
+if (!comment || !comment.disqus) {
 	throw new Error("Disqus comments are not configured");
 }
-const shortname = comments.disqus.shortname;
+const shortname = comment.disqus.shortname;
 ---
 
 <div id="disqus_thread"></div>

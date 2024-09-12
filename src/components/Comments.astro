@@ -1,5 +1,5 @@
 ---
-import { config } from "~/.config";
+import { themeConfig } from "~/.config";
 import type { Post } from "~/types";
 import Disqus from "./Disqus.astro";
 import Giscus from "./Giscus.astro";
@@ -10,18 +10,15 @@ interface Props {
 }
 
 const { id, data, slug } = Astro.props.post;
-const { comments } = config;
 
 const path = `/posts/${slug}`;
 const url = `${Astro.site?.href}${path}`;
 
-let commentService = "";
-if (comments?.disqus) {
-	commentService = "disqus";
-} else if (comments?.giscus) {
-	commentService = "giscus";
-} else if (comments?.twikoo) {
-	commentService = "twikoo";
+const commentService = getCommentService();
+
+function getCommentService() {
+	const result = Object.keys(themeConfig.comment)[0];
+	return result || "";
 }
 ---
 <div py-16>

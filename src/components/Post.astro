@@ -1,5 +1,5 @@
 ---
-import { config } from "~/.config";
+import { themeConfig } from "~/.config";
 import type { Post } from "~/types";
 import { formatDate, getPathFromCategory } from "~/utils";
 
@@ -11,7 +11,7 @@ const { post } = Astro.props;
 const { translate: t } = Astro.locals;
 
 function getCategoryUrl(category: string) {
-	return `/categories/${getPathFromCategory(category, config.category_map)}`;
+	return `/categories/${getPathFromCategory(category, themeConfig.site.categoryMap)}`;
 }
 ---
 

@@ -5,14 +5,12 @@ import {
 	presetIcons,
 	presetUno,
 } from "unocss";
-import { config } from "./src/.config";
-
-const { socials, themeStyle } = config;
+import { themeConfig } from "./src/.config";
 
 let foreground = "#2e405b";
 let background = "#ffffff";
 
-if (themeStyle === "dark") {
+if (themeConfig.appearance.theme === "dark") {
 	foreground = "#ffffff";
 	background = "#2e405b";
 }
@@ -20,7 +18,7 @@ if (themeStyle === "dark") {
 export default defineConfig({
 	presets: [
 		presetUno({
-			dark: themeStyle === "auto" ? "media" : "class",
+			dark: themeConfig.appearance.theme === "auto" ? "media" : "class",
 		}),
 		presetAttributify({ nonValuedAttribute: true }),
 		presetIcons({
@@ -53,7 +51,7 @@ export default defineConfig({
 	],
 	transformers: [transformerDirectives()],
 	safelist: [
-		...socials.map((social) => `i-mdi-${social.name}`),
+		...themeConfig.site.socialLinks.map((social) => `i-mdi-${social.name}`),
 		"i-mdi-content-copy",
 		"i-mdi-check",
 	],

@@ -2,19 +2,19 @@ import rss from "@astrojs/rss";
 import type { APIContext } from "astro";
 import MarkdownIt from "markdown-it";
 import sanitizeHtml from "sanitize-html";
-import { config } from "~/.config";
+import { themeConfig } from "~/.config";
 import { getPosts } from "~/utils";
 
 const parser = new MarkdownIt();
 
-const { title, desc, website, author } = config;
+const { title, description, website, author } = themeConfig.site;
 
 export async function GET(_context: APIContext) {
 	const posts = await getPosts();
 	const allowedTags = sanitizeHtml.defaults.allowedTags.concat(["img"]);
 	return rss({
 		title: title,
-		description: desc,
+		description: description,
 		site: website,
 		items: posts.map((post) => {
 			return {

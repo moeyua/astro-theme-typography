@@ -1,6 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import { config } from "~/.config";
+import { themeConfig } from "~/.config";
 
 type Props = HTMLAttributes<"footer">;
 
@@ -8,7 +8,7 @@ const { ...attrs } = Astro.props;
 
 const year = new Date().getFullYear();
 
-const { website, author } = config;
+const { website, author } = themeConfig.site;
 ---
 
 <footer font-bold text-3 un-flex="~ col gap-1" un-lg="gap-3.5" {...attrs}>

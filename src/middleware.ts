@@ -1,9 +1,9 @@
 import { defineMiddleware } from "astro:middleware";
-import { config } from "~/.config";
+import { themeConfig } from "~/.config";
 import { LANGUAGES } from "~/i18n.ts";
 
 export const onRequest = defineMiddleware(async (context, next) => {
-	const locale = config.locale;
+	const locale = themeConfig.appearance.locale;
 
 	const localeTranslate = LANGUAGES[locale];
 
