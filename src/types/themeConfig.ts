@@ -56,10 +56,9 @@ export interface ConfigComment {
 }
 
 export interface ConfigRSS {
-	// TODO: 未实现
-	_fullText?: boolean;
-	// https://github.com/RSSNext/follow
-	_follow?: { feedId: string; userId: string };
+	fullText?: boolean;
+	/** https://github.com/RSSNext/follow */
+	follow?: { feedId: string; userId: string };
 }
 
 interface Colors {

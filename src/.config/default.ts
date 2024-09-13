@@ -66,5 +66,12 @@ export const defaultConfig: ThemeConfig = {
 	comment: {
 		disqus: { shortname: "typography-astro" },
 	},
-	rss: {},
+	rss: {
+		// TODO: 开发完成后需要移除
+		follow: {
+			feedId: "57237837199463424",
+			userId: "55155533279089664",
+		},
+		fullText: true,
+	},
 };
