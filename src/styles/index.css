@@ -2,7 +2,7 @@ body {
   --uno: antialiased;
   color: theme("colors.foreground");
   background-color: theme("colors.background");
-  font-family: theme("fontFamily.sans");
+  font-family: theme("fontFamily.ui");
   line-height: normal;
   text-align: left;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);

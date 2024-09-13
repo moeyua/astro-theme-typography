@@ -39,9 +39,9 @@ export interface ConfigAppearance {
 	locale: keyof typeof LANGUAGES;
 	colorsDark: Colors;
 	colorsLight: Colors;
+	fonts: Fonts;
 
 	// TODO: 未实现
-	_font?: Fonts;
 	_animation?: boolean;
 }
 
@@ -68,9 +68,10 @@ interface Colors {
 
 interface Fonts {
 	header: string;
-	article: string;
-	code: string;
 	ui: string;
+	// TODO: 未实现
+	_article?: string;
+	_code?: string;
 }
 
 interface Twikoo {
