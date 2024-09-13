@@ -35,12 +35,12 @@ export interface ConfigSite {
 }
 
 export interface ConfigAppearance {
-	theme: "light" | "dark" | "auto";
+	theme: "light" | "dark";
 	locale: keyof typeof LANGUAGES;
+	colorsDark: Colors;
+	colorsLight: Colors;
 
 	// TODO: 未实现
-	_colorsDark?: Colors;
-	_colorsLight?: Colors;
 	_font?: Fonts;
 	_animation?: boolean;
 }
@@ -63,8 +63,7 @@ export interface ConfigRSS {
 }
 
 interface Colors {
-	primary: string;
-	secondary: string;
+	foreground: string;
 	background: string;
 }
 

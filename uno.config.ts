@@ -7,30 +7,18 @@ import {
 } from "unocss";
 import { themeConfig } from "./src/.config";
 
-let foreground = "#2e405b";
-let background = "#ffffff";
+const { theme, colorsDark, colorsLight } = themeConfig.appearance;
 
-if (themeConfig.appearance.theme === "dark") {
-	foreground = "#ffffff";
-	background = "#2e405b";
-}
+const colors = theme === "dark" ? colorsDark : colorsLight;
 
 export default defineConfig({
 	presets: [
-		presetUno({
-			dark: themeConfig.appearance.theme === "auto" ? "media" : "class",
-		}),
+		presetUno(),
 		presetAttributify({ nonValuedAttribute: true }),
-		presetIcons({
-			scale: 1.2,
-			warn: true,
-		}),
+		presetIcons({ scale: 1.2, warn: true }),
 	],
 	theme: {
-		colors: {
-			foreground,
-			background,
-		},
+		colors,
 		fontFamily: {
 			sans: '"Source Sans Pro","Roboto","Helvetica","Helvetica Neue","Source Han Sans SC","Source Han Sans TC","PingFang SC","PingFang HK","PingFang TC",sans-serif',
 			serif:
