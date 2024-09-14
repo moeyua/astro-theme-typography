@@ -1,5 +1,6 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import swup from "@swup/astro";
 import robotsTxt from "astro-robots-txt";
 import { defineConfig } from "astro/config";
 import UnoCSS from "unocss/astro";
@@ -12,16 +13,24 @@ export default defineConfig({
 	markdown: {
 		shikiConfig: {
 			theme: "one-dark-pro",
-			langs: [],
 			wrap: true,
 		},
 	},
 	integrations: [
-		UnoCSS({
-			injectReset: true,
-		}),
+		UnoCSS({ injectReset: true }),
+		mdx(),
 		robotsTxt(),
 		sitemap(),
-		mdx(),
+		swup({
+			theme: false,
+			animationClass: "transition-swup-",
+			cache: true,
+			preload: true,
+			accessibility: true,
+			updateHead: true,
+			updateBodyClass: false,
+			globalInstance: true,
+			smoothScrolling: true,
+		}),
 	],
 });

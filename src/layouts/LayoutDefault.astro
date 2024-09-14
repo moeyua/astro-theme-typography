@@ -1,6 +1,5 @@
 ---
 import { getImage } from "astro:assets";
-import { ViewTransitions } from "astro:transitions";
 import { SEO, type SEOProps } from "astro-seo";
 import { themeConfig } from "~/.config";
 import Footer from "~/components/Footer.astro";
@@ -58,12 +57,10 @@ async function getOptimizedImageURL() {
 	return new URL(image?.src ?? "/placeholder.png", Astro.url).toString();
 }
 ---
-
-<html lang="en">
+<html lang="en" class="initial-load">
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <ViewTransitions />
     <SEO
       charset="utf-8"
       title={title}
@@ -77,22 +74,80 @@ async function getOptimizedImageURL() {
   </head>
   <body>
     <div
-      un-max-lg="animate-fadein-down"
       un-lg="flex flex-row-reverse justify-between gap-4 px-8 mx-auto max-w-6xl"
       class="container contain-layout m-a"
     >
       <div
-        un-lg="sticky top-0 h-screen py-20 animate-fadein-left gap-8"
+        un-lg="sticky top-0 h-screen py-20 gap-8"
         un-lg:flex="~ col justify-between items-start gap-4"
-        class="p-7.5"
+        class="p-7.5 transition-swup-header"
       >
         <Header />
         <Footer class="max-lg:hidden" />
       </div>
-      <main un-lg="py-20 min-w-xl animate-fadein-down" class="p-7.5">
+      <main un-lg="py-20 min-w-xl" class="p-7.5 transition-swup-main">
         <slot />
       </main>
-      <Footer class="lg:hidden p-7.5" />
+      <Footer class="lg:hidden p-7.5"/>
     </div>
   </body>
 </html>
+
+<script>
+function removeAnimation() {
+  document.documentElement.classList.remove("initial-load");
+  document.removeEventListener('animationend', removeAnimation, false);
+}
+document.addEventListener('animationend', removeAnimation, false)
+</script>
+
+<style>
+@keyframes fade-in-down {
+  0% {
+    transform: translateY(-1rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.initial-load .transition-swup-header {
+  animation: fade-in-left 1s linear 1;
+}
+.initial-load .transition-swup-main {
+  animation: fade-in-down 1s linear 1;
+}
+
+html.is-animating .transition-swup-main {
+  opacity: 0;
+  transform: translateY(-1rem);
+}
+
+html.is-leaving .transition-swup-main {
+  opacity: 0;
+  transform: translateY(1rem);
+}
+
+.transition-swup-main {
+  transition-property: opacity, transform;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+</style>
