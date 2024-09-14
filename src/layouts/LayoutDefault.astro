@@ -57,7 +57,7 @@ async function getOptimizedImageURL() {
 	return new URL(image?.src ?? "/placeholder.png", Astro.url).toString();
 }
 ---
-<html lang="en" class="initial-load">
+<html lang="en" class="animation-prepared">
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
@@ -94,14 +94,24 @@ async function getOptimizedImageURL() {
 </html>
 
 <script>
+document.addEventListener('animationend', removeAnimation, false)
 function removeAnimation() {
-  document.documentElement.classList.remove("initial-load");
+  document.documentElement.classList.remove("animation-prepared");
   document.removeEventListener('animationend', removeAnimation, false);
 }
-document.addEventListener('animationend', removeAnimation, false)
 </script>
 
 <style>
+/* 页面首次加载动画 */
+html.animation-prepared .transition-swup-header {
+  animation: fade-in-down 1s linear 1;
+  --at-apply: 'lg-animate-name-fade-in-left';
+}
+
+html.animation-prepared .transition-swup-main {
+  animation: fade-in-down 1s linear 1;
+}
+
 @keyframes fade-in-down {
   0% {
     transform: translateY(-1rem);
@@ -125,29 +135,20 @@ document.addEventListener('animationend', removeAnimation, false)
   }
 }
 
-.initial-load .transition-swup-header {
-  animation: fade-in-left 1s linear 1;
-}
-.initial-load .transition-swup-main {
-  animation: fade-in-down 1s linear 1;
-}
-
+/* 页面过渡动画 */
 html.is-animating .transition-swup-main {
   opacity: 0;
   transform: translateY(-1rem);
 }
-
 html.is-leaving .transition-swup-main {
   opacity: 0;
   transform: translateY(1rem);
 }
-
 .transition-swup-main {
-  transition-property: opacity, transform;
+  ransition-property: opacity, transform;
   transition-duration: 0.5s;
   transition-timing-function: linear;
   transform: translateY(0);
   opacity: 1;
 }
-
 </style>

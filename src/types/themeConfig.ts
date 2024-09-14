@@ -40,9 +40,6 @@ export interface ConfigAppearance {
 	colorsDark: Colors;
 	colorsLight: Colors;
 	fonts: Fonts;
-
-	// TODO: 未实现
-	_animation?: boolean;
 }
 
 export interface ConfigSEO {

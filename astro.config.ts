@@ -27,10 +27,9 @@ export default defineConfig({
 			cache: true,
 			preload: true,
 			accessibility: true,
-			updateHead: true,
-			updateBodyClass: false,
-			globalInstance: true,
 			smoothScrolling: true,
+			updateHead: true,
+			updateBodyClass: true,
 		}),
 	],
 });
