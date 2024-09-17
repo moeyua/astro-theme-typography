@@ -3,6 +3,7 @@ import {
 	defineConfig,
 	presetAttributify,
 	presetIcons,
+	presetTypography,
 	presetUno,
 } from "unocss";
 import { themeConfig } from "./src/.config";
@@ -11,9 +12,28 @@ const { theme, colorsDark, colorsLight, fonts } = themeConfig.appearance;
 
 const colors = theme === "dark" ? colorsDark : colorsLight;
 
+const cssExtend = {
+	":root": {
+		"--un-prose-borders": "#eee",
+	},
+
+	"code::before,code::after": {
+		content: "none",
+	},
+
+	":where(:not(pre):not(a) > code)": {
+		padding: "2px 4px",
+		color: "#c7254e",
+		"font-size": "90%",
+		"background-color": "#f9f2f4",
+		"border-radius": "4px",
+	},
+};
+
 export default defineConfig({
 	presets: [
 		presetUno(),
+		presetTypography({ cssExtend }),
 		presetAttributify({ nonValuedAttribute: true }),
 		presetIcons({ scale: 1.2, warn: true }),
 	],
