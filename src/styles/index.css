@@ -72,7 +72,7 @@ article.heti a:has(code):hover {
   background-color: transparent;
 }
 
-article.heti code {
+article.heti :where(:not(pre) > code) {
   padding: 2px 4px;
   font-size: 90%;
   color: #c7254e;
