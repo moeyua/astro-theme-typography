@@ -44,9 +44,17 @@
     "eslint-plugin-astro": "^1.2.4",
     "eslint-plugin-format": "^0.1.2",
     "esno": "^4.7.0",
+    "lint-staged": "^15.2.10",
     "markdown-it": "^14.1.0",
     "prettier-plugin-astro": "^0.13.0",
     "sanitize-html": "^2.13.0",
+    "simple-git-hooks": "^2.11.1",
     "unocss": "^0.62.4"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }
