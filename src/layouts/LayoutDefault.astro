@@ -73,7 +73,7 @@ async function getOptimizedImageURL() {
     />
   </head>
 
-  <body class="h-100vh max-w-1200px min-w-390px mx-a" p="7.5 lg:(y-0 x-20)" lg="grid rows-[1fr_9rem]">
+  <body class="h-100vh max-w-1200px min-w-390px mx-a" p="7.5 lg:(y-0 x-20)" lg="grid cols-[3fr_1fr] rows-[1fr_9rem]">
     <header
       class="transition-swup-header flex flex-col gap-2.5"
       m="7.5 lg:(x-0 t-20 b-4)"
@@ -90,6 +90,7 @@ async function getOptimizedImageURL() {
     <footer class="transition-swup-footer py-7.5" lg="row-2-3 col-2-3">
       <PageFooter />
     </footer>
+
     <script>
       document.addEventListener('animationend', removeAnimation, false)
       function removeAnimation() {
