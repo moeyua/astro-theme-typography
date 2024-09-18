@@ -1,16 +1,19 @@
 html {
   --uno: antialiased;
 
-  color: theme("colors.foreground");
-  font-family: theme("fontFamily.ui");
+  color: theme('colors.foreground');
+  font-family: theme('fontFamily.ui');
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
 
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
   background-size: 7px 7px;
 }
 
 a {
-  transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
+  transition:
+    color 0.3s ease 0s,
+    background-color 0.3s ease 0s;
   padding: 2px;
   /* TODO: 重新设计 underline */
   text-decoration-line: underline;
@@ -20,8 +23,8 @@ a {
 
 a:hover {
   text-decoration-line: none;
-  color: theme("colors.background");
-  background-color: theme("colors.foreground");
+  color: theme('colors.background');
+  background-color: theme('colors.foreground');
 }
 
 a.normal {
@@ -34,6 +37,3 @@ a.normal:hover {
   color: inherit;
   background-color: transparent;
 }
-
-
-

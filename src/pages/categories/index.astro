@@ -1,17 +1,25 @@
 ---
-import { themeConfig } from "~/.config";
-import ListItem from "~/components/ListItem.astro";
-import ListSection from "~/components/ListSection.astro";
-import LayoutDefault from "~/layouts/LayoutDefault.astro";
-import { getCategories, getPathFromCategory } from "~/utils/index";
+import { themeConfig } from '~/.config'
+import ListItem from '~/components/ListItem.astro'
+import ListSection from '~/components/ListSection.astro'
+import LayoutDefault from '~/layouts/LayoutDefault.astro'
+import { getCategories, getPathFromCategory } from '~/utils/index'
 
-const { translate: t } = Astro.locals;
+const { translate: t } = Astro.locals
 
-const categories = await getCategories();
+const categories = await getCategories()
 ---
 
 <LayoutDefault>
   <ListSection title={t('Categories')}>
-    {Array.from(categories).map(([key, value]) => <ListItem title={key} href={`/categories/${getPathFromCategory(key, themeConfig.site.categoryMap)}`} description={t('categories_count', value.length)} />)}
+    {
+      Array.from(categories).map(([key, value]) => (
+        <ListItem
+          title={key}
+          href={`/categories/${getPathFromCategory(key, themeConfig.site.categoryMap)}`}
+          description={t('categories_count', value.length)}
+        />
+      ))
+    }
   </ListSection>
 </LayoutDefault>

@@ -1,17 +1,17 @@
 ---
-import { themeConfig } from "~/.config";
-import type { Post } from "~/types";
-import { formatDate, getPathFromCategory } from "~/utils";
+import { themeConfig } from '~/.config'
+import type { Post } from '~/types'
+import { formatDate, getPathFromCategory } from '~/utils'
 
 interface Props {
-	post: Post;
+  post: Post
 }
 
-const { post } = Astro.props;
-const { translate: t } = Astro.locals;
+const { post } = Astro.props
+const { translate: t } = Astro.locals
 
 function getCategoryUrl(category: string) {
-	return `/categories/${getPathFromCategory(category, themeConfig.site.categoryMap)}`;
+  return `/categories/${getPathFromCategory(category, themeConfig.site.categoryMap)}`
 }
 ---
 

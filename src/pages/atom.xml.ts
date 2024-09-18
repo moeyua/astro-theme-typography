@@ -1,53 +1,55 @@
-import rss from "@astrojs/rss";
-import type { APIContext } from "astro";
-import MarkdownIt from "markdown-it";
-import sanitizeHtml from "sanitize-html";
-import { themeConfig } from "~/.config";
-import type { Post } from "~/types";
-import { getPosts } from "~/utils";
+import type { APIContext } from 'astro'
+import rss from '@astrojs/rss'
+import { themeConfig } from '~/.config'
+import MarkdownIt from 'markdown-it'
+import sanitizeHtml from 'sanitize-html'
+import type { Post } from '~/types'
+import { getPosts } from '~/utils'
 
-const parser = new MarkdownIt();
-const { title, description, website, author } = themeConfig.site;
-const allowedTags = sanitizeHtml.defaults.allowedTags.concat(["img"]);
+const parser = new MarkdownIt()
+const { title, description, website, author } = themeConfig.site
+const allowedTags = sanitizeHtml.defaults.allowedTags.concat(['img'])
 
 export async function GET(_context: APIContext) {
-	const posts = await getPosts();
-	return rss({
-		title: title,
-		description: description,
-		site: website,
-		items: posts.map(getPostItem),
-		customData: getCustomData(),
-	});
+  const posts = await getPosts()
+  return rss({
+    title,
+    description,
+    site: website,
+    items: posts.map(getPostItem),
+    customData: getCustomData(),
+  })
 }
 
 function getCustomData() {
-	const follow = themeConfig.rss.follow;
-	if (!follow) return "";
-	const { feedId, userId } = follow;
-	return `<follow_challenge><feedId>${feedId}</feedId><userId>${userId}</userId></follow_challenge>`;
+  const follow = themeConfig.rss.follow
+  if (!follow)
+    return ''
+  const { feedId, userId } = follow
+  return `<follow_challenge><feedId>${feedId}</feedId><userId>${userId}</userId></follow_challenge>`
 }
 
 function getPostItem(post: Post) {
-	const postItem = {
-		link: `/posts/${post.slug}/`,
-		author: post.data.author ?? author,
-		content: getPostContent(post),
-		title: post.data.title,
-		pubDate: post.data.pubDate,
-		description: post.data.description,
-		customData: post.data.customData,
-		categories: post.data.categories,
-		commentsUrl: post.data.commentsUrl,
-		source: post.data.source,
-		enclosure: post.data.enclosure,
-	};
+  const postItem = {
+    link: `/posts/${post.slug}/`,
+    author: post.data.author ?? author,
+    content: getPostContent(post),
+    title: post.data.title,
+    pubDate: post.data.pubDate,
+    description: post.data.description,
+    customData: post.data.customData,
+    categories: post.data.categories,
+    commentsUrl: post.data.commentsUrl,
+    source: post.data.source,
+    enclosure: post.data.enclosure,
+  }
 
-	return postItem;
+  return postItem
 }
 
 function getPostContent(post: Post) {
-	const isFullText = themeConfig.rss.fullText;
-	if (!isFullText) return post.data.description;
-	return sanitizeHtml(parser.render(post.body), { allowedTags });
+  const isFullText = themeConfig.rss.fullText
+  if (!isFullText)
+    return post.data.description
+  return sanitizeHtml(parser.render(post.body), { allowedTags })
 }

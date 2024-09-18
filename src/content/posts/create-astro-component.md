@@ -29,8 +29,8 @@ const name = 'Astro'
 ---
 
 <div>
-	<h1>Hello {name}!</h1>
-	<!-- Outputs <h1>Hello Astro!</h1> -->
+  <h1>Hello {name}!</h1>
+  <!-- Outputs <h1>Hello Astro!</h1> -->
 </div>
 ```
 
@@ -56,7 +56,7 @@ For example, you can't assign an event handler to an HTML element in an Astro co
 ---
 // dont-do-this.astro
 function handleClick() {
-	console.log('button clicked!')
+  console.log('button clicked!')
 }
 ---
 
@@ -71,11 +71,11 @@ Instead, use a client-side script to add the event handler, like you would in va
 // do-this-instead.astro
 ---
 
-<button id='button'>Click Me</button>
+<button id="button">Click Me</button>
 <script>
-	function handleClick() {
-		console.log('button clicked!')
-	}
-	document.getElementById('button').addEventListener('click', handleClick)
+  function handleClick() {
+    console.log('button clicked!')
+  }
+  document.getElementById('button').addEventListener('click', handleClick)
 </script>
 ```

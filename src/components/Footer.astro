@@ -1,14 +1,14 @@
 ---
-import type { HTMLAttributes } from "astro/types";
-import { themeConfig } from "~/.config";
+import type { HTMLAttributes } from 'astro/types'
+import { themeConfig } from '~/.config'
 
-type Props = HTMLAttributes<"footer">;
+type Props = HTMLAttributes<'footer'>
 
-const { ...attrs } = Astro.props;
+const { ...attrs } = Astro.props
 
-const year = new Date().getFullYear();
+const year = new Date().getFullYear()
 
-const { website, author } = themeConfig.site;
+const { website, author } = themeConfig.site
 ---
 
 <footer font-bold text-3 flex="~ col gap-1" lg="gap-3.5" {...attrs}>
@@ -19,7 +19,7 @@ const { website, author } = themeConfig.site;
   <p>
     Theme
     <a target="_blank" href="https://github.com/Moeyua/astro-theme-typography" rel="noopener noreferrer">Typography</a>
-     by <a target="_blank" href="https://moeyua.com" rel="noopener noreferrer">Moeyua</a>
+    by <a target="_blank" href="https://moeyua.com" rel="noopener noreferrer">Moeyua</a>
   </p>
   <p>
     Proudly published with

@@ -1,65 +1,65 @@
 ---
-import { getImage } from "astro:assets";
-import { SEO, type SEOProps } from "astro-seo";
-import { themeConfig } from "~/.config";
-import PageFooter from "~/components/PageFooter.astro";
+import { getImage } from 'astro:assets'
+import { SEO, type SEOProps } from 'astro-seo'
+import { themeConfig } from '~/.config'
+import PageFooter from '~/components/PageFooter.astro'
 // import "~/styles/heti.min.css";
-import "~/styles/index.css";
-import "~/styles/animation.css";
-import PageNav from "~/components/PageNav.astro";
-import PageTitle from "~/components/PageTitle.astro";
+import '~/styles/index.css'
+import '~/styles/animation.css'
+import PageNav from '~/components/PageNav.astro'
+import PageTitle from '~/components/PageTitle.astro'
 
 interface Props {
-	title?: string;
-	desc?: string;
-	banner?: ImageMetadata;
+  title?: string
+  desc?: string
+  banner?: ImageMetadata
 }
 
-const props = Astro.props;
+const props = Astro.props
 
-const title = props.title ?? themeConfig.site.title;
-const desc = props.desc ?? themeConfig.site.description;
-const canonical = themeConfig.site.website;
-const twitter = themeConfig.seo.twitter;
-const rss = new URL("/atom.xml", Astro.site).toString();
-const optimizedImage = await getOptimizedImageURL();
-const lang = themeConfig.appearance.locale ?? "en-us";
+const title = props.title ?? themeConfig.site.title
+const desc = props.desc ?? themeConfig.site.description
+const canonical = themeConfig.site.website
+const twitter = themeConfig.seo.twitter
+const rss = new URL('/atom.xml', Astro.site).toString()
+const optimizedImage = await getOptimizedImageURL()
+const lang = themeConfig.appearance.locale ?? 'en-us'
 
 const seoLinks = [
-	{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
-	{
-		rel: "alternate",
-		type: "application/rss+xml",
-		title: themeConfig.site.title,
-		href: rss,
-	},
-];
+  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  {
+    rel: 'alternate',
+    type: 'application/rss+xml',
+    title: themeConfig.site.title,
+    href: rss,
+  },
+]
 
 const seoMeta = [
-	{ name: "twitter:image:src", content: optimizedImage },
-	{ name: "twitter:image:alt", content: desc },
-	{ name: "twitter:creator", content: twitter },
-	{ name: "twitter:site", content: twitter },
-	{ name: "twitter:card", content: "summary_large_image" },
-	{ name: "twitter:title", content: title },
-	{ name: "twitter:description", content: desc },
-];
+  { name: 'twitter:image:src', content: optimizedImage },
+  { name: 'twitter:image:alt', content: desc },
+  { name: 'twitter:creator', content: twitter },
+  { name: 'twitter:site', content: twitter },
+  { name: 'twitter:card', content: 'summary_large_image' },
+  { name: 'twitter:title', content: title },
+  { name: 'twitter:description', content: desc },
+]
 
-const openGraph: SEOProps["openGraph"] = {
-	basic: {
-		title: title,
-		type: "article",
-		image: optimizedImage,
-		url: canonical,
-	},
-};
+const openGraph: SEOProps['openGraph'] = {
+  basic: {
+    title: title,
+    type: 'article',
+    image: optimizedImage,
+    url: canonical,
+  },
+}
 
 async function getOptimizedImageURL() {
-	const image =
-		props.banner && (await getImage({ src: props.banner, format: "jpeg" }));
-	return new URL(image?.src ?? "/placeholder.png", Astro.url).toString();
+  const image = props.banner && (await getImage({ src: props.banner, format: 'jpeg' }))
+  return new URL(image?.src ?? '/placeholder.png', Astro.url).toString()
 }
 ---
+
 <html lang={lang} class="animation-prepared">
   <head>
     <meta name="viewport" content="width=device-width" />
@@ -68,37 +68,34 @@ async function getOptimizedImageURL() {
       charset="utf-8"
       title={title}
       description={desc}
-      extend={{link: seoLinks, meta:seoMeta}}
+      extend={{ link: seoLinks, meta: seoMeta }}
       openGraph={openGraph}
     />
   </head>
 
-  <body class="h-100vh max-w-1200px min-w-390px mx-a " 
-        p="7.5 lg:(y-0 x-20)"
-        lg="grid rows-[1fr_9rem]" >
-      <header class="transition-swup-header flex flex-col gap-2.5" 
-            m="7.5 lg:(x-0 t-20 b-4)"
-            lg="row-1-2 col-2-3 justify-between items-start">
-          <PageTitle />
-          <PageNav />
-      </header>
+  <body class="h-100vh max-w-1200px min-w-390px mx-a" p="7.5 lg:(y-0 x-20)" lg="grid rows-[1fr_9rem]">
+    <header
+      class="transition-swup-header flex flex-col gap-2.5"
+      m="7.5 lg:(x-0 t-20 b-4)"
+      lg="row-1-2 col-2-3 justify-between items-start"
+    >
+      <PageTitle />
+      <PageNav />
+    </header>
 
-      <main class="transition-swup-main overflow-y-scroll" 
-            lg="row-1-3 col-1-2 py-20 " >
-        <slot />
-      </main>
+    <main class="transition-swup-main overflow-y-scroll" lg="row-1-3 col-1-2 py-20 ">
+      <slot />
+    </main>
 
-      <footer class="transition-swup-footer py-7.5 " lg="row-2-3 col-2-3">
-        <PageFooter />
-      </footer>
+    <footer class="transition-swup-footer py-7.5" lg="row-2-3 col-2-3">
+      <PageFooter />
+    </footer>
+    <script>
+      document.addEventListener('animationend', removeAnimation, false)
+      function removeAnimation() {
+        document.documentElement.classList.remove('animation-prepared')
+        document.removeEventListener('animationend', removeAnimation, false)
+      }
+    </script>
   </body>
 </html>
-
-
-<script>
-document.addEventListener('animationend', removeAnimation, false)
-function removeAnimation() {
-  document.documentElement.classList.remove("animation-prepared");
-  document.removeEventListener('animationend', removeAnimation, false);
-}
-</script>

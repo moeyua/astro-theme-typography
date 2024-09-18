@@ -1,11 +1,11 @@
 ---
-import type { HTMLAttributes } from "astro/types";
-import Nav from "./PageNav.astro";
-import Title from "./PageTitle.astro";
+import type { HTMLAttributes } from 'astro/types'
+import Nav from './PageNav.astro'
+import Title from './PageTitle.astro'
 
-type Props = HTMLAttributes<"header">;
+type Props = HTMLAttributes<'header'>
 
-const { ...attrs } = Astro.props;
+const { ...attrs } = Astro.props
 ---
 
 <header lg="grow-1 justify-between items-start" flex="~ col gap-2.5" class="text-center" {...attrs}>

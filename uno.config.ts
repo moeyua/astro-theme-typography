@@ -1,65 +1,65 @@
-import presetAttributify from "@unocss/preset-attributify";
-import transformerDirectives from "@unocss/transformer-directives";
+import presetAttributify from '@unocss/preset-attributify'
+import transformerDirectives from '@unocss/transformer-directives'
 import {
-	defineConfig,
-	presetIcons,
-	presetTypography,
-	presetUno,
-	transformerVariantGroup,
-} from "unocss";
-import { themeConfig } from "./src/.config";
+  defineConfig,
+  presetIcons,
+  presetTypography,
+  presetUno,
+  transformerVariantGroup,
+} from 'unocss'
+import { themeConfig } from './src/.config'
 
-const { theme, colorsDark, colorsLight, fonts } = themeConfig.appearance;
+const { theme, colorsDark, colorsLight, fonts } = themeConfig.appearance
 
-const colors = theme === "dark" ? colorsDark : colorsLight;
+const colors = theme === 'dark' ? colorsDark : colorsLight
 
 const cssExtend = {
-	":root": {
-		"--prose-borders": "#eee",
-	},
+  ':root': {
+    '--prose-borders': '#eee',
+  },
 
-	"code::before,code::after": {
-		content: "none",
-	},
+  'code::before,code::after': {
+    content: 'none',
+  },
 
-	":where(:not(pre):not(a) > code)": {
-		padding: "2px 4px",
-		color: "#c7254e",
-		"font-size": "90%",
-		"background-color": "#f9f2f4",
-		"border-radius": "4px",
-	},
-};
+  ':where(:not(pre):not(a) > code)': {
+    'padding': '2px 4px',
+    'color': '#c7254e',
+    'font-size': '90%',
+    'background-color': '#f9f2f4',
+    'border-radius': '4px',
+  },
+}
 
 export default defineConfig({
-	rules: [
-		[
-			/^row-(\d+)-(\d)$/,
-			([, start, end]) => ({ "grid-row": `${start}/${end}` }),
-		],
-		[
-			/^col-(\d+)-(\d)$/,
-			([, start, end]) => ({ "grid-column": `${start}/${end}` }),
-		],
-	],
-	presets: [
-		presetUno(),
-		presetTypography({ cssExtend }),
-		presetAttributify(),
-		presetIcons({ scale: 1.2, warn: true }),
-	],
-	theme: {
-		colors,
-		fontFamily: fonts,
-	},
-	shortcuts: [
-		["icon", "inline-block "],
-		["post-title", "text-5 font-bold lh-7.5 m-0"],
-	],
-	transformers: [transformerDirectives(), transformerVariantGroup()],
-	safelist: [
-		...themeConfig.site.socialLinks.map((social) => `i-mdi-${social.name}`),
-		"i-mdi-content-copy",
-		"i-mdi-check",
-	],
-});
+  rules: [
+    [
+      /^row-(\d+)-(\d)$/,
+      ([, start, end]) => ({ 'grid-row': `${start}/${end}` }),
+    ],
+    [
+      /^col-(\d+)-(\d)$/,
+      ([, start, end]) => ({ 'grid-column': `${start}/${end}` }),
+    ],
+  ],
+  presets: [
+    presetUno(),
+    presetTypography({ cssExtend }),
+    presetAttributify(),
+    presetIcons({ scale: 1.2, warn: true }),
+  ],
+  theme: {
+    colors,
+    fontFamily: fonts,
+  },
+  shortcuts: [
+    ['icon', 'inline-block '],
+    ['post-title', 'text-5 font-bold lh-7.5 m-0'],
+  ],
+  transformers: [transformerDirectives(), transformerVariantGroup()],
+  safelist: [
+    ...themeConfig.site.socialLinks.map(social => `i-mdi-${social.name}`),
+    'i-mdi-content-copy',
+    'i-mdi-check',
+  ],
+})

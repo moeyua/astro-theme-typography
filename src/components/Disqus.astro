@@ -1,38 +1,40 @@
 ---
-import { themeConfig } from "~/.config";
+import { themeConfig } from '~/.config'
 
 interface Props {
-	identifier: string;
-	url: string;
-	title: string;
+  identifier: string
+  url: string
+  title: string
 }
 
-const { identifier, url, title } = Astro.props;
-const { comment } = themeConfig;
+const { identifier, url, title } = Astro.props
+const { comment } = themeConfig
 
 if (!comment || !comment.disqus) {
-	throw new Error("Disqus comments are not configured");
+  throw new Error('Disqus comments are not configured')
 }
-const shortname = comment.disqus.shortname;
+const shortname = comment.disqus.shortname
 ---
 
 <div id="disqus_thread"></div>
 
 <script is:inline define:vars={{ shortname, identifier, url, title }}>
-  var disqus_config = function () {
+  // eslint-disable-next-line unused-imports/no-unused-vars
+  const disqus_config = function () {
     this.page.url = url
     this.page.identifier = identifier
     this.page.title = title
   }
 
-  console.debug('disqus_config', disqus_config)
-
   ;(function () {
-    var d = document,
-      s = d.createElement('script')
-    s.src = 'https://' + shortname + '.disqus.com/embed.js'
+    const d = document
+    const s = d.createElement('script')
+    s.src = `https://${shortname}.disqus.com/embed.js`
     s.setAttribute('data-timestamp', new Date().toString())
     ;(d.head || d.body).appendChild(s)
   })()
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript
+  >Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a
+  ></noscript
+>
