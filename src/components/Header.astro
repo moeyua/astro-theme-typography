@@ -8,7 +8,7 @@ type Props = HTMLAttributes<"header">;
 const { ...attrs } = Astro.props;
 ---
 
-<header un-lg="grow-1 justify-between items-start" un-flex="~ col gap-2.5" class="text-center" {...attrs}>
+<header lg="grow-1 justify-between items-start" flex="~ col gap-2.5" class="text-center" {...attrs}>
   <Title />
   <Nav />
 </header>

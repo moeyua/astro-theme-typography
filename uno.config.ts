@@ -1,10 +1,11 @@
+import presetAttributify from "@unocss/preset-attributify";
 import transformerDirectives from "@unocss/transformer-directives";
 import {
 	defineConfig,
-	presetAttributify,
 	presetIcons,
 	presetTypography,
 	presetUno,
+	transformerVariantGroup,
 } from "unocss";
 import { themeConfig } from "./src/.config";
 
@@ -14,7 +15,7 @@ const colors = theme === "dark" ? colorsDark : colorsLight;
 
 const cssExtend = {
 	":root": {
-		"--un-prose-borders": "#eee",
+		"--prose-borders": "#eee",
 	},
 
 	"code::before,code::after": {
@@ -31,10 +32,20 @@ const cssExtend = {
 };
 
 export default defineConfig({
+	rules: [
+		[
+			/^row-(\d+)-(\d)$/,
+			([, start, end]) => ({ "grid-row": `${start}/${end}` }),
+		],
+		[
+			/^col-(\d+)-(\d)$/,
+			([, start, end]) => ({ "grid-column": `${start}/${end}` }),
+		],
+	],
 	presets: [
 		presetUno(),
 		presetTypography({ cssExtend }),
-		presetAttributify({ nonValuedAttribute: true }),
+		presetAttributify(),
 		presetIcons({ scale: 1.2, warn: true }),
 	],
 	theme: {
@@ -45,7 +56,7 @@ export default defineConfig({
 		["icon", "inline-block "],
 		["post-title", "text-5 font-bold lh-7.5 m-0"],
 	],
-	transformers: [transformerDirectives()],
+	transformers: [transformerDirectives(), transformerVariantGroup()],
 	safelist: [
 		...themeConfig.site.socialLinks.map((social) => `i-mdi-${social.name}`),
 		"i-mdi-content-copy",

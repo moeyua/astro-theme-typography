@@ -18,7 +18,7 @@ const { page } = Astro.props;
 ---
 
 <LayoutDefault>
-  <section contain-layout un-flex="~ col gap-7.5">
+  <section contain-layout flex="~ col gap-7.5">
     {
       page.data.map((post) => (
         <Post post={post}>

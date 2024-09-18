@@ -73,18 +73,22 @@ async function getOptimizedImageURL() {
     />
   </head>
 
-  <body>
-
-      <header class="flex flex-col gap-2.5 text-center transition-swup-header" un-lg="grow-1 justify-between items-start" >
-        <PageTitle />
-        <PageNav />
+  <body class="h-100vh max-w-1200px min-w-390px mx-a " 
+        p="7.5 lg:(y-0 x-20)"
+        lg="grid rows-[1fr_9rem]" >
+      <header class="transition-swup-header flex flex-col gap-2.5" 
+            m="7.5 lg:(x-0 t-20 b-4)"
+            lg="row-1-2 col-2-3 justify-between items-start">
+          <PageTitle />
+          <PageNav />
       </header>
 
-      <main class="p-7.5 transition-swup-main" un-lg="py-20 min-w-xl"  >
+      <main class="transition-swup-main overflow-y-scroll" 
+            lg="row-1-3 col-1-2 py-20 " >
         <slot />
       </main>
 
-      <footer class="transition-swup-footer">
+      <footer class="transition-swup-footer py-7.5 " lg="row-2-3 col-2-3">
         <PageFooter />
       </footer>
   </body>
@@ -98,37 +102,3 @@ function removeAnimation() {
   document.removeEventListener('animationend', removeAnimation, false);
 }
 </script>
-
-<style>
-
-
-  body {
-    display: grid;
-    grid-template-areas: 
-      "main header"
-      "main footer";
-    grid-template-rows: 1fr 9rem;
-    grid-template-columns: 1fr;
-    
-    height: 100vh;
-    max-width: 1200px;
-    padding: 0 5rem;
-    margin: 0 auto;
-  
-  }
-  main {
-    grid-area: main;
-    overflow-y: scroll;
-  }
-
-  header {
-    grid-area: header;
-    margin-top: 5rem;
-    margin-bottom: 1rem;
-  }
-
-  footer {
-    grid-area: footer;
-  }
-  
-</style>
