@@ -10,7 +10,9 @@ const { translate: t } = Astro.locals
     {
       navLinks.map((nav) => (
         <li>
-          <a href={nav.href}>{t(nav.name)}</a>
+          <a class="" href={nav.href}>
+            {t(nav.name)}
+          </a>
         </li>
       ))
     }
@@ -19,7 +21,7 @@ const { translate: t } = Astro.locals
     {
       socialLinks.map((soc) => (
         <li>
-          <a href={soc.href} target="_blank" title={soc.name} class={`icon i-mdi-${soc.name}`} />
+          <a href={soc.href} target="_blank" title={soc.name} class={`inline-block i-mdi-${soc.name}`} />
         </li>
       ))
     }

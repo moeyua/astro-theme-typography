@@ -1,39 +1,21 @@
+:root {
+  --uno-colors-foreground: theme('colors.foreground');
+  --uno-colors-background: theme('colors.background');
+  --uno-fonts-ui: theme('fontFamily.ui');
+}
+
 html {
   --uno: antialiased;
-
-  color: theme('colors.foreground');
-  font-family: theme('fontFamily.ui');
+  color: var(--uno-colors-foreground);
+  background-color: var(--uno-colors-background);
+  font-family: var(--uno-fonts-ui);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
 
+  background-size: 7px 7px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-  background-size: 7px 7px;
 }
 
-a {
-  transition:
-    color 0.3s ease 0s,
-    background-color 0.3s ease 0s;
-  padding: 2px;
-  /* TODO: 重新设计 underline */
-  text-decoration-line: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
-}
-
-a:hover {
-  text-decoration-line: none;
-  color: theme('colors.background');
-  background-color: theme('colors.foreground');
-}
-
-a.normal {
-  /* border: none; */
-  transition: none;
-  text-decoration: none;
-}
-
-a.normal:hover {
-  color: inherit;
-  background-color: transparent;
+:where(a):not(.not-underline-hover) {
+  --at-apply: 'underline-hover';
 }
