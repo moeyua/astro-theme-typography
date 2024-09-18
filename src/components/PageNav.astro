@@ -1,0 +1,27 @@
+---
+import { themeConfig } from "~/.config";
+
+const { navLinks, socialLinks } = themeConfig.site;
+const { translate: t } = Astro.locals;
+---
+
+<nav class="text-center font-bold" un-flex="~ col gap-2">
+  <ul un-lg="flex-col items-start text-4" class="text-3.5" un-flex="~ row gap-2 justify-center">
+    {
+      navLinks.map((nav) => (
+        <li>
+          <a href={nav.href}>{t(nav.name)}</a>
+        </li>
+      ))
+    }
+  </ul>
+  <ul un-flex="~ row gap-1 justify-center">
+    {
+      socialLinks.map((soc) => (
+        <li>
+          <a href={soc.href} target="_blank" title={soc.name} class={`icon i-mdi-${soc.name}`} />
+        </li>
+      ))
+    }
+  </ul>
+</nav>

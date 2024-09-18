@@ -8,9 +8,6 @@
 		"source.organizeImports.biome": "explicit"
 	},
 
-	"[astro]": {
-		"editor.defaultFormatter": "astro-build.astro-vscode"
-	},
 	"[markdown]": {
 		"editor.quickSuggestions": {
 			"comments": "on",

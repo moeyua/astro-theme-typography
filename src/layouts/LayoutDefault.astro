@@ -2,10 +2,12 @@
 import { getImage } from "astro:assets";
 import { SEO, type SEOProps } from "astro-seo";
 import { themeConfig } from "~/.config";
-import Footer from "~/components/Footer.astro";
-import Header from "~/components/Header.astro";
+import PageFooter from "~/components/PageFooter.astro";
 // import "~/styles/heti.min.css";
 import "~/styles/index.css";
+import "~/styles/animation.css";
+import PageNav from "~/components/PageNav.astro";
+import PageTitle from "~/components/PageTitle.astro";
 
 interface Props {
 	title?: string;
@@ -21,6 +23,7 @@ const canonical = themeConfig.site.website;
 const twitter = themeConfig.seo.twitter;
 const rss = new URL("/atom.xml", Astro.site).toString();
 const optimizedImage = await getOptimizedImageURL();
+const lang = themeConfig.appearance.locale ?? "en-us";
 
 const seoLinks = [
 	{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
@@ -57,7 +60,7 @@ async function getOptimizedImageURL() {
 	return new URL(image?.src ?? "/placeholder.png", Astro.url).toString();
 }
 ---
-<html lang="en" class="animation-prepared">
+<html lang={lang} class="animation-prepared">
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
@@ -65,33 +68,28 @@ async function getOptimizedImageURL() {
       charset="utf-8"
       title={title}
       description={desc}
-      extend={{
-        link: seoLinks,
-        meta: seoMeta,
-      }}
+      extend={{link: seoLinks, meta:seoMeta}}
       openGraph={openGraph}
     />
   </head>
+
   <body>
-    <div
-      un-lg="flex flex-row-reverse justify-between gap-4 px-8 mx-auto max-w-6xl"
-      class="container contain-layout m-a"
-    >
-      <div
-        un-lg="sticky top-0 h-screen py-20 gap-8"
-        un-lg:flex="~ col justify-between items-start gap-4"
-        class="p-7.5 transition-swup-header"
-      >
-        <Header />
-        <Footer class="max-lg:hidden" />
-      </div>
-      <main un-lg="py-20 min-w-xl" class="p-7.5 transition-swup-main">
+
+      <header class="flex flex-col gap-2.5 text-center transition-swup-header" un-lg="grow-1 justify-between items-start" >
+        <PageTitle />
+        <PageNav />
+      </header>
+
+      <main class="p-7.5 transition-swup-main" un-lg="py-20 min-w-xl"  >
         <slot />
       </main>
-      <Footer class="lg:hidden p-7.5"/>
-    </div>
+
+      <footer class="transition-swup-footer">
+        <PageFooter />
+      </footer>
   </body>
 </html>
+
 
 <script>
 document.addEventListener('animationend', removeAnimation, false)
@@ -102,53 +100,35 @@ function removeAnimation() {
 </script>
 
 <style>
-/* 页面首次加载动画 */
-html.animation-prepared .transition-swup-header {
-  animation: fade-in-down 1s linear 1;
-  --at-apply: 'lg-animate-name-fade-in-left';
-}
 
-html.animation-prepared .transition-swup-main {
-  animation: fade-in-down 1s linear 1;
-}
 
-@keyframes fade-in-down {
-  0% {
-    transform: translateY(-1rem);
-    opacity: 0;
+  body {
+    display: grid;
+    grid-template-areas: 
+      "main header"
+      "main footer";
+    grid-template-rows: 1fr 9rem;
+    grid-template-columns: 1fr;
+    
+    height: 100vh;
+    max-width: 1200px;
+    padding: 0 5rem;
+    margin: 0 auto;
+  
   }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fade-in-left {
-  0% {
-    opacity: 0;
-    transform: translateX(1rem);
+  main {
+    grid-area: main;
+    overflow-y: scroll;
   }
 
-  100% {
-    opacity: 1;
-    transform: translateX(0);
+  header {
+    grid-area: header;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
   }
-}
 
-/* 页面过渡动画 */
-html.is-animating .transition-swup-main {
-  opacity: 0;
-  transform: translateY(-1rem);
-}
-html.is-leaving .transition-swup-main {
-  opacity: 0;
-  transform: translateY(1rem);
-}
-.transition-swup-main {
-  ransition-property: opacity, transform;
-  transition-duration: 0.5s;
-  transition-timing-function: linear;
-  transform: translateY(0);
-  opacity: 1;
-}
+  footer {
+    grid-area: footer;
+  }
+  
 </style>

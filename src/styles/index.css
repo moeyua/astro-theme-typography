@@ -1,23 +1,12 @@
-body {
+html {
   --uno: antialiased;
 
   color: theme("colors.foreground");
   font-family: theme("fontFamily.ui");
-  line-height: normal;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
-  
-  min-height: 100vh;
-  
-  background-color: theme("colors.background");
+
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
   background-size: 7px 7px;
-
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-body::-webkit-scrollbar {
-  display: none;
 }
 
 a {
@@ -46,25 +35,5 @@ a.normal:hover {
   background-color: transparent;
 }
 
-/* article.heti a:hover {
-  padding-block-end: 0px;
-  border-block-end: 1px solid rgba(0, 0, 0, 0);
-}
 
-article.heti a:has(code) {
-  transition: none;
-  text-decoration: none;
-}
-
-article.heti a:has(code):hover {
-  color: inherit;
-  background-color: transparent;
-}
-
-article.heti a code:hover {
-  color: #f9f2f4;
-  background-color: #c7254e;
-}
-
- */
 
