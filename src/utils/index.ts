@@ -1,11 +1,11 @@
 import { getCollection } from 'astro:content'
+import dayjs from 'dayjs'
 import MarkdownIt from 'markdown-it'
 import sanitizeHtml from 'sanitize-html'
 import type { Post } from '~/types'
 
 export async function getCategories() {
   const posts = await getPosts()
-
   const categories = new Map<string, Post[]>()
 
   for (const post of posts) {
@@ -24,15 +24,12 @@ export async function getCategories() {
 export async function getPosts() {
   const posts = await getCollection('posts')
   posts.sort((a, b) => {
-    const aDate = a.data.pubDate || new Date()
-    const bDate = b.data.pubDate || new Date()
-    return bDate.getTime() - aDate.getTime()
+    return dayjs(a.data.pubDate).isBefore(dayjs(b.data.pubDate)) ? 1 : -1
   })
   return posts
 }
 
 const parser = new MarkdownIt()
-
 export function getPostDescription(post: Post) {
   if (post.data.description) {
     return post.data.description
@@ -43,14 +40,8 @@ export function getPostDescription(post: Post) {
   return sanitized.slice(0, 400)
 }
 
-export function formatDate(date?: Date) {
-  if (!date)
-    return '--'
-  const year = date.getFullYear().toString().padStart(4, '0')
-  const month = (date.getMonth() + 1).toString().padStart(2, '0')
-  const day = date.getDate().toString().padStart(2, '0')
-
-  return `${year}-${month}-${day}`
+export function formatDate(date: Date, format: string = 'YYYY-MM-DD') {
+  return dayjs(date).format(format)
 }
 
 export function getPathFromCategory(

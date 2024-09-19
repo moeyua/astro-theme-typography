@@ -40,6 +40,7 @@
     "@unocss/transformer-directives": "^0.62.4",
     "astro-eslint-parser": "^1.0.3",
     "consola": "^3.2.3",
+    "dayjs": "^1.11.13",
     "eslint": "^9.10.0",
     "eslint-plugin-astro": "^1.2.4",
     "eslint-plugin-format": "^0.1.2",
