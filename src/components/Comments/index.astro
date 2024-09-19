@@ -22,9 +22,12 @@ function getCommentService() {
 }
 ---
 
-<div py-16>
-  {commentService === 'disqus' && <Disqus identifier={id} url={url} title={data.title} />}
-  {commentService === 'giscus' && <Giscus />}
-  {commentService === 'twikoo' && <Twikoo path={path} />}
-  {commentService === '' && null}
-</div>
+{
+  commentService !== '' && (
+    <div py-16>
+      {commentService === 'disqus' && <Disqus identifier={id} url={url} title={data.title} />}
+      {commentService === 'giscus' && <Giscus />}
+      {commentService === 'twikoo' && <Twikoo path={path} />}
+    </div>
+  )
+}

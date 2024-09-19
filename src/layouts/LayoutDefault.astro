@@ -2,12 +2,11 @@
 import { getImage } from 'astro:assets'
 import { SEO, type SEOProps } from 'astro-seo'
 import { themeConfig } from '~/.config'
-import PageFooter from '~/components/PageFooter.astro'
-// import "~/styles/heti.min.css";
+import SiteFooter from '~/components/SiteFooter.astro'
+import SiteNavigation from '~/components/SiteNavigation.astro'
+import SiteTitle from '~/components/SiteTitle.astro'
 import '~/styles/index.css'
 import '~/styles/animation.css'
-import PageNav from '~/components/PageNav.astro'
-import PageTitle from '~/components/PageTitle.astro'
 
 interface Props {
   title?: string
@@ -79,8 +78,8 @@ async function getOptimizedImageURL() {
       m="7.5 lg:(x-0 t-20 b-4)"
       lg="row-1-2 col-2-3 justify-between items-start"
     >
-      <PageTitle />
-      <PageNav />
+      <SiteTitle />
+      <SiteNavigation />
     </header>
 
     <main class="transition-swup-main link-fill overflow-y-scroll" lg="row-1-3 col-1-2 py-20 ">
@@ -88,7 +87,7 @@ async function getOptimizedImageURL() {
     </main>
 
     <footer class="transition-swup-footer py-7.5" lg="row-2-3 col-2-3">
-      <PageFooter />
+      <SiteFooter />
     </footer>
 
     <script>
