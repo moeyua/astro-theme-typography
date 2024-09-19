@@ -31,27 +31,27 @@ const {
 <footer class="mt-5">
   {
     showPageCount && (
-      <p class="mb-2.5">
+      <div class="mb-2.5">
         {t('page_number', currentPage)} / {t('page_count', totalPage)}
-      </p>
+      </div>
     )
   }
-  <p class="flex items-center gap-2">
+  <div class="flex items-center gap-2">
     {
       showLeft && (
         <a class=" inline-flex items-center" href={leftUrl}>
-          <i class="i-mdi-chevron-double-left inline-block" />
-          {leftTitle}
+          <span class="i-mdi-chevron-double-left w-4 h-4" />
+          <span>{leftTitle}</span>
         </a>
       )
     }
     {
       showRight && (
         <a class=" inline-flex items-center" href={rightUrl}>
-          {rightTitle}
-          <i class="i-mdi-chevron-double-right inline-block" />
+          <span>{rightTitle}</span>
+          <span class="i-mdi-chevron-double-right w-4 h-4" />
         </a>
       )
     }
-  </p>
+  </div>
 </footer>

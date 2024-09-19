@@ -1,0 +1,64 @@
+---
+import { SEO, type SEOProps } from 'astro-seo'
+import { getImage } from 'astro:assets'
+import { themeConfig } from '~/.config'
+
+interface Props {
+  title?: string
+  desc?: string
+  banner?: ImageMetadata
+}
+
+const props = Astro.props
+
+const title = props.title ?? themeConfig.site.title
+const desc = props.desc ?? themeConfig.site.description
+const canonical = themeConfig.site.website
+const twitter = themeConfig.seo.twitter
+const rss = new URL('/atom.xml', Astro.site).toString()
+const optimizedImage = await getOptimizedImageURL()
+
+const seoLinks = [
+  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  {
+    rel: 'alternate',
+    type: 'application/rss+xml',
+    title: themeConfig.site.title,
+    href: rss,
+  },
+]
+
+const seoMeta = [
+  { name: 'viewport', content: 'width=device-width' },
+  { name: 'generator', content: Astro.generator },
+  { name: 'twitter:image:src', content: optimizedImage },
+  { name: 'twitter:image:alt', content: desc },
+  { name: 'twitter:creator', content: twitter },
+  { name: 'twitter:site', content: twitter },
+  { name: 'twitter:card', content: 'summary_large_image' },
+  { name: 'twitter:title', content: title },
+  { name: 'twitter:description', content: desc },
+]
+
+const openGraph: SEOProps['openGraph'] = {
+  basic: {
+    title: title,
+    type: 'article',
+    image: optimizedImage,
+    url: canonical,
+  },
+}
+
+async function getOptimizedImageURL() {
+  const image = props.banner && (await getImage({ src: props.banner, format: 'jpeg' }))
+  return new URL(image?.src ?? '/placeholder.png', Astro.url).toString()
+}
+---
+
+<SEO
+  charset="utf-8"
+  title={title}
+  description={desc}
+  extend={{ link: seoLinks, meta: seoMeta }}
+  openGraph={openGraph}
+/>

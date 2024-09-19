@@ -2,6 +2,7 @@
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
 import Comments from '~/components/Comments/index.astro'
 import Pagination from '~/components/Pagination.astro'
+import SiteSeo from '~/components/SiteSeo.astro'
 import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import LayoutPost from '~/layouts/LayoutPost.astro'
 import { getPosts } from '~/utils'
@@ -30,7 +31,9 @@ function getUrl(slug: string) {
 }
 ---
 
-<LayoutDefault title={entry.data.title} desc={entry.data.description} banner={entry.data.banner}>
+<LayoutDefault>
+  <SiteSeo slot="seo" title={entry.data.title} desc={entry.data.description} banner={entry.data.banner} />
+
   <LayoutPost post={entry}>
     <Content />
   </LayoutPost>
