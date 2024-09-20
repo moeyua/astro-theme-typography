@@ -11,8 +11,10 @@ export default defineConfig({
   site: themeConfig.site.website,
   prefetch: true,
   markdown: {
+    remarkPlugins: [],
+    rehypePlugins: [],
     shikiConfig: {
-      theme: 'one-dark-pro',
+      theme: 'dracula',
       wrap: true,
     },
   },

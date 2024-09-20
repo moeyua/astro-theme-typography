@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 添加 release 脚本与 CHANGELOG
 
 ### Changed
+- 扩大标题点击区域
 - 重新设计配置文件。
 - 重新设计布局。
 - 调整组件结构。
