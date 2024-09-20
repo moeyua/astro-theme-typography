@@ -3,9 +3,9 @@
   --uno-colors-background: theme('colors.background');
   --uno-fonts-ui: theme('fontFamily.ui');
 }
-
 html {
-  --uno: antialiased;
+  --at-apply: antialiased;
+
   color: var(--uno-colors-foreground);
   background-color: var(--uno-colors-background);
   font-family: var(--uno-fonts-ui);
