@@ -19,13 +19,11 @@ const shortname = comment.disqus.shortname
 <div id="disqus_thread"></div>
 
 <script is:inline define:vars={{ shortname, identifier, url, title }}>
-  // eslint-disable-next-line unused-imports/no-unused-vars
-  const disqus_config = function () {
+  window.disqus_config = function () {
     this.page.url = url
     this.page.identifier = identifier
     this.page.title = title
   }
-
   ;(function () {
     const d = document
     const s = d.createElement('script')
