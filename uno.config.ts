@@ -41,6 +41,11 @@ export default defineConfig({
       /^col-(\d+)-(\d)$/,
       ([, start, end]) => ({ 'grid-column': `${start}/${end}` }),
     ],
+    [
+      /^scrollbar-hide$/,
+      ([_]) => `.scrollbar-hide { scrollbar-width:none;-ms-overflow-style: none; }
+      .scrollbar-hide::-webkit-scrollbar {display:none;}`,
+    ],
   ],
   presets: [
     presetUno(),
