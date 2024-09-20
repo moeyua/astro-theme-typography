@@ -11,10 +11,13 @@ interface Props {
 
 const props = Astro.props
 
-const title = props.title ?? themeConfig.site.title
-const desc = props.desc ?? themeConfig.site.description
-const canonical = themeConfig.site.website
-const twitter = themeConfig.seo.twitter
+const configSEO = themeConfig.seo
+const configSite = themeConfig.site
+
+const title = props.title ?? configSite.title
+const desc = props.desc ?? configSite.description
+const canonical = configSite.website
+const twitter = configSEO.twitter
 const rss = new URL('/atom.xml', Astro.site).toString()
 const optimizedImage = await getOptimizedImageURL()
 
@@ -26,6 +29,7 @@ const seoLinks = [
     title: themeConfig.site.title,
     href: rss,
   },
+  ...configSEO.link,
 ]
 
 const seoMeta = [
@@ -38,6 +42,7 @@ const seoMeta = [
   { name: 'twitter:card', content: 'summary_large_image' },
   { name: 'twitter:title', content: title },
   { name: 'twitter:description', content: desc },
+  ...configSEO.meta,
 ]
 
 const openGraph: SEOProps['openGraph'] = {

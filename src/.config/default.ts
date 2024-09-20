@@ -67,6 +67,8 @@ export const defaultConfig: ThemeConfig = {
   },
   seo: {
     twitter: '@moeyua13',
+    meta: [],
+    link: [],
   },
   comment: {
     // disqus: { shortname: "typography-astro" },
