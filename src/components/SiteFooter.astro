@@ -1,0 +1,27 @@
+---
+import { themeConfig } from '~/.config'
+
+const year = new Date().getFullYear()
+
+const { website, author } = themeConfig.site
+---
+
+<p>
+  © {year}
+  <a target="_blank" href={website} rel="noopener noreferrer">{author}</a>
+</p>
+<p>
+  Theme
+  <a target="_blank" href="https://github.com/Moeyua/astro-theme-typography" rel="noopener noreferrer">Typography</a>
+  by <a target="_blank" href="https://moeyua.com" rel="noopener noreferrer">Moeyua</a>
+</p>
+<p>
+  Proudly published with
+  <a target="_blank" href="https://astro.build" rel="noopener noreferrer">Astro</a>
+</p>
+
+<style>
+  p {
+    --at-apply: 'font-bold text-3';
+  }
+</style>

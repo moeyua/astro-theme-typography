@@ -1,26 +1,46 @@
 ---
-import { config } from "~/.config";
-import ListItem from "~/components/ListItem.astro";
-import ListSection from "~/components/ListSection.astro";
-import LayoutDefault from "~/layouts/LayoutDefault.astro";
-import { formatDate, getCategories, getPathFromCategory } from "~/utils";
+import { themeConfig } from '~/.config'
+import LayoutDefault from '~/layouts/LayoutDefault.astro'
+import type { Post } from '~/types'
+import { formatDate, getCategories, getPathFromCategory } from '~/utils'
 
 export async function getStaticPaths() {
-	const categories = await getCategories();
-	return Array.from(categories).map(([key, value]) => {
-		const path = getPathFromCategory(key, config.category_map);
-		return {
-			params: { category: path, name: key },
-			props: { posts: value },
-		};
-	});
+  const categoryMap = await getCategories()
+  return Array.from(categoryMap).map(([key, value]) => {
+    const path = getPathFromCategory(key, themeConfig.site.categoryMap)
+    return {
+      params: { category: path },
+      props: { posts: value, name: key },
+    }
+  })
 }
-const { posts } = Astro.props;
-const { name } = Astro.params;
+
+const { posts, name } = Astro.props
+
+function getListItems(posts: Post[]) {
+  const result = posts.map((post) => ({
+    title: post.data.title,
+    href: `/posts/${post.slug}/`,
+    date: formatDate(post.data.pubDate),
+  }))
+  return result
+}
 ---
 
 <LayoutDefault>
-  <ListSection title={name}>
-    {posts.map((post) => <ListItem title={post.data.title} href={`/posts/${post.slug}/`} description={formatDate(post.data.pubDate)} />)}
-  </ListSection>
+  <section>
+    <h2 class="post-title"># {name}</h2>
+    <ul class="pl-6 py-3" flex="~ col gap-4">
+      {
+        getListItems(posts).map(({ title, href, date }) => (
+          <li>
+            <h3 class="post-title">
+              <a href={href}>{title}</a>
+            </h3>
+            <time>{date}</time>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </LayoutDefault>

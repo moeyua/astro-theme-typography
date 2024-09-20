@@ -1,39 +1,43 @@
 ---
-import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
-import Comments from "~/components/Comments.astro";
-import Pagination from "~/components/Pagination.astro";
-import Post from "~/components/Post.astro";
-import LayoutDefault from "~/layouts/LayoutDefault.astro";
-import { getPosts } from "~/utils";
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
+import Comments from '~/components/Comments/index.astro'
+import Pagination from '~/components/Pagination.astro'
+import SiteSeo from '~/components/SiteSeo.astro'
+import LayoutDefault from '~/layouts/LayoutDefault.astro'
+import LayoutPost from '~/layouts/LayoutPost.astro'
+import { getPosts } from '~/utils'
 
 export const getStaticPaths = (async () => {
-	const posts = await getPosts();
-	return posts.map((post, idx) => {
-		const prev = posts[idx - 1];
-		const next = posts[idx + 1];
-		return {
-			params: { slug: post.slug },
-			props: { entry: post, next, prev },
-		};
-	});
-}) satisfies GetStaticPaths;
+  const posts = await getPosts()
+  return posts.map((post, idx) => {
+    const prev = posts[idx - 1]
+    const next = posts[idx + 1]
+    return {
+      params: { slug: post.slug },
+      props: { entry: post, next, prev },
+    }
+  })
+}) satisfies GetStaticPaths
 
 // type Params = InferGetStaticParamsType<typeof getStaticPaths>
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
-const { entry, prev, next } = Astro.props;
-const { Content } = await entry.render();
-const { translate: t } = Astro.locals;
+const { entry, prev, next } = Astro.props
+const { Content } = await entry.render()
+const { translate: t } = Astro.locals
 
 function getUrl(slug: string) {
-	return `/posts/${slug}`;
+  return `/posts/${slug}`
 }
 ---
 
-<LayoutDefault title={entry.data.title} desc={entry.data.description} banner={entry.data.banner}>
-  <Post post={entry}>
+<LayoutDefault>
+  <SiteSeo slot="seo" title={entry.data.title} desc={entry.data.description} banner={entry.data.banner} />
+
+  <LayoutPost post={entry}>
     <Content />
-  </Post>
+  </LayoutPost>
+
   <Pagination
     showLeft={Boolean(prev)}
     leftTitle={`${t('prev_post')}: ${prev?.data.title}`}
@@ -44,13 +48,13 @@ function getUrl(slug: string) {
     showPageCount={false}
   />
   <!-- BUG 这里使用 client:visible 会导致构建失败。ref: https://github.com/withastro/astro/issues/7329 -->
-    <Comments post={entry} />
+  <Comments post={entry} />
 </LayoutDefault>
 
 <script>
   import '@github/clipboard-copy-element'
 
-  document.addEventListener('clipboard-copy', function (event) {
+  document.addEventListener('clipboard-copy', (event) => {
     const target = event.target as HTMLElement
     const icon = target.querySelector('.icon') as HTMLElement
     icon.classList.replace('i-mdi-content-copy', 'i-mdi-check')
@@ -61,13 +65,13 @@ function getUrl(slug: string) {
 
   const codeBlocks = Array.from(document.querySelectorAll('pre'))
   const icon = "<div class='i-mdi-content-copy icon text-white'></div>"
-  for (let codeBlock of codeBlocks) {
-    let wrapper = document.createElement('div')
+  for (const codeBlock of codeBlocks) {
+    const wrapper = document.createElement('div')
     wrapper.className = 'code-container'
 
-    let copyButton = document.createElement('clipboard-copy')
-    let code = codeBlock.querySelector('code')
-    copyButton.value = code?.innerText ?? ''
+    const copyButton = document.createElement('clipboard-copy')
+    const code = codeBlock.querySelector('code')
+    copyButton.value = code?.textContent ?? ''
     copyButton.className = 'clipboard-copy'
     copyButton.innerHTML = icon
 
@@ -84,8 +88,8 @@ function getUrl(slug: string) {
   }
   .clipboard-copy {
     position: absolute;
-    top: .5rem;
-    right: .5rem;
+    top: 0.5rem;
+    right: 0.5rem;
     width: 1.75rem;
     height: 1.75rem;
     display: flex;

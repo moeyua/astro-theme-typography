@@ -1,72 +1,57 @@
 ---
-const { translate: t } = Astro.locals;
+const { translate: t } = Astro.locals
 
 interface Props {
-	showLeft?: boolean;
-	leftTitle?: string;
-	leftUrl?: string;
+  showLeft?: boolean
+  leftTitle?: string
+  leftUrl?: string
 
-	showRight?: boolean;
-	rightTitle?: string;
-	rightUrl?: string;
+  showRight?: boolean
+  rightTitle?: string
+  rightUrl?: string
 
-	showPageCount?: boolean;
-	currentPage?: number;
-	totalPage?: number;
+  showPageCount?: boolean
+  currentPage?: number
+  totalPage?: number
 }
 
 const {
-	showLeft = true,
-	showRight = true,
-	leftTitle,
-	rightTitle,
-	leftUrl,
-	rightUrl,
-	showPageCount = true,
-	currentPage,
-	totalPage,
-} = Astro.props;
+  showLeft = true,
+  showRight = true,
+  leftTitle,
+  rightTitle,
+  leftUrl,
+  rightUrl,
+  showPageCount = true,
+  currentPage,
+  totalPage,
+} = Astro.props
 ---
 
 <footer class="mt-5">
   {
     showPageCount && (
-      <p class="mb-2.5">
+      <div class="mb-2.5">
         {t('page_number', currentPage)} / {t('page_count', totalPage)}
-      </p>
+      </div>
     )
   }
-  <p class="flex items-center gap-2">
+  <div class="flex items-center gap-2">
     {
       showLeft && (
-        <span class="inline-flex items-center">
-          <i class="i-mdi-chevron-double-left icon" />
-          <a href={leftUrl}>{leftTitle}</a>
-        </span>
+        <a class=" inline-flex items-center" href={leftUrl}>
+          <span class="i-mdi-chevron-double-left w-4 h-4" />
+          <span>{leftTitle}</span>
+        </a>
       )
     }
     {
       showRight && (
-        <span class="inline-flex items-center">
-          <a href={rightUrl}>{rightTitle}</a>
-          <i class="i-mdi-chevron-double-right icon" />
-        </span>
+        <a class=" inline-flex items-center" href={rightUrl}>
+          <span>{rightTitle}</span>
+          <span class="i-mdi-chevron-double-right w-4 h-4" />
+        </a>
       )
     }
-  </p>
+  </div>
 </footer>
-
-<!-- <footer class="mt-5">
-  <p class="mb-2.5">{t('page_number', page.currentPage)} / {t('page_count', page.lastPage)}</p>
-  <p class="flex items-center gap-2">
-    <span class="inline-flex items-center">
-      <i class="i-mdi-chevron-double-left icon"></i>
-      {page.url.prev ? <a href={page.url.prev}> {t('prev')} </a> : <span>{t('prev')}</span>}
-    </span>
-
-    <span class="inline-flex items-center">
-      {page.url.next ? <a href={page.url.next}>{t('next')}</a> : <span>{t('next')}</span>}
-      <i class="i-mdi-chevron-double-right icon"></i>
-    </span>
-  </p>
-</footer> -->

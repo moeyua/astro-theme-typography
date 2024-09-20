@@ -1,0 +1,25 @@
+---
+import type { Post } from '~/types'
+import { formatDate } from '~/utils'
+import PostCategory from './PostCategory.astro'
+
+interface Props {
+  post: Post
+}
+
+const { post } = Astro.props
+const { translate: t } = Astro.locals
+
+const categoryList = post.data.categories ?? []
+---
+
+<header flex="~ col gap-2">
+  <h1 class="post-title">
+    <a class="not-prose" href={`/posts/${post.slug}/`}>{post.data.title}</a>
+  </h1>
+  <div class="text-3.5">
+    <span>{t('posted_at')}</span>
+    <time>{formatDate(post.data.pubDate)}</time>
+    {categoryList.map((category) => <PostCategory category={category} />)}
+  </div>
+</header>

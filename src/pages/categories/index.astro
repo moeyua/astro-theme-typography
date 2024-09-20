@@ -1,18 +1,36 @@
 ---
-import { config } from "~/.config";
-import ListItem from "~/components/ListItem.astro";
-import ListSection from "~/components/ListSection.astro";
-import LayoutDefault from "~/layouts/LayoutDefault.astro";
-import { getCategories, getPathFromCategory } from "~/utils/index";
+import { themeConfig } from '~/.config'
+import LayoutDefault from '~/layouts/LayoutDefault.astro'
+import { getCategories, getPathFromCategory } from '~/utils/index'
 
-const { translate: t } = Astro.locals;
-const { category_map } = config;
+const { translate: t } = Astro.locals
+const categoryMap = await getCategories()
 
-const categories = await getCategories();
+const list = getListFromMap(categoryMap)
+
+function getListFromMap(map: typeof categoryMap) {
+  return Array.from(map).map(([key, value]) => ({
+    title: key,
+    href: `/categories/${getPathFromCategory(key, themeConfig.site.categoryMap)}`,
+    size: t('categories_count', value.length),
+  }))
+}
 ---
 
 <LayoutDefault>
-  <ListSection title={t('Categories')}>
-    {Array.from(categories).map(([key, value]) => <ListItem title={key} href={`/categories/${getPathFromCategory(key, category_map)}`} description={t('categories_count', value.length)} />)}
-  </ListSection>
+  <section>
+    <h2 class="post-title">{t('Categories')}</h2>
+    <ul class="pl-6" flex="~ col gap-4">
+      {
+        list.map(({ title, href, size }) => (
+          <li>
+            <h3 class="post-title">
+              <a href={href}># {title}</a>
+            </h3>
+            <p>{size}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </LayoutDefault>

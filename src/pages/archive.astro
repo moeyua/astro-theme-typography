@@ -1,32 +1,55 @@
 ---
-import ListItem from "~/components/ListItem.astro";
-import ListSection from "~/components/ListSection.astro";
-import LayoutDefault from "~/layouts/LayoutDefault.astro";
-import type { Post } from "~/types";
-import { formatDate, getPosts } from "~/utils";
+import LayoutDefault from '~/layouts/LayoutDefault.astro'
+import type { Post } from '~/types'
+import { formatDate, getPosts } from '~/utils'
 
-const posts = await getPosts();
+const posts = await getPosts()
 
-const postByYear = new Map<number, Post[]>();
-for (const post of posts) {
-	const pubDate = post.data.pubDate ?? new Date();
-	const year = pubDate.getFullYear();
-	if (!postByYear.has(year)) {
-		postByYear.set(year, []);
-	}
-	postByYear.get(year)?.push(post);
+const yearMap = getYearMap(posts)
+
+interface ListItem {
+  title: string
+  href: string
+  date: string
+}
+
+function getYearMap(posts: Post[]) {
+  const result = new Map<number, ListItem[]>()
+  for (const post of posts) {
+    const year = (post.data.pubDate ?? new Date()).getFullYear()
+    const posts = result.get(year) ?? []
+    posts.push(getListItem(post))
+    result.set(year, posts)
+  }
+  return Array.from(result.entries())
+}
+
+function getListItem(post: Post): ListItem {
+  return {
+    title: post.data.title,
+    href: `/posts/${post.slug}/`,
+    date: formatDate(post.data.pubDate, 'MM-DD'),
+  }
 }
 ---
 
 <LayoutDefault>
-  <div un-flex="~ col gap-4">
+  <div flex="~ col gap-4">
     {
-      Array.from(postByYear.entries()).map(([year, posts]) => (
-        <ListSection title={year}>
-          {posts.map((post) => (
-            <ListItem title={post.data.title} href={`/posts/${post.slug}/`} description={formatDate(post.data.pubDate)} />
-          ))}
-        </ListSection>
+      yearMap.map(([year, posts]) => (
+        <section>
+          <h2 class="post-title">{year}</h2>
+          <ul class="pl-6" flex="~ col gap-4">
+            {posts.map(({ title, href, date }) => (
+              <li>
+                <h3 class="post-title">
+                  <a href={href}>{title}</a>
+                </h3>
+                <time>{date}</time>
+              </li>
+            ))}
+          </ul>
+        </section>
       ))
     }
   </div>

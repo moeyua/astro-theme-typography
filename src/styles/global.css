@@ -1,0 +1,21 @@
+:root {
+  --uno-colors-foreground: theme('colors.foreground');
+  --uno-colors-background: theme('colors.background');
+  --uno-fonts-ui: theme('fontFamily.ui');
+}
+html {
+  --at-apply: antialiased;
+
+  color: var(--uno-colors-foreground);
+  background-color: var(--uno-colors-background);
+  font-family: var(--uno-fonts-ui);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
+
+  background-size: 7px 7px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+:where(a):not(.not-underline-hover) {
+  --at-apply: 'underline-hover';
+}

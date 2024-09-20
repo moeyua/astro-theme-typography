@@ -1,13 +1,13 @@
 ---
-import { config } from "~/.config";
+import { themeConfig } from '~/.config'
 
-const { comments } = config;
+const { comment } = themeConfig
 
-if (!comments || !comments.giscus) {
-	throw new Error("Giscus comments are not configured");
+if (!comment || !comment.giscus) {
+  throw new Error('Giscus comments are not configured')
 }
 
-const giscus = comments.giscus;
+const giscus = comment.giscus
 ---
 
 <giscus-widget

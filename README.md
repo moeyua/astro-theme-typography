@@ -37,7 +37,7 @@
 
 ## Getting Started
 
-Typography is a minimal, responsive and SEO-friendly Astro blog theme. This guide will help you get started with a new project. 
+Typography is a minimal, responsive and SEO-friendly Astro blog theme. This guide will help you get started with a new project.
 
 ### Quick Start
 
@@ -56,8 +56,8 @@ You can add content by creating a new markdown file in `src/content/posts`. The 
 ---
 title: title
 pubDate: 2021-08-01
-categories: ['article']
-description: 'description'
+categories: ["article"]
+description: "description"
 ---
 ```
 
@@ -82,10 +82,9 @@ Typography has built-in support for adding links to your social media accounts t
 ```ts
 socials: [
   {
-    name: "github",
-    href: "https://github.com/moeyua/astro-theme-typography"
+    name: 'github',
+    href: 'https://github.com/moeyua/astro-theme-typography'
   }
-  ...
 ]
 ```
 
@@ -99,13 +98,14 @@ which will be automatically generated as the icon.
 By default, the navigation are `Posts`, `Archive`, `Categories` and `About`. You can add more in the config file:
 
 ```ts
-navs: [
-  {
-    name: "Categories",
-    href: "/categories"
-  }
-  ...
-]
+{
+  navs: [
+    {
+      name: 'Categories',
+      href: '/categories'
+    }
+  ]
+}
 ```
 
 And then add the corresponding page in `src/pages`, see more in [Astro Pages](https://docs.astro.build/en/core-concepts/astro-pages/)
@@ -118,14 +118,12 @@ Typography supports dark mode. You can change it in the config file:
 themeStyle: 'dark' // 'light' | 'dark'
 ```
 
-
 ### Internationalization (i18n)
 
 Typography provides built-in support for multilingual sites. By default, the language is `en-us`, you can change it in the config file:
 
 ```ts
-locale: "zh-cn"
-
+locale: 'zh-cn'
 ```
 
 For now, Typography supports below languages:
@@ -150,7 +148,7 @@ You can enable Disqus by adding the following configuration to the config file:
 ```ts
 comments: {
   disqus: {
-    shortname: "your-disqus-shortname"
+    shortname: 'your-disqus-shortname'
   }
 }
 ```
@@ -159,25 +157,27 @@ comments: {
 
 Based on the [Giscus web component](https://github.com/giscus/giscus-component?tab=readme-ov-file#using-the-web-component) implementation.
 
-The prop names are the same as the data- attributes shown on the [giscus website]((https://giscus.app/)), but written in camelCase with the data- prefix and dashes removed.
+The prop names are the same as the data- attributes shown on the [giscus website](<(https://giscus.app/)>), but written in camelCase with the data- prefix and dashes removed.
 
 You can enable Giscus by adding the following configuration to the config file:
 
 ```ts
-comments: {
-  giscus: {
-    repo: "your-repo",
-    repoId: "your-repo-id",
-    category: "your-category",
-    categoryId: "your-category-id",
-    mapping: "title",
-    strict: '0',
-    reactionsEnabled: '1',
-    emitMetadata: '1',
-    inputPosition: 'top',
-    theme: 'light',
-    lang: 'zh-CN',
-    loading: 'lazy',
+{
+  comments: {
+    giscus: {
+      repo: 'moeyua/astro-theme-typography'
+      repoId: 'R_kgDOKy9HOQ'
+      category: 'General'
+      categoryId: 'DIC_kwDOKy9HOc4CegmW'
+      mapping: 'title'
+      strict: '0'
+      reactionsEnabled: '1'
+      emitMetadata: '1'
+      inputPosition: 'top'
+      theme: 'light'
+      lang: 'zh-CN'
+      loading: 'lazy'
+    }
   }
 }
 ```
@@ -187,9 +187,11 @@ comments: {
 You can enable Twikoo by adding the following configuration to the config file:
 
 ```ts
-comments: {
-  twikoo: {
-    envId: "your-env-id",
+{
+  comments: {
+    twikoo: {
+      envId: 'your-env-id'
+    }
   }
 }
 ```
@@ -198,7 +200,7 @@ comments: {
 
 [![Pagespeed Score](https://github.com/moeyua/astro-theme-typography/assets/45156493/2272f576-d6ff-49ef-a294-5c2acf365907)](https://pagespeed.web.dev/analysis/https-astro-theme-typography-vercel-app/j34nq9tx0s?form_factor=desktop)
 
-## TODO 
+## TODO
 
 - [ ] WebSub
 - [x] comment

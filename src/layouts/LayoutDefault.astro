@@ -1,78 +1,94 @@
 ---
-import { getImage } from "astro:assets";
-import { ViewTransitions } from "astro:transitions";
-import { SEO } from "astro-seo";
-import { config } from "~/.config";
-import Footer from "~/components/Footer.astro";
-import Header from "~/components/Header.astro";
-import "~/styles/heti.min.css";
-import "~/styles/index.css";
+import { themeConfig } from '~/.config'
+import SiteFooter from '~/components/SiteFooter.astro'
+import SiteNavigation from '~/components/SiteNavigation.astro'
+import SiteTitle from '~/components/SiteTitle.astro'
+import SiteSeo from '~/components/SiteSeo.astro'
+import '~/styles/global.css'
 
-interface Props {
-	title?: string;
-	desc?: string;
-	banner?: ImageMetadata;
-}
-
-const props = Astro.props;
-
-const title = props.title ?? config.title;
-const desc = props.desc ?? config.desc;
-const canonical = config.website;
-
-const image =
-	props.banner &&
-	(await getImage({
-		src: props.banner,
-		format: "jpeg",
-	}));
-const optimizedImage = new URL(
-	image?.src ?? "/placeholder.png",
-	Astro.url,
-).toString();
+const lang = themeConfig.appearance.locale ?? 'en-us'
 ---
 
-<html lang="en">
+<html lang={lang} class="animation-prepared">
   <head>
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <ViewTransitions />
-    <SEO
-      charset="utf-8"
-      title={title}
-      description={desc}
-      extend={{
-        link: [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
-        meta: [
-          { name: "twitter:image:src", content: optimizedImage },
-          { name: "twitter:image:alt", content: desc },
-          { name: "twitter:creator", content: config.header.twitter },
-          { name: "twitter:site", content: config.header.twitter },
-          { name: "twitter:card", content: "summary_large_image" },
-          { name: "twitter:title", content: title },
-          { name: "twitter:description", content: desc },
-        ],
-      }}
-      openGraph={{
-        basic: {
-          title: title,
-          type: "article",
-          image: optimizedImage,
-          url: canonical,
-        }
-      }}
-    />
+    <slot name="seo"> <SiteSeo /> </slot>
   </head>
-  <body>
-    <div un-max-lg="animate-fadein-down" un-lg="flex flex-row-reverse justify-between gap-4 px-8 mx-auto max-w-6xl" class="container contain-layout m-a">
-      <div un-lg="sticky top-0 h-screen py-20 animate-fadein-left gap-8" un-lg:flex="~ col justify-between items-start gap-4" class="p-7.5">
-        <Header />
-        <Footer class="max-lg:hidden" />
-      </div>
-      <main un-lg="py-20 min-w-xl animate-fadein-down" class="p-7.5">
-        <slot />
-      </main>
-      <Footer class="lg:hidden p-7.5" />
-    </div>
+
+  <body class="h-100vh max-w-1200px min-w-390px mx-a" p="7.5 lg:(y-0 x-20)" lg="grid cols-[3fr_1fr] rows-[1fr_9rem]">
+    <header
+      class="transition-swup-header flex flex-col gap-2.5"
+      m="7.5 lg:(x-0 t-20 b-4)"
+      lg="row-1-2 col-2-3 justify-between items-start"
+    >
+      <SiteTitle />
+      <SiteNavigation />
+    </header>
+
+    <main class="transition-swup-main link-fill overflow-y-scroll" lg="row-1-3 col-1-2 py-20 ">
+      <slot />
+    </main>
+
+    <footer class="transition-swup-footer py-7.5" lg="row-2-3 col-2-3">
+      <SiteFooter />
+    </footer>
+
+    <script>
+      document.addEventListener('animationend', removeAnimation, false)
+      function removeAnimation() {
+        document.documentElement.classList.remove('animation-prepared')
+        document.removeEventListener('animationend', removeAnimation, false)
+      }
+    </script>
+    <style>
+      /* 页面首次加载动画 */
+      html.animation-prepared .transition-swup-header,
+      html.animation-prepared .transition-swup-footer {
+        animation: fade-in-down 1s linear 1;
+        --at-apply: 'lg-animate-name-fade-in-left';
+      }
+
+      html.animation-prepared .transition-swup-main {
+        animation: fade-in-down 1s linear 1;
+      }
+
+      @keyframes fade-in-down {
+        0% {
+          transform: translateY(-1rem);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fade-in-left {
+        0% {
+          opacity: 0;
+          transform: translateX(1rem);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* 页面过渡动画 */
+      html.is-animating .transition-swup-main {
+        opacity: 0;
+        transform: translateY(-1rem);
+      }
+      html.is-leaving .transition-swup-main {
+        opacity: 0;
+        transform: translateY(1rem);
+      }
+      .transition-swup-main {
+        transition-duration: 0.5s;
+        transition-timing-function: linear;
+        transform: translateY(0);
+        opacity: 1;
+      }
+    </style>
   </body>
 </html>

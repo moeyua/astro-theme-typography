@@ -1,0 +1,17 @@
+---
+import { themeConfig } from '~/.config'
+
+const { title, author } = themeConfig.site
+---
+
+<hgroup
+  hover:lg="bg-foreground color-background pt-3.75 pb-8.75 "
+  lg=" write-vertical-right items-start px-2.5 pb-12 b-l-2px b-l-foreground-solid text-left"
+  flex="~ col gap-2.5"
+  class="cursor-pointer text-center transition-[padding,background] duration-800 ease-in-out"
+>
+  <a class="not-underline-hover" href="/">
+    <h3 class="text-5 font-extrabold font-header">{author}</h3>
+    <h1 class="text-8 font-extrabold font-header">{title}</h1>
+  </a>
+</hgroup>
