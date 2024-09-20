@@ -8,8 +8,6 @@ export async function getStaticPaths() {
   const categoryMap = await getCategories()
   return Array.from(categoryMap).map(([key, value]) => {
     const path = getPathFromCategory(key, themeConfig.site.categoryMap)
-    console.log('key', key)
-    console.log('path', path)
     return {
       params: { category: path },
       props: { posts: value, name: key },
@@ -18,7 +16,6 @@ export async function getStaticPaths() {
 }
 
 const { posts, name } = Astro.props
-const { translate: t } = Astro.locals
 
 function getListItems(posts: Post[]) {
   const result = posts.map((post) => ({
@@ -32,7 +29,7 @@ function getListItems(posts: Post[]) {
 
 <LayoutDefault>
   <section>
-    <h2 class="post-title">{`${t('Categories')}: ${name}`}</h2>
+    <h2 class="post-title"># {name}</h2>
     <ul class="pl-6 py-3" flex="~ col gap-4">
       {
         getListItems(posts).map(({ title, href, date }) => (
