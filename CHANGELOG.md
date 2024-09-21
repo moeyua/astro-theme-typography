@@ -26,6 +26,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 修正侧边栏抖动的问题。
 - 在主页滚动条错误展示的问题。
 - 代码块被添加背景色的问题。
+- 修复主题副标题错误取值的问题
+- 防止 Safari 中 main 元素自动获得焦点
 
 ### Chore
 - 使用 ESLint 格式化代码。
