@@ -1,7 +1,7 @@
 ---
 import { themeConfig } from '~/.config'
 
-const { title, author } = themeConfig.site
+const { title, subtitle } = themeConfig.site
 ---
 
 <hgroup
@@ -15,7 +15,7 @@ const { title, author } = themeConfig.site
     hover:lg=" bg-foreground color-background"
     href="/"
   >
-    <h3 class="text-5 font-extrabold font-header">{author}</h3>
+    <h3 class="text-5 font-extrabold font-header">{subtitle}</h3>
     <h1 class="text-8 font-extrabold font-header">{title}</h1>
   </a>
 </hgroup>
