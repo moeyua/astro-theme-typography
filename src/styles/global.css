@@ -5,17 +5,17 @@
 }
 html {
   --at-apply: antialiased;
+  --at-apply: 'bg-background c-foreground font-ui';
 
-  color: var(--uno-colors-foreground);
-  background-color: var(--uno-colors-background);
-  font-family: var(--uno-fonts-ui);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
-
   background-size: 7px 7px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
 }
 
 :where(a):not(.not-underline-hover) {
-  --at-apply: 'underline-hover';
+  padding: 1.5px;
+  --at-apply: 'decoration-underline decoration-0.1em decoration-offset-2px';
+  --at-apply: 'ease-in-out duration-300ms';
+  --at-apply: 'hover:(c-background bg-foreground decoration-foreground)';
 }
