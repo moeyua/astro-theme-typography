@@ -1,0 +1,8 @@
+---
+import GoogleAnalytics from '~/components/analytics/GoogleAnalytics.astro'
+import { themeConfig } from '~/.config'
+
+const googleAnalyticsId = themeConfig.analytics.googleAnalyticsId
+---
+
+{googleAnalyticsId && <GoogleAnalytics id={googleAnalyticsId} />}

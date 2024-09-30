@@ -76,4 +76,7 @@ export const defaultConfig: ThemeConfig = {
   rss: {
     fullText: true,
   },
+  analytics: {
+    googleAnalyticsId: 'G-8E8M78ZVYB',
+  },
 }

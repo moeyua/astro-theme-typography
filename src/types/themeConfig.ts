@@ -20,6 +20,7 @@ export interface ThemeConfig {
   seo: ConfigSEO
   comment: Partial<ConfigComment>
   rss: ConfigRSS
+  analytics: ConfigAnalytics
 }
 
 export type UserConfig = DeepPartial<ThemeConfig>
@@ -59,6 +60,11 @@ export interface ConfigRSS {
   fullText?: boolean
   /** https://github.com/RSSNext/follow */
   follow?: { feedId: string, userId: string }
+}
+
+export interface ConfigAnalytics {
+  /** google analytics */
+  googleAnalyticsId: string
 }
 
 interface Colors {
