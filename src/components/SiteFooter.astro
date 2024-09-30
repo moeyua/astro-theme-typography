@@ -3,22 +3,17 @@ import { themeConfig } from '~/.config'
 
 const year = new Date().getFullYear()
 
-const { website, author } = themeConfig.site
+const { website, author, footer } = themeConfig.site
+
+function parseFooter(str: string) {
+  str = str.replace(/%author/g, author)
+  str = str.replace(/%website/g, website)
+  str = str.replace(/%year/g, year.toString())
+  return str
+}
 ---
 
-<p>
-  © {year}
-  <a target="_blank" href={website} rel="noopener noreferrer">{author}</a>
-</p>
-<p>
-  Theme
-  <a target="_blank" href="https://github.com/Moeyua/astro-theme-typography" rel="noopener noreferrer">Typography</a>
-  by <a target="_blank" href="https://moeyua.com" rel="noopener noreferrer">Moeyua</a>
-</p>
-<p>
-  Proudly published with
-  <a target="_blank" href="https://astro.build" rel="noopener noreferrer">Astro</a>
-</p>
+{footer.length && footer.map((str) => <p set:html={parseFooter(str)} />)}
 
 <style>
   p {

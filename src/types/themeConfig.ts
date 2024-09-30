@@ -34,6 +34,7 @@ export interface ConfigSite {
   socialLinks: { name: string, href: string }[]
   navLinks: { name: string, href: string }[]
   categoryMap: { name: string, path: string }[]
+  footer: string[]
 }
 
 export interface ConfigAppearance {
