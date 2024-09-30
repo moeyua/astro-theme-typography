@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 支持配置字体。
 - 支持添加自定义 SEO 链接。
 - 添加 release 脚本与 CHANGELOG
+- 支持 Google Analytics 配置。
 
 ### Changed
 - 扩大标题点击区域

@@ -4,6 +4,7 @@ import SiteFooter from '~/components/SiteFooter.astro'
 import SiteNavigation from '~/components/SiteNavigation.astro'
 import SiteTitle from '~/components/SiteTitle.astro'
 import SiteSeo from '~/components/SiteSeo.astro'
+import Analytics from '~/components/Analytics.astro'
 import '~/styles/global.css'
 
 const lang = themeConfig.appearance.locale ?? 'en-us'
@@ -12,6 +13,7 @@ const lang = themeConfig.appearance.locale ?? 'en-us'
 <html lang={lang} class="animation-prepared">
   <head>
     <slot name="seo"> <SiteSeo /> </slot>
+    <Analytics />
   </head>
 
   <body class="h-100vh max-w-1200px min-w-390px mx-a" p="7.5 lg:(y-0 x-20)" lg="grid cols-[3fr_1fr] rows-[1fr_9rem]">

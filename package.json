@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preview": "astro preview",
-    "theme:release": "bumpp",
+    "theme:release": "esno scripts/release-theme.ts",
     "theme:create": "esno scripts/create-post.ts",
     "theme:update": "esno scripts/update-theme.ts"
   },
@@ -41,6 +41,7 @@
     "@unocss/transformer-directives": "^0.62.4",
     "astro-eslint-parser": "^1.0.3",
     "bumpp": "^9.5.2",
+    "changelogen": "^0.5.7",
     "consola": "^3.2.3",
     "dayjs": "^1.11.13",
     "eslint": "^9.10.0",

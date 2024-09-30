@@ -70,10 +70,13 @@ export const defaultConfig: ThemeConfig = {
     meta: [],
     link: [],
   },
+  rss: {
+    fullText: true,
+  },
   comment: {
     // disqus: { shortname: "typography-astro" },
   },
-  rss: {
-    fullText: true,
+  analytics: {
+    googleAnalyticsId: '',
   },
 }

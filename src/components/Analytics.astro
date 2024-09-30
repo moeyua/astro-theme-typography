@@ -1,0 +1,9 @@
+---
+import GoogleAnalytics from '~/components/analytics/GoogleAnalytics.astro'
+import { themeConfig } from '~/.config'
+
+const PUBLIC_GOOGLE_ANALYTICS_ID = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID
+const googleAnalyticsId = themeConfig.analytics.googleAnalyticsId || PUBLIC_GOOGLE_ANALYTICS_ID
+---
+
+{googleAnalyticsId && <GoogleAnalytics id={googleAnalyticsId} />}
