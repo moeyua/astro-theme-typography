@@ -59,7 +59,6 @@ export default defineConfig({
   },
   shortcuts: [
     ['post-title', 'text-5 font-bold lh-7.5 m-0'],
-    ['underline-hover', 'p-0.5 underline decoration-2 underline-offset-4 hover:decoration-none hover:color-background hover:bg-foreground'],
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
   safelist: [
