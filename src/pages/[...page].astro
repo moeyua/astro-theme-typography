@@ -1,5 +1,6 @@
 ---
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
+import { themeConfig } from '~/.config'
 import Pagination from '~/components/Pagination.astro'
 import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import LayoutPost from '~/layouts/LayoutPost.astro'
@@ -9,7 +10,7 @@ const { translate: t } = Astro.locals
 
 export const getStaticPaths = (async ({ paginate }) => {
   const posts = await getPosts()
-  return paginate(posts, { pageSize: 5 })
+  return paginate(posts, { pageSize: themeConfig.site.pageSize })
 }) satisfies GetStaticPaths
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>

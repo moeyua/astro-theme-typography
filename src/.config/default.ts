@@ -10,6 +10,7 @@ export const defaultConfig: ThemeConfig = {
     author: 'Moeyua',
     description: 'Rediscory the beauty of typography',
     website: 'https://astro-theme-typography.vercel.app/',
+    pageSize: 5,
     socialLinks: [
       {
         name: 'github',
@@ -31,7 +32,7 @@ export const defaultConfig: ThemeConfig = {
     navLinks: [
       {
         name: 'Posts',
-        href: '/posts/page/1',
+        href: '/',
       },
       {
         name: 'Archive',
