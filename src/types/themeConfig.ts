@@ -70,7 +70,7 @@ export interface ConfigAnalytics {
 }
 
 interface Colors {
-  foreground: string
+  primary: string
   background: string
 }
 

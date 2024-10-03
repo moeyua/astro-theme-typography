@@ -58,12 +58,12 @@ export const defaultConfig: ThemeConfig = {
     theme: 'light',
     locale: 'zh-cn',
     colorsLight: {
-      foreground: '#2e405b',
+      primary: '#2e405b',
       background: '#ffffff',
     },
     colorsDark: {
-      foreground: '#ffffff',
-      background: '#2e405b',
+      primary: '#FFFFFF',
+      background: '#232222',
     },
     fonts: {
       header:
