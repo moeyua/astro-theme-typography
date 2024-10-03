@@ -23,6 +23,7 @@ const cssExtend = {
   },
 
   ':where(:not(pre):not(a) > code)': {
+    'white-space': 'normal',
     'padding': '2px 4px',
     'color': '#c7254e',
     'font-size': '90%',
