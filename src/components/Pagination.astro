@@ -39,17 +39,17 @@ const {
   <div class="flex items-center gap-2">
     {
       showLeft && (
-        <a class=" inline-flex items-center" href={leftUrl}>
-          <span class="i-mdi-chevron-double-left w-4 h-4" />
-          <span>{leftTitle}</span>
+        <a title={leftTitle} href={leftUrl}>
+          <span class="inline-block vertical-mid i-mdi-chevron-double-left w-4 h-4" />
+          {leftTitle}
         </a>
       )
     }
     {
       showRight && (
-        <a class=" inline-flex items-center" href={rightUrl}>
-          <span>{rightTitle}</span>
-          <span class="i-mdi-chevron-double-right w-4 h-4" />
+        <a title={rightTitle} href={rightUrl}>
+          {rightTitle}
+          <span class="inline-block vertical-mid i-mdi-chevron-double-right w-4 h-4" />
         </a>
       )
     }

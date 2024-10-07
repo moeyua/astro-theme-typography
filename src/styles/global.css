@@ -1,21 +1,22 @@
 :root {
-  --uno-colors-foreground: theme('colors.foreground');
+  --uno-colors-primary: theme('colors.primary');
   --uno-colors-background: theme('colors.background');
   --uno-fonts-ui: theme('fontFamily.ui');
+  --uno-colors-shadow: theme('colors.shadow');
 }
 html {
   --at-apply: antialiased;
-  --at-apply: 'bg-background c-foreground font-ui';
+  --at-apply: 'bg-background c-primary font-ui text-shadow-color-shadow';
 
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
+  text-shadow: 1px 1px 1px var(--uno-colors-shadow);
   background-size: 7px 7px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-image: linear-gradient(to right, var(--uno-colors-shadow) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--uno-colors-shadow) 1px, transparent 1px);
 }
 
 :where(a):not(.not-underline-hover) {
-  padding: 1.5px;
+  --at-apply: 'p-1.5px';
   --at-apply: 'decoration-underline decoration-0.1em decoration-offset-2px';
   --at-apply: 'ease-in-out duration-300ms';
-  --at-apply: 'hover:(c-background bg-foreground decoration-foreground)';
+  --at-apply: 'hover:(c-background bg-primary decoration-primary)';
 }

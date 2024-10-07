@@ -10,6 +10,7 @@ export const defaultConfig: ThemeConfig = {
     author: 'Moeyua',
     description: 'Rediscory the beauty of typography',
     website: 'https://astro-theme-typography.vercel.app/',
+    pageSize: 5,
     socialLinks: [
       {
         name: 'github',
@@ -31,7 +32,7 @@ export const defaultConfig: ThemeConfig = {
     navLinks: [
       {
         name: 'Posts',
-        href: '/posts/page/1',
+        href: '/',
       },
       {
         name: 'Archive',
@@ -57,12 +58,12 @@ export const defaultConfig: ThemeConfig = {
     theme: 'light',
     locale: 'zh-cn',
     colorsLight: {
-      foreground: '#2e405b',
+      primary: '#2e405b',
       background: '#ffffff',
     },
     colorsDark: {
-      foreground: '#ffffff',
-      background: '#2e405b',
+      primary: '#FFFFFF',
+      background: '#232222',
     },
     fonts: {
       header:

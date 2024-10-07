@@ -31,6 +31,7 @@ export interface ConfigSite {
   author: string
   description: string
   website: string
+  pageSize: number
   socialLinks: { name: string, href: string }[]
   navLinks: { name: string, href: string }[]
   categoryMap: { name: string, path: string }[]
@@ -69,7 +70,7 @@ export interface ConfigAnalytics {
 }
 
 interface Colors {
-  foreground: string
+  primary: string
   background: string
 }
 
