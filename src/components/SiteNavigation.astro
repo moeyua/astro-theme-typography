@@ -5,7 +5,7 @@ const { navLinks, socialLinks } = themeConfig.site
 const { translate: t } = Astro.locals
 ---
 
-<nav class="text-center font-bold" flex="~ col gap-2">
+<nav class="text-center font-bold" flex="~ col gap-4">
   <ul lg="flex-col items-start text-4" class="text-3.5" flex="~ row gap-2 justify-center">
     {
       navLinks.map((nav) => (
@@ -22,7 +22,7 @@ const { translate: t } = Astro.locals
       socialLinks.map(({ href, name }) => (
         <li>
           <a href={href} target="_blank" title={name} class="not-underline-hover inline-flex items-center">
-            <span class={` i-mdi-${name}`}>{name}</span>
+            <span class:list={[`i-mdi-${name}`, 'w-6 h-6']}>{name}</span>
           </a>
         </li>
       ))

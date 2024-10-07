@@ -14,13 +14,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 支持添加自定义 SEO 链接。
 - 添加 release 脚本与 CHANGELOG
 - 支持 Google Analytics 配置。
+- 添加自定义主题模块。
 
 ### Changed
-- 扩大标题点击区域
+- 扩大标题点击区域。
 - 重新设计配置文件。
 - 重新设计布局。
 - 调整组件结构。
 - 优化整体样式。
+- 设置文章分页为首页。
 
 ### Fixed
 - 修正在移动端时标题的动画错误。
