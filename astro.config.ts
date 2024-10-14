@@ -5,6 +5,8 @@ import { defineConfig } from 'astro/config'
 import robotsTxt from 'astro-robots-txt'
 import UnoCSS from 'unocss/astro'
 import { themeConfig } from './src/.config'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,8 +14,12 @@ export default defineConfig({
   prefetch: true,
   base: '/',
   markdown: {
-    remarkPlugins: [],
-    rehypePlugins: [],
+    remarkPlugins: [
+      remarkMath,
+    ],
+    rehypePlugins: [
+      rehypeKatex,
+    ],
     shikiConfig: {
       theme: 'dracula',
       wrap: true,
@@ -21,7 +27,14 @@ export default defineConfig({
   },
   integrations: [
     UnoCSS({ injectReset: true }),
-    mdx(),
+    mdx({
+      remarkPlugins: [
+        remarkMath,
+      ],
+      rehypePlugins: [
+        rehypeKatex,
+      ],
+    }),
     robotsTxt(),
     sitemap(),
     swup({
