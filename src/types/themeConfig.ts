@@ -67,6 +67,7 @@ export interface ConfigRSS {
 export interface ConfigAnalytics {
   /** google analytics */
   googleAnalyticsId: string
+  umamiAnalyticsId: string
 }
 
 interface Colors {
