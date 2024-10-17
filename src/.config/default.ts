@@ -84,5 +84,9 @@ export const defaultConfig: ThemeConfig = {
   },
   analytics: {
     googleAnalyticsId: '',
+    umamiAnalyticsId: '',
+  },
+  latex: {
+    katex: false,
   },
 }
