@@ -30,7 +30,7 @@
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
     "typescript": "~5.5.4",
-    "vite": "^5.4.6"
+    "vite": "^5.4.9"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.6.2",
