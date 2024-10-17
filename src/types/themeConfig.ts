@@ -21,6 +21,7 @@ export interface ThemeConfig {
   comment: Partial<ConfigComment>
   rss: ConfigRSS
   analytics: ConfigAnalytics
+  latex: ConfigLaTeX
 }
 
 export type UserConfig = DeepPartial<ThemeConfig>
@@ -68,6 +69,10 @@ export interface ConfigAnalytics {
   /** google analytics */
   googleAnalyticsId: string
   umamiAnalyticsId: string
+}
+
+export interface ConfigLaTeX {
+  katex: boolean
 }
 
 interface Colors {
