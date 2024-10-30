@@ -38,9 +38,6 @@ importers:
       giscus:
         specifier: ^1.5.0
         version: 1.5.0
-      katex:
-        specifier: ^0.16.11
-        version: 0.16.11
       rehype-katex:
         specifier: ^7.0.1
         version: 7.0.1

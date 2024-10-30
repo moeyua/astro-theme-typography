@@ -6,12 +6,12 @@ const { latex } = themeConfig
 const katex = latex.katex
 ---
 
-{katex && (
-  <>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" crossorigin="anonymous">
-    <script is:inline defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js" crossorigin="anonymous"></script>
-    <script is:inline defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js" crossorigin="anonymous"
-        onload="renderMathInElement(document.body);"></script>
-  </>
-)}
-
+{
+  katex && (
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"
+      crossorigin="anonymous"
+    />
+  )
+}
