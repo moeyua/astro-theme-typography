@@ -27,14 +27,7 @@ export default defineConfig({
   },
   integrations: [
     UnoCSS({ injectReset: true }),
-    mdx({
-      remarkPlugins: [
-        remarkMath,
-      ],
-      rehypePlugins: [
-        rehypeKatex,
-      ],
-    }),
+    mdx({}),
     robotsTxt(),
     sitemap(),
     swup({
