@@ -132,6 +132,7 @@ For now, Typography supports below languages:
 - `zh-cn`
 - `zh-tw`
 - `ja-jp`
+- `it-it`
 
 You can see all supported languages in [src/i18n.ts](src/i18n.ts), and add more if you need.
 
