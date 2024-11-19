@@ -100,7 +100,7 @@ export const LANGUAGES = {
     About: 'Info',
     Links: 'Link',
 
-    posted_at: 'Posted at',
+    posted_at: 'Pubblicato in',
     tag_count: '%d tag',
     archive_count: '%d articoli',
     categories_count: '%d articoli',
