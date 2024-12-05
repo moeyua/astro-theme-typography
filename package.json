@@ -28,11 +28,11 @@
     "giscus": "^1.5.0",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
-    "typescript": "~5.5.4",
-    "vite": "^5.4.6"
+    "typescript": "~5.7.2",
+    "vite": "^6.0.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^3.6.2",
+    "@antfu/eslint-config": "^3.8.0",
     "@iconify-json/mdi": "^1.2.0",
     "@types/markdown-it": "^14.1.2",
     "@types/node": "^22.5.5",
@@ -46,7 +46,7 @@
     "changelogen": "^0.5.7",
     "consola": "^3.2.3",
     "dayjs": "^1.11.13",
-    "eslint": "^9.10.0",
+    "eslint": "^9.16.0",
     "eslint-plugin-astro": "^1.2.4",
     "eslint-plugin-format": "^0.1.2",
     "esno": "^4.7.0",
