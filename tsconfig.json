@@ -10,7 +10,8 @@
   "include": [
     "src/**/*.astro",
     "src/**/*.ts",
-    "uno.config.ts",
-    "astro.config.ts"
-  ]
+    ".astro/types.d.ts",
+    "**/*"
+  ],
+  "exclude": ["dist"]
 }
