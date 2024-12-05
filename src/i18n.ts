@@ -91,7 +91,7 @@ export const LANGUAGES = {
     prev_post: '前の投稿',
     next_post: '次の投稿',
   },
-   'it-it': {
+  'it-it': {
     Home: 'Home',
     Posts: 'Articoli',
     Categories: 'Categorie',
