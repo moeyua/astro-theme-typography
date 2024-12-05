@@ -65,7 +65,7 @@ export default defineConfig({
           colors: { ...colorsDark, shadow: '#FFFFFF0A' },
           // TODO 需要配置代码块颜色
         },
-      }
+      },
     }),
   ],
   theme: {

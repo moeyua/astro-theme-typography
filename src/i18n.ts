@@ -91,7 +91,7 @@ export const LANGUAGES = {
     prev_post: '前の投稿',
     next_post: '次の投稿',
   },
-   'it-it': {
+  'it-it': {
     Home: 'Home',
     Posts: 'Articoli',
     Categories: 'Categorie',
@@ -100,7 +100,7 @@ export const LANGUAGES = {
     About: 'Info',
     Links: 'Link',
 
-    posted_at: 'Posted at',
+    posted_at: 'Pubblicato in',
     tag_count: '%d tag',
     archive_count: '%d articoli',
     categories_count: '%d articoli',
