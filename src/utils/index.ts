@@ -26,6 +26,9 @@ export async function getPosts() {
   posts.sort((a, b) => {
     return dayjs(a.data.pubDate).isBefore(dayjs(b.data.pubDate)) ? 1 : -1
   })
+  if (import.meta.env.PROD) {
+    return posts.filter(post => post.data.draft !== true)
+  }
   return posts
 }
 
