@@ -6,6 +6,7 @@ import SiteSeo from '~/components/SiteSeo.astro'
 import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import LayoutPost from '~/layouts/LayoutPost.astro'
 import { getPosts } from '~/utils'
+import { render } from 'astro:content'
 
 export const getStaticPaths = (async () => {
   const posts = await getPosts()
@@ -13,7 +14,7 @@ export const getStaticPaths = (async () => {
     const prev = posts[idx - 1]
     const next = posts[idx + 1]
     return {
-      params: { slug: post.slug },
+      params: { id: post.id },
       props: { entry: post, next, prev },
     }
   })
@@ -23,11 +24,11 @@ export const getStaticPaths = (async () => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { entry, prev, next } = Astro.props
-const { Content } = await entry.render()
+const { Content } = await render(entry)
 const { translate: t } = Astro.locals
 
-function getUrl(slug: string) {
-  return `/posts/${slug}`
+function getUrl(id: string) {
+  return `/posts/${id}`
 }
 ---
 
@@ -41,10 +42,10 @@ function getUrl(slug: string) {
   <Pagination
     showLeft={Boolean(prev)}
     leftTitle={`${t('prev_post')}: ${prev?.data.title}`}
-    leftUrl={getUrl(prev?.slug)}
+    leftUrl={getUrl(prev?.id)}
     showRight={Boolean(next)}
     rightTitle={`${t('next_post')}: ${next?.data.title}`}
-    rightUrl={getUrl(next?.slug)}
+    rightUrl={getUrl(next?.id)}
     showPageCount={false}
   />
   <!-- BUG 这里使用 client:visible 会导致构建失败。ref: https://github.com/withastro/astro/issues/7329 -->

@@ -1,8 +1,8 @@
+import type { Post } from '~/types'
 import { getCollection } from 'astro:content'
 import dayjs from 'dayjs'
 import MarkdownIt from 'markdown-it'
 import sanitizeHtml from 'sanitize-html'
-import type { Post } from '~/types'
 
 export async function getCategories() {
   const posts = await getPosts()
@@ -35,7 +35,7 @@ export function getPostDescription(post: Post) {
     return post.data.description
   }
 
-  const html = parser.render(post.body)
+  const html = parser.render(post.body || '')
   const sanitized = sanitizeHtml(html, { allowedTags: [] })
   return sanitized.slice(0, 400)
 }

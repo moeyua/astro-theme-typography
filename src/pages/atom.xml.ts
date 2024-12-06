@@ -1,9 +1,9 @@
 import type { APIContext } from 'astro'
+import type { Post } from '~/types'
 import rss from '@astrojs/rss'
-import { themeConfig } from '~/.config'
 import MarkdownIt from 'markdown-it'
 import sanitizeHtml from 'sanitize-html'
-import type { Post } from '~/types'
+import { themeConfig } from '~/.config'
 import { getPosts } from '~/utils'
 
 const parser = new MarkdownIt()
@@ -31,7 +31,7 @@ function getCustomData() {
 
 function getPostItem(post: Post) {
   const postItem = {
-    link: `/posts/${post.slug}/`,
+    link: `/posts/${post.id}/`,
     author: post.data.author ?? author,
     content: getPostContent(post),
     title: post.data.title,
@@ -51,5 +51,5 @@ function getPostContent(post: Post) {
   const isFullText = themeConfig.rss.fullText
   if (!isFullText)
     return post.data.description
-  return sanitizeHtml(parser.render(post.body), { allowedTags })
+  return sanitizeHtml(parser.render(post.body || ''), { allowedTags })
 }

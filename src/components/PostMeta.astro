@@ -15,7 +15,7 @@ const categoryList = post.data.categories ?? []
 
 <header flex="~ col gap-2">
   <h1 class="post-title">
-    <a class="not-prose" href={`/posts/${post.slug}/`}>{post.data.title}</a>
+    <a class="not-prose" href={`/posts/${post.id}/`}>{post.data.title}</a>
   </h1>
   <div class="text-3.5">
     <span>{t('posted_at')}</span>
