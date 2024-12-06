@@ -24,6 +24,11 @@ const posts = defineCollection({
     }),
 })
 
+const spec = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/spec' }),
+})
+
 export const collections = {
   posts,
+  spec,
 }
