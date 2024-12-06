@@ -2,18 +2,9 @@ import { execSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
 import consola from 'consola'
+import dayjs from 'dayjs'
 
-/**
- * Get the current date in the format "YYYY-MM-DD".
- * @returns The current date as a string.
- */
-function getDate(): string {
-  const today: Date = new Date()
-  const year: number = today.getFullYear()
-  const month: string = String(today.getMonth() + 1).padStart(2, '0')
-  const day: string = String(today.getDate()).padStart(2, '0')
-  return `${year}-${month}-${day}`
-}
+createPost()
 
 /**
  * Create a new post.
@@ -34,12 +25,12 @@ async function createPost(): Promise<void> {
   const fullPath: string = path.join(targetDir, `${filename}${ext}`)
 
   const frontmatter = `---
-  title: ${filename}
-  pubDate: ${getDate()}
-  categories: []
-  description: ''
-  ---
-  `
+title: ${filename}
+pubDate: ${getDate()}
+categories: []
+description: ''
+slug: ${toSlug(filename)}
+---`
 
   try {
     fs.writeFileSync(fullPath, frontmatter)
@@ -51,7 +42,7 @@ async function createPost(): Promise<void> {
     })
     if (open) {
       consola.info(`Opening ${fullPath}...`)
-      execSync(`code ${fullPath}`)
+      execSync(`code "${fullPath}"`)
     }
   }
   catch (error) {
@@ -59,4 +50,25 @@ async function createPost(): Promise<void> {
   }
 }
 
-createPost()
+/**
+ * Get the current date in the format "YYYY-MM-DD".
+ * @returns The current date as a string.
+ */
+function getDate(): string {
+  // const today: Date = new Date()
+  // const year: number = today.getFullYear()
+  // const month: string = String(today.getMonth() + 1).padStart(2, '0')
+  // const day: string = String(today.getDate()).padStart(2, '0')
+  // return `${year}-${month}-${day}`
+
+  return dayjs().format('YYYY-MM-DD')
+}
+
+/**
+ * Convert a string to a slug: lowercase and replace spaces with hyphens.
+ * @param str The string to convert.
+ * @returns The converted slug.
+ */
+function toSlug(str: string): string {
+  return str.toLowerCase().replace(/\s+/g, '-')
+}

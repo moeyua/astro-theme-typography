@@ -20,7 +20,7 @@ const { posts, name } = Astro.props
 function getListItems(posts: Post[]) {
   const result = posts.map((post) => ({
     title: post.data.title,
-    href: `/posts/${post.slug}/`,
+    href: `/posts/${post.id}/`,
     date: formatDate(post.data.pubDate),
   }))
   return result
