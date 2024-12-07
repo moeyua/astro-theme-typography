@@ -1,13 +1,13 @@
 ---
-title: "Test LaTeX"
+title: Latex Example
 pubDate: 2023-10-01
-categories: ["test"]
-description: "This is an article for testing LaTeX rendering."
+categories: ["Examples"]
+description: "Here is a sample of some basic Latex syntax that can be used when writing Latex content in Astro."
+slug: latex-example
+draft: true
 ---
 
-# Test LaTeX
-
-This is a sample article containing LaTeX mathematical formulas.
+In this post, we will showcase some basic LaTeX syntax that can be used when writing LaTeX content in Astro.
 
 ## Inline Formula
 
