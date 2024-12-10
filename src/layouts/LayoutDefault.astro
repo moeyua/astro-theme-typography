@@ -6,6 +6,7 @@ import SiteTitle from '~/components/SiteTitle.astro'
 import SiteSeo from '~/components/SiteSeo.astro'
 import LaTeX from '~/components/LaTeX.astro'
 import Analytics from '~/components/Analytics.astro'
+import ThemeScript from '~/components/ThemeScript.astro'
 import '~/styles/global.css'
 
 const lang = themeConfig.appearance.locale ?? 'en-us'
@@ -17,6 +18,7 @@ const dark = themeConfig.appearance.theme === 'dark'
     <slot name="seo"> <SiteSeo /> </slot>
     <LaTeX />
     <Analytics />
+    <ThemeScript />
   </head>
 
   <body
