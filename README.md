@@ -116,7 +116,7 @@ And then add the corresponding page in `src/pages`, see more in [Astro Pages](ht
 Typography supports dark mode. You can change it in the config file:
 
 ```ts
-themeStyle: 'dark' // 'light' | 'dark'
+themeStyle: 'dark' // 'light' | 'dark' | 'system'
 ```
 
 ### Internationalization (i18n)

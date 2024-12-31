@@ -113,7 +113,7 @@ navs: [
 「活版印字」主题支持深色模式。您可以在配置文件中更改它：
 
 ```ts
-themeStyle: 'dart' // 'light' | 'dark'
+themeStyle: 'dark' // 'light' | 'dark' | 'system'
 ```
 
 ### 国际化 (i18n)
