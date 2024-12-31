@@ -10,6 +10,11 @@ const { translate: t } = Astro.locals
 
 export const getStaticPaths = (async ({ paginate }) => {
   const posts = await getPosts()
+  posts.sort((a, b) => {
+    if (a.data.pin && !b.data.pin) return -1
+    if (!a.data.pin && b.data.pin) return 1
+    return 0
+  })
   return paginate(posts, { pageSize: themeConfig.site.pageSize })
 }) satisfies GetStaticPaths
 
