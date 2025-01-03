@@ -5,12 +5,11 @@
   "packageManager": "pnpm@9.14.4",
   "repository": "https://github.com/moeyua/astro-theme-typography",
   "scripts": {
-    "astro": "astro",
-    "build": "astro check && astro build",
     "dev": "astro check && astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "preview": "astro preview",
     "theme:release": "esno scripts/release-theme.ts",
     "theme:create": "esno scripts/create-post.ts",
     "theme:update": "esno scripts/update-theme.ts"

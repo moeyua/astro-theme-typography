@@ -18,6 +18,7 @@ const posts = defineCollection({
       commentsUrl: z.string().optional(),
       source: z.optional(z.object({ url: z.string(), title: z.string() })),
       enclosure: z.optional(z.object({ url: z.string(), length: z.number(), type: z.string() })),
+      pin: z.boolean().default(false).optional(),
     }),
 })
 

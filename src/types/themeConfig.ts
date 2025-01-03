@@ -40,7 +40,7 @@ export interface ConfigSite {
 }
 
 export interface ConfigAppearance {
-  theme: 'light' | 'dark'
+  theme: 'light' | 'dark' | 'system'
   locale: keyof typeof LANGUAGES
   colorsDark: Colors
   colorsLight: Colors
