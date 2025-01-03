@@ -18,8 +18,8 @@ const categoryList = post.data.categories ?? []
     <a class="not-prose" href={`/posts/${post.id}/`}>{post.data.title}</a>
   </h1>
   <div class="text-3.5">
-    <span>{t('posted_at')}</span>
-    <time>{formatDate(post.data.pubDate)}</time>
+    <span>{t(post.data.modDate ? 'updated_at' : 'posted_at')}</span>
+    <time>{formatDate(post.data.modDate ?? post.data.pubDate)}</time>
     {categoryList.map((category) => <PostCategory category={category} />)}
   </div>
 </header>
