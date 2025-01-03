@@ -3,7 +3,7 @@ import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import type { Post } from '~/types'
 import { formatDate, getPosts } from '~/utils'
 
-const posts = await getPosts()
+const posts = await getPosts(true)
 
 const yearMap = getYearMap(posts)
 
