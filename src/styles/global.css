@@ -3,6 +3,12 @@
   --uno-colors-background: theme('colors.background');
   --uno-fonts-ui: theme('fontFamily.ui');
   --uno-colors-shadow: theme('colors.shadow');
+
+  --table-border: #42536b;
+  --table-bg: #ffffff;
+  --header-bg: #42536b;
+  --header-color: #ffffff;
+  --hover-bg: #eaebee;
 }
 html {
   --at-apply: antialiased;
@@ -12,6 +18,18 @@ html {
   background-size: 7px 7px;
   background-image: linear-gradient(to right, var(--uno-colors-shadow) 1px, transparent 1px),
     linear-gradient(to bottom, var(--uno-colors-shadow) 1px, transparent 1px);
+
+  body {
+    font-family: "LXGW WenKai";
+    font-weight: normal;
+  }
+}
+html.dark {
+  --table-border: #2e2f2f;
+  --table-bg: #424343;
+  --header-bg: #2e2f2f;
+  --header-color: #ffffff;
+  --hover-bg: #575858;
 }
 
 :where(a):not(.not-underline-hover) {
@@ -19,4 +37,39 @@ html {
   --at-apply: 'decoration-underline decoration-0.1em decoration-offset-2px';
   --at-apply: 'ease-in-out duration-300ms';
   --at-apply: 'hover:(c-background bg-primary decoration-primary)';
+}
+
+article.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  table-layout: fixed;
+  border: 1px solid var(--table-border);
+}
+
+article.prose th,
+article.prose td {
+  border-left: 1px solid var(--table-border);
+  border-right: 1px solid var(--table-border);
+  width: 1%;
+  background-color: var(--table-bg);
+}
+
+article.prose th {
+  background-color: var(--header-bg);
+  color: var(--header-color);
+}
+
+article.prose tr:hover td {
+  background-color: var(--hover-bg);
+}
+
+article.prose th:first-child,
+article.prose td:first-child {
+  border-left: none;
+}
+
+article.prose th:last-child,
+article.prose td:last-child {
+  border-right: none;
 }
