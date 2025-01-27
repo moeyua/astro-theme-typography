@@ -8,11 +8,11 @@ export const defaultConfig: ThemeConfig = {
     title: '随笔',
     subtitle: 'Neko',
     author: 'Neko',
-    description: 'Rediscory the beauty of typography',
+    description: '八百里分麾下炙',
     website: 'https://astro-theme-typography.vercel.app/',
     pageSize: 5,
     socialLinks: [
-      {
+    /*  {
         name: 'github',
         href: 'https://github.com/moeyua/astro-theme-typography',
       },
@@ -27,7 +27,7 @@ export const defaultConfig: ThemeConfig = {
       {
         name: 'mastodon',
         href: 'https://github.com/moeyua/astro-theme-typography',
-      },
+      },*/
     ],
     navLinks: [
       {
@@ -58,12 +58,12 @@ export const defaultConfig: ThemeConfig = {
     theme: 'system',
     locale: 'zh-cn',
     colorsLight: {
-      primary: '#2e405b',
-      background: '#ffffff',
+      primary: '#1C2024',
+      background: '##FCFCFD',
     },
     colorsDark: {
-      primary: '#FFFFFF',
-      background: '#232222',
+      primary: '#EDEEF0',
+      background: '#111113',
     },
     fonts: {
       header:
