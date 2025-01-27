@@ -57,7 +57,14 @@ export default defineConfig({
     presetUno(),
     presetTypography({ cssExtend }),
     presetAttributify(),
-    presetIcons({ scale: 1.2, warn: true }),
+    presetIcons({
+      scale: 1.2,
+      warn: true,
+      collections: {
+        simple: () => import('@iconify-json/simple-icons/icons.json').then(i => i.default),
+        mdi: () => import('@iconify-json/mdi/icons.json').then(i => i.default),
+      }
+    }),
     presetTheme ({
       theme: {
         dark: {
@@ -76,7 +83,7 @@ export default defineConfig({
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
   safelist: [
-    ...themeConfig.site.socialLinks.map(social => `i-mdi-${social.name}`),
+    ...themeConfig.site.socialLinks.map(social => `i-simple-${social.name}`),
     'i-mdi-content-copy',
     'i-mdi-check',
   ],
