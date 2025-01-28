@@ -8,11 +8,14 @@ import remarkMath from 'remark-math'
 import UnoCSS from 'unocss/astro'
 import { themeConfig } from './src/.config'
 
+import cloudflare from '@astrojs/cloudflare';
+
 // https://astro.build/config
 export default defineConfig({
   site: themeConfig.site.website,
   prefetch: true,
   base: '/',
+
   markdown: {
     remarkPlugins: [
       remarkMath,
@@ -25,6 +28,7 @@ export default defineConfig({
       wrap: true,
     },
   },
+
   integrations: [
     UnoCSS({ injectReset: true }),
     mdx({}),
@@ -41,4 +45,6 @@ export default defineConfig({
       updateBodyClass: true,
     }),
   ],
+
+  adapter: cloudflare(),
 })
