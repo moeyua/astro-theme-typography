@@ -1,0 +1,21 @@
+---
+import { getEntry, render } from 'astro:content'
+import LayoutDefault from '~/layouts/LayoutDefault.astro'
+
+const linksContent = await getEntry('spec', 'links')
+if (!linksContent) {
+  throw new Error('No links found')
+}
+const { Content } = await render(linksContent)
+---
+
+<LayoutDefault>
+  <header flex="~ col gap-2">
+    <h1 class="post-title">
+      <a class="not-prose">{linksContent.data.title}</a>
+    </h1>
+  </header>
+  <article class="prose">
+    <Content />
+  </article>
+</LayoutDefault>
