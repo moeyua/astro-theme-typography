@@ -23,10 +23,9 @@ async function createPost(): Promise<void> {
 
   const frontmatter = getFrontmatter({
     title: filename,
-    pubDate: dayjs().format('YYYY-MM-DD'),
+    pubDate: dayjs().format('YYYY-MM-DD HH:mm:ss Z'),
     categories: '[]',
-    description: '\'\'',
-    slug: filename.toLowerCase().replace(/\s+/g, '-'),
+    tags: '""',
     draft: isDraft ? 'true' : 'false',
   })
 

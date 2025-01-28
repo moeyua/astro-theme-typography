@@ -1,0 +1,6 @@
+---
+export const prerender = false;
+
+const { id } = Astro.params;
+return Astro.redirect(`/posts/${encodeURIComponent(id)}`, 301);
+---
