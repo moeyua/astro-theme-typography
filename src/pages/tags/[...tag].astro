@@ -1,17 +1,15 @@
 ---
-import { themeConfig } from '~/.config'
-import LayoutDefault from '~/layouts/LayoutDefault.astro'
-import type { Post } from '~/types'
-import { formatDate, getCategories, getPathFromCategory, getPostUrl } from '~/utils'
+import LayoutDefault from '~/layouts/LayoutDefault.astro';
+import type { Post } from '~/types';
+import { formatDate, getTags, getPostUrl } from '~/utils';
 
 export async function getStaticPaths() {
-  const categoryMap = await getCategories()
-  return Array.from(categoryMap).map(([key, value]) => {
-    const path = getPathFromCategory(key, themeConfig.site.categoryMap)
+  const tagMap = await getTags();
+  return Array.from(tagMap).map(([key, value]) => {
     return {
-      params: { category: path },
+      params: { tag: key },
       props: { posts: value, name: key },
-    }
+    };
   })
 }
 

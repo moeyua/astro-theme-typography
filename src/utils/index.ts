@@ -64,3 +64,25 @@ export function getPathFromCategory(
   const mappingPath = category_map.find(l => l.name === category)
   return mappingPath ? mappingPath.path : category
 }
+
+export function getPostUrl(post?: Post) {
+  if (post == undefined) {
+    return "";
+  }
+  return `/posts/${post.id}`;
+}
+
+export async function getTags() {
+  const posts = await getPosts();
+  const tags = new Map();
+  for (const post of posts) {
+    if (post.data.tags) {
+      for (const tag of post.data.tags) {
+        const posts = tags.get(tag) || [];
+        posts.push(post);
+        tags.set(tag, posts);
+      }
+    }
+  }
+  return tags;
+}

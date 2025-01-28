@@ -1,0 +1,32 @@
+---
+import LayoutDefault from '~/layouts/LayoutDefault.astro';
+import { getTags } from '~/utils/index';
+
+const { translate: t } = Astro.locals;
+
+const tags = await getTags();
+const sortedTags = Array.from(tags.keys()).sort();
+
+const tagList = sortedTags.map((tag) => ({
+    title: tag,
+    href: `/tags/${tag}`,
+    size: t('tags_count', tags.get(tag).length),
+}));
+---
+<LayoutDefault>
+    <section>
+      <h2 class="post-title">{t('Tags')}</h2>
+      <ul class="pl-6" flex="~ col gap-4">
+        {
+          tagList.map(({ title, href, size }) => (
+            <li>
+              <h3 class="post-title">
+                <a href={href}># {title}</a>
+              </h3>
+              <p>{size}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </LayoutDefault>

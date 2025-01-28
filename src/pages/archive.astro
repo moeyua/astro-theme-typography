@@ -2,6 +2,7 @@
 import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import type { Post } from '~/types'
 import { formatDate, getPosts } from '~/utils'
+import { getPostUrl } from '../utils'
 
 const posts = await getPosts(true)
 
@@ -27,7 +28,7 @@ function getYearMap(posts: Post[]) {
 function getListItem(post: Post): ListItem {
   return {
     title: post.data.title,
-    href: `/posts/${post.id}/`,
+    href: getPostUrl(post),
     date: formatDate(post.data.pubDate, 'MM-DD'),
   }
 }

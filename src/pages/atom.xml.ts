@@ -4,7 +4,7 @@ import rss from '@astrojs/rss'
 import MarkdownIt from 'markdown-it'
 import sanitizeHtml from 'sanitize-html'
 import { themeConfig } from '~/.config'
-import { getPosts } from '~/utils'
+import { getPosts, getPostUrl } from '~/utils'
 
 const parser = new MarkdownIt()
 const { title, description, website, author } = themeConfig.site
@@ -31,7 +31,7 @@ function getCustomData() {
 
 function getPostItem(post: Post) {
   const postItem = {
-    link: `/posts/${post.id}/`,
+    link: getPostUrl(post),
     author: post.data.author ?? author,
     content: getPostContent(post),
     title: post.data.title,

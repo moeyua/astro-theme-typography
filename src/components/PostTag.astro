@@ -1,0 +1,15 @@
+---
+interface Props {
+  tag: string
+}
+
+const { tag } = Astro.props;
+
+function getTagUrl(tag: string) {
+  return `/tags/${tag}`;
+}
+---
+
+<a href={getTagUrl(tag)}>
+  # {tag}
+</a>

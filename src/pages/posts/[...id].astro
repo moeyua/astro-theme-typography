@@ -5,7 +5,7 @@ import Pagination from '~/components/Pagination.astro'
 import SiteSeo from '~/components/SiteSeo.astro'
 import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import LayoutPost from '~/layouts/LayoutPost.astro'
-import { getPosts } from '~/utils'
+import { getPosts, getPostUrl } from '~/utils'
 import { render } from 'astro:content'
 
 export const getStaticPaths = (async () => {
@@ -26,10 +26,6 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>
 const { entry, prev, next } = Astro.props
 const { Content } = await render(entry)
 const { translate: t } = Astro.locals
-
-function getUrl(id: string) {
-  return `/posts/${id}`
-}
 ---
 
 <LayoutDefault>
@@ -42,10 +38,10 @@ function getUrl(id: string) {
   <Pagination
     showLeft={Boolean(prev)}
     leftTitle={`${t('prev_post')}: ${prev?.data.title}`}
-    leftUrl={getUrl(prev?.id)}
+    leftUrl={getPostUrl(prev)}
     showRight={Boolean(next)}
     rightTitle={`${t('next_post')}: ${next?.data.title}`}
-    rightUrl={getUrl(next?.id)}
+    rightUrl={getPostUrl(next)}
     showPageCount={false}
   />
   <!-- BUG 这里使用 client:visible 会导致构建失败。ref: https://github.com/withastro/astro/issues/7329 -->

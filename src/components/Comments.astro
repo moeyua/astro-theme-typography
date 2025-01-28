@@ -1,6 +1,7 @@
 ---
 import { themeConfig } from '~/.config'
 import type { Post } from '~/types'
+import { getPostUrl } from '~/utils'
 import Disqus from '~/components/comments/Disqus.astro'
 import Giscus from '~/components/comments/Giscus.astro'
 import Twikoo from '~/components/comments/Twikoo.astro'
@@ -11,7 +12,7 @@ interface Props {
 
 const { id, data } = Astro.props.post
 
-const path = `/posts/${id}`
+const path = getPostUrl(Astro.props.post);
 const url = `${Astro.site?.href}${path}`
 
 const provider = getProvider()
