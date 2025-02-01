@@ -54,7 +54,7 @@
     "prettier-plugin-astro": "^0.13.0",
     "sanitize-html": "^2.13.1",
     "simple-git-hooks": "^2.11.1",
-    "unocss": "^0.62.4",
+    "unocss": "^65.4.3",
     "unocss-preset-theme": "^0.13.0"
   },
   "simple-git-hooks": {
