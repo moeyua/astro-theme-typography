@@ -17,6 +17,9 @@ export const defaultConfig: ThemeConfig = {
         href: 'https://github.com/DeepFog-ORG',
       },
       {
+        name: 'email-fast',
+        href: 'deepf0g@icloud.com',
+      {
         name: 'rss',
         href: '/atom.xml',
       },
