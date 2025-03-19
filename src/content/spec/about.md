@@ -13,8 +13,5 @@ Hi.我是焘，很高兴与你相遇。这是我创建一个网页，用来记�
 你可以通过电子邮箱联络我: )
 *deepf0g@icloud.com*
 
--
-
-[![CC BY-NC-SA 4.0](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 <br>本网站采用 [署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议](https://creativecommons.org/licenses/by-nc-sa/4.0/) 进行许可。
