@@ -9,7 +9,7 @@ export const defaultConfig: ThemeConfig = {
     subtitle: 'DeepFog Blog',
     author: '焘',
     description: 'The best way to predict the future is to create it.',
-    website: 'https://astro-theme-typography.vercel.app/',
+    website: 'https://deepfog.top/',
     pageSize: 5,
     socialLinks: [
       {
@@ -20,14 +20,14 @@ export const defaultConfig: ThemeConfig = {
         name: 'rss',
         href: '/atom.xml',
       },
-      {
+      //{
         //name: 'twitter',
         //href: 'https://github.com/moeyua/astro-theme-typography',
-      },
-      {
+      //},
+      //{
         //name: 'mastodon',
         //href: 'https://github.com/moeyua/astro-theme-typography',
-      },
+      //},
     ],
     navLinks: [
       {
@@ -72,7 +72,7 @@ export const defaultConfig: ThemeConfig = {
     },
   },
   seo: {
-    twitter: '@moeyua13',
+    twitter: [],
     meta: [],
     link: [],
   },
@@ -87,6 +87,6 @@ export const defaultConfig: ThemeConfig = {
     umamiAnalyticsId: '',
   },
   latex: {
-    katex: false,
+    katex: true,
   },
 }
