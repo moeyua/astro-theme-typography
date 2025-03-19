@@ -18,7 +18,7 @@ export const defaultConfig: ThemeConfig = {
       },
       {
         name: 'email-fast',
-        href: 'deepf0g@icloud.com',
+        href: 'mailto:deepf0g@icloud.com',
       },
       {
         name: 'rss',
