@@ -1,0 +1,41 @@
+---
+import { getImage } from 'astro:assets';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  width?: number;
+  height?: number;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  decoding?: 'async' | 'sync' | 'auto';
+}
+
+const { 
+  src, 
+  alt, 
+  width, 
+  height, 
+  class: className,
+  loading = 'lazy',
+  decoding = 'async'
+} = Astro.props;
+
+// 优化图片
+const optimizedImage = await getImage({
+  src,
+  width: width,
+  height: height,
+  format: 'webp', // 使用更高效的webp格式
+});
+---
+
+<img
+  src={optimizedImage.src}
+  width={optimizedImage.attributes.width}
+  height={optimizedImage.attributes.height}
+  alt={alt}
+  class={className}
+  loading={loading}
+  decoding={decoding}
+/>

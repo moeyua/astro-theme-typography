@@ -2,11 +2,13 @@
 import { SEO, type SEOProps } from 'astro-seo'
 import { getImage } from 'astro:assets'
 import { themeConfig } from '~/.config'
+import { Fragment } from 'astro/components'
 
 interface Props {
   title?: string
   desc?: string
   banner?: ImageMetadata
+  jsonLd?: Record<string, any>[]
 }
 
 const props = Astro.props
@@ -29,6 +31,9 @@ const seoLinks = [
     title: themeConfig.site.title,
     href: rss,
   },
+  // PWA相关链接
+  { rel: 'manifest', href: '/manifest.json' },
+  { rel: 'apple-touch-icon', href: '/favicon.svg' },
   ...configSEO.link,
 ]
 
@@ -42,6 +47,13 @@ const seoMeta = [
   { name: 'twitter:card', content: 'summary_large_image' },
   { name: 'twitter:title', content: title },
   { name: 'twitter:description', content: desc },
+  // PWA相关元标签
+  { name: 'theme-color', content: themeConfig.appearance.colorsLight.primary },
+  { name: 'apple-mobile-web-app-capable', content: 'yes' },
+  { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
+  { name: 'apple-mobile-web-app-title', content: title },
+  { name: 'application-name', content: title },
+  { name: 'msapplication-TileColor', content: themeConfig.appearance.colorsLight.primary },
   ...configSEO.meta,
 ]
 
@@ -67,3 +79,12 @@ async function getOptimizedImageURL() {
   extend={{ link: seoLinks, meta: seoMeta }}
   openGraph={openGraph}
 />
+
+{/* 渲染JSON-LD结构化数据 */}
+{(props.jsonLd || configSEO.jsonLd) && (
+  <Fragment>
+    {(props.jsonLd || configSEO.jsonLd || []).map(data => (
+      <script type="application/ld+json" set:html={JSON.stringify(data)} />
+    ))}
+  </Fragment>
+)}

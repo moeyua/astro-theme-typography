@@ -28,8 +28,29 @@ export default defineConfig({
   integrations: [
     UnoCSS({ injectReset: true }),
     mdx({}),
-    robotsTxt(),
-    sitemap(),
+    robotsTxt({
+      sitemap: true,
+      policy: [
+        {
+          userAgent: '*',
+          allow: '/',
+          disallow: ['/admin', '/private'],
+          crawlDelay: 10,
+        },
+      ],
+    }),
+    sitemap({
+      filter: (page) => !page.includes('/private/'),
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+      customPages: [
+        `${themeConfig.site.website}`,
+        `${themeConfig.site.website}about`,
+        `${themeConfig.site.website}archive`,
+        `${themeConfig.site.website}categories`,
+      ],
+    }),
     swup({
       theme: false,
       animationClass: 'transition-swup-',

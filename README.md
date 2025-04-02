@@ -21,8 +21,11 @@
 - **Typography** Derived from prevalent Chinese typographic norms and aims to provide an enhanced reading experience for website visitors.
 - **Responsive**. Responsive and works well on all screen sizes.
 - **Accessible**. A well thought out semantic and accessible content.
-- **SEO friendly**.Open Graph and Twitter Cards support for a better social sharing experience.
+- **SEO friendly**. Open Graph and Twitter Cards support for a better social sharing experience.
 - **Sitemap** and **RSS feed** for search engines.
+- **Image optimization**. Support for lazy loading and placeholders to improve page loading speed and user experience.
+- **PWA support**. Support for Progressive Web Apps, providing offline access and better mobile experience.
+- **Analytics tools**. Integration with various website analytics tools to help you understand website traffic and user behavior.
 - i18n support.
 - Support Disqus, Giscus, Twikoo as comment service.
 - Dark mode support.

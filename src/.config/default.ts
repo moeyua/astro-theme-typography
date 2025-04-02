@@ -54,8 +54,8 @@ export const defaultConfig: ThemeConfig = {
     categoryMap: [{ name: '胡适', path: 'hu-shi' }],
     footer: [
       '© %year <a target="_blank" href="%website">%author</a>',
-      'Theme <a target="_blank" href="https://github.com/Moeyua/astro-theme-typography">Typography</a> by <a target="_blank" href="https://moeyua.com">Moeyua</a>',
-      'Proudly published with <a target="_blank" href="https://astro.build/">Astro</a>',
+      //'Theme <a target="_blank" href="https://github.com/Moeyua/astro-theme-typography">Typography</a> by <a target="_blank" href="https://moeyua.com">Moeyua</a>',
+      //'Proudly published with <a target="_blank" href="https://astro.build/">Astro</a>',
     ],
   },
   appearance: {
@@ -77,8 +77,26 @@ export const defaultConfig: ThemeConfig = {
   },
   seo: {
     twitter: [],
-    meta: [],
-    link: [],
+    meta: [
+      { name: 'robots', content: 'index, follow' },
+    ],
+    link: [
+      { rel: 'sitemap', href: '/sitemap-index.xml', type: 'application/xml' },
+    ],
+    jsonLd: [
+      // 网站信息的结构化数据示例
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: '深霧遠東通訊所',
+        url: 'https://deepfog.top/',
+        description: 'The best way to predict the future is to create it.',
+        author: {
+          '@type': 'Person',
+          name: '焘'
+        }
+      }
+    ],
   },
   rss: {
     fullText: true,
@@ -89,6 +107,7 @@ export const defaultConfig: ThemeConfig = {
   analytics: {
     googleAnalyticsId: '',
     umamiAnalyticsId: '',
+    baiduAnalyticsId: '',
   },
   latex: {
     katex: true,
