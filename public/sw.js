@@ -1,10 +1,17 @@
 // Service Worker for PWA support
 const CACHE_NAME = 'typography-theme-v1';
+
+// 获取当前base路径
+const getBasePath = () => {
+  return self.location.pathname.replace(/\/sw\.js$/, '');
+};
+
+const basePath = getBasePath();
 const urlsToCache = [
-  '/',
-  '/favicon.svg',
-  '/manifest.json',
-  '/placeholder.png'
+  basePath + '/',
+  basePath + '/favicon.svg',
+  basePath + '/manifest.json',
+  basePath + '/placeholder.png'
 ];
 
 self.addEventListener('install', (event) => {

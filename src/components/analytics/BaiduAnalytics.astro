@@ -7,7 +7,7 @@ const { id } = Astro.props
 ---
 
 <!-- Global site tag (script.js) - Baidu Analytics -->
-<script is:inline>
+<script is:inline define:vars={{ id }}>
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");

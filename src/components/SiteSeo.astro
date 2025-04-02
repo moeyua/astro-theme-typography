@@ -2,7 +2,6 @@
 import { SEO, type SEOProps } from 'astro-seo'
 import { getImage } from 'astro:assets'
 import { themeConfig } from '~/.config'
-import { Fragment } from 'astro/components'
 
 interface Props {
   title?: string
@@ -81,10 +80,8 @@ async function getOptimizedImageURL() {
 />
 
 {/* 渲染JSON-LD结构化数据 */}
-{(props.jsonLd || configSEO.jsonLd) && (
-  <Fragment>
-    {(props.jsonLd || configSEO.jsonLd || []).map(data => (
-      <script type="application/ld+json" set:html={JSON.stringify(data)} />
-    ))}
-  </Fragment>
-)}
+{(props.jsonLd || configSEO.jsonLd) && 
+  (props.jsonLd || configSEO.jsonLd || []).map(data => (
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(data)} />
+  ))
+}

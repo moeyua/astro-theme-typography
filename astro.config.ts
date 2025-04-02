@@ -46,9 +46,9 @@ export default defineConfig({
       lastmod: new Date(),
       customPages: [
         `${themeConfig.site.website}`,
-        `${themeConfig.site.website}about`,
-        `${themeConfig.site.website}archive`,
-        `${themeConfig.site.website}categories`,
+        `${themeConfig.site.website}/about`,
+        `${themeConfig.site.website}/archive`,
+        `${themeConfig.site.website}/categories`,
       ],
     }),
     swup({
