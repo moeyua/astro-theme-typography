@@ -8,6 +8,15 @@ interface Props {
   desc?: string
   banner?: ImageMetadata
   jsonLd?: Record<string, any>[]
+  keywords?: string
+  author?: string
+  category?: string
+  tags?: string[]
+  publishDate?: string
+  updatedDate?: string
+  canonicalUrl?: string
+  locale?: string
+  type?: 'website' | 'article' | 'blog' | 'product' | 'profile' | 'book'
 }
 
 const props = Astro.props
@@ -17,10 +26,15 @@ const configSite = themeConfig.site
 
 const title = props.title ?? configSite.title
 const desc = props.desc ?? configSite.description
-const canonical = configSite.website
+const canonical = props.canonicalUrl ?? configSite.website
 const twitter = configSEO.twitter
 const rss = new URL('/atom.xml', Astro.site).toString()
 const optimizedImage = await getOptimizedImageURL()
+const keywords = props.keywords ?? configSite.description
+const author = props.author ?? configSite.author
+const currentUrl = new URL(Astro.url.pathname, Astro.site).toString()
+const locale = props.locale ?? themeConfig.appearance.locale ?? 'zh-CN'
+const pageType = props.type ?? (Astro.url.pathname.includes('/posts/') ? 'article' : 'website')
 
 const seoLinks = [
   { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
@@ -39,6 +53,21 @@ const seoLinks = [
 const seoMeta = [
   { name: 'viewport', content: 'width=device-width' },
   { name: 'generator', content: Astro.generator },
+  { name: 'description', content: desc },
+  { name: 'keywords', content: keywords },
+  { name: 'author', content: author },
+  { name: 'robots', content: 'index, follow' },
+  { name: 'googlebot', content: 'index, follow' },
+  { name: 'canonical', content: currentUrl },
+  // Open Graph 基本标签
+  { property: 'og:title', content: title },
+  { property: 'og:description', content: desc },
+  { property: 'og:image', content: optimizedImage },
+  { property: 'og:url', content: currentUrl },
+  { property: 'og:site_name', content: configSite.title },
+  { property: 'og:locale', content: locale },
+  { property: 'og:type', content: pageType },
+  // Twitter Card 标签
   { name: 'twitter:image:src', content: optimizedImage },
   { name: 'twitter:image:alt', content: desc },
   { name: 'twitter:creator', content: twitter },
@@ -46,6 +75,7 @@ const seoMeta = [
   { name: 'twitter:card', content: 'summary_large_image' },
   { name: 'twitter:title', content: title },
   { name: 'twitter:description', content: desc },
+  { name: 'twitter:url', content: currentUrl },
   // PWA相关元标签
   { name: 'theme-color', content: themeConfig.appearance.colorsLight.primary },
   { name: 'apple-mobile-web-app-capable', content: 'yes' },
@@ -59,14 +89,31 @@ const seoMeta = [
 const openGraph: SEOProps['openGraph'] = {
   basic: {
     title: title,
-    type: 'article',
+    type: pageType,
     image: optimizedImage,
-    url: canonical,
+    url: currentUrl,
   },
+  optional: {
+    description: desc,
+    siteName: configSite.title,
+    locale: locale,
+  },
+  article: {
+    author: author,
+    publishedTime: props.publishDate,
+    modifiedTime: props.updatedDate,
+    section: props.category || '',
+    tags: props.tags || [],
+  },
+  image: {
+    alt: desc,
+    width: 1200,
+    height: 630,
+  }
 }
 
 async function getOptimizedImageURL() {
-  const image = props.banner && (await getImage({ src: props.banner, format: 'jpeg' }))
+  const image = props.banner && (await getImage({ src: props.banner, format: 'jpeg', width: 1200, height: 630 }))
   return new URL(image?.src ?? '/placeholder.png', Astro.url).toString()
 }
 ---

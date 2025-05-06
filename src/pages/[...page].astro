@@ -2,6 +2,7 @@
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
 import { themeConfig } from '~/.config'
 import Pagination from '~/components/Pagination.astro'
+import SiteSeo from '~/components/SiteSeo.astro'
 import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import LayoutPost from '~/layouts/LayoutPost.astro'
 import { getPostDescription, getPosts } from '~/utils'
@@ -24,6 +25,63 @@ const { page } = Astro.props
 ---
 
 <LayoutDefault>
+  <SiteSeo 
+    slot="seo" 
+    title={themeConfig.site.title}
+    desc={themeConfig.site.description}
+    type="website"
+    locale={themeConfig.appearance.locale}
+    keywords={themeConfig.site.keywords || themeConfig.site.description}
+    jsonLd={[
+      {
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        'headline': themeConfig.site.title,
+        'description': themeConfig.site.description,
+        'url': new URL(Astro.url.pathname, Astro.site).toString(),
+        'publisher': {
+          '@type': 'Person',
+          'name': themeConfig.site.author,
+          'url': themeConfig.site.website
+        },
+        'inLanguage': themeConfig.appearance.locale || 'zh-CN',
+        'mainEntity': {
+          '@type': 'ItemList',
+          'itemListElement': page.data.map((post, index) => ({
+            '@type': 'ListItem',
+            'position': index + 1,
+            'url': new URL(`/posts/${post.id}/`, Astro.site).toString(),
+            'name': post.data.title,
+            'description': post.data.description || '',
+            'datePublished': post.data.pubDate?.toISOString() || ''
+          }))
+        },
+        'datePublished': new Date().toISOString(),
+        'dateModified': new Date().toISOString()
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        'name': themeConfig.site.title,
+        'description': themeConfig.site.description,
+        'url': new URL('/', Astro.site).toString(),
+        'potentialAction': {
+          '@type': 'SearchAction',
+          'target': {
+            '@type': 'EntryPoint',
+            'urlTemplate': `${new URL('/search', Astro.site).toString()}?q={search_term_string}`
+          },
+          'query-input': 'required name=search_term_string'
+        },
+        'author': {
+          '@type': 'Person',
+          'name': themeConfig.site.author,
+          'url': themeConfig.site.website
+        },
+        'inLanguage': themeConfig.appearance.locale || 'zh-CN'
+      }
+    ]}
+  />
   <section contain-layout flex="~ col gap-7.5">
     {
       page.data.map((post) => (

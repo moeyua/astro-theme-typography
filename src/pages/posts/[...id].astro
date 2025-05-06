@@ -5,7 +5,7 @@ import Pagination from '~/components/Pagination.astro'
 import SiteSeo from '~/components/SiteSeo.astro'
 import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import LayoutPost from '~/layouts/LayoutPost.astro'
-import { getPosts } from '~/utils'
+import { getPosts, getPathFromCategory } from '~/utils'
 import { render } from 'astro:content'
 
 export const getStaticPaths = (async () => {
@@ -33,7 +33,82 @@ function getUrl(id: string) {
 ---
 
 <LayoutDefault>
-  <SiteSeo slot="seo" title={entry.data.title} desc={entry.data.description} banner={entry.data.banner} />
+  <SiteSeo 
+    slot="seo" 
+    title={entry.data.title} 
+    desc={entry.data.description} 
+    banner={entry.data.banner}
+    keywords={entry.data.tags?.join(', ')}
+    author={entry.data.author}
+    type="article"
+    locale={themeConfig.appearance.locale}
+    category={entry.data.category}
+    tags={entry.data.tags}
+    publishDate={entry.data.date?.toISOString()}
+    updatedDate={entry.data.updated?.toISOString()}
+    jsonLd={[
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        'headline': entry.data.title,
+        'description': entry.data.description,
+        'image': entry.data.banner ? new URL(entry.data.banner.src, Astro.site).toString() : new URL('/placeholder.png', Astro.site).toString(),
+        'datePublished': entry.data.date?.toISOString(),
+        'dateModified': entry.data.updated?.toISOString() || entry.data.date?.toISOString(),
+        'author': {
+          '@type': 'Person',
+          'name': entry.data.author || themeConfig.site.author,
+          'url': entry.data.authorUrl || themeConfig.site.website
+        },
+        'publisher': {
+          '@type': 'Organization',
+          'name': themeConfig.site.title,
+          'url': new URL('/', Astro.site).toString(),
+          'logo': {
+            '@type': 'ImageObject',
+            'url': new URL('/favicon.svg', Astro.site).toString(),
+            'width': '96',
+            'height': '96'
+          }
+        },
+        'mainEntityOfPage': {
+          '@type': 'WebPage',
+          '@id': new URL(Astro.url.pathname, Astro.site).toString()
+        },
+        'keywords': entry.data.tags?.join(', '),
+        'articleSection': entry.data.category,
+        'inLanguage': themeConfig.appearance.locale || 'zh-CN',
+        'wordCount': entry.body.split(/\s+/g).length,
+        'isAccessibleForFree': 'True'
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'position': 1,
+            'name': themeConfig.site.title,
+            'item': new URL('/', Astro.site).toString()
+          },
+          {
+            '@type': 'ListItem',
+            'position': 2,
+            'name': entry.data.category || t('Uncategorized'),
+            'item': entry.data.category 
+              ? new URL(`/categories/${getPathFromCategory(entry.data.category, themeConfig.site.categoryMap)}`, Astro.site).toString()
+              : new URL('/categories', Astro.site).toString()
+          },
+          {
+            '@type': 'ListItem',
+            'position': 3,
+            'name': entry.data.title,
+            'item': new URL(Astro.url.pathname, Astro.site).toString()
+          }
+        ]
+      }
+    ]}
+  />
 
   <LayoutPost post={entry}>
     <Content />

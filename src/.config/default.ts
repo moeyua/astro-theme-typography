@@ -54,8 +54,8 @@ export const defaultConfig: ThemeConfig = {
     categoryMap: [{ name: '胡适', path: 'hu-shi' }],
     footer: [
       '© %year <a target="_blank" href="%website">%author</a>',
-      //'Theme <a target="_blank" href="https://github.com/Moeyua/astro-theme-typography">Typography</a> by <a target="_blank" href="https://moeyua.com">Moeyua</a>',
-      //'Proudly published with <a target="_blank" href="https://astro.build/">Astro</a>',
+      'Theme <a target="_blank" href="https://github.com/Moeyua/astro-theme-typography">Typography</a> by <a target="_blank" href="https://moeyua.com">Moeyua</a>',
+      'Proudly published with <a target="_blank" href="https://astro.build/">Astro</a>',
     ],
   },
   appearance: {
@@ -76,24 +76,53 @@ export const defaultConfig: ThemeConfig = {
     },
   },
   seo: {
-    twitter: [],
+    twitter: ['@deepfog'],
     meta: [
-      { name: 'robots', content: 'index, follow' },
+      { name: 'robots', content: 'index, follow, max-image-preview:large' },
+      { name: 'revisit-after', content: '7 days' },
+      { name: 'googlebot', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
+      { name: 'bingbot', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],
     link: [
       { rel: 'sitemap', href: '/sitemap-index.xml', type: 'application/xml' },
+      { rel: 'canonical', href: 'https://deepfog.top/' },
     ],
     jsonLd: [
-      // 网站信息的结构化数据示例
+      // 网站信息的结构化数据
       {
         '@context': 'https://schema.org',
         '@type': 'WebSite',
         name: '深霧遠東通訊所',
         url: 'https://deepfog.top/',
         description: 'The best way to predict the future is to create it.',
-        author: {
+        inLanguage: 'zh-CN',
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: 'https://deepfog.top/search?q={search_term_string}',
+          'query-input': 'required name=search_term_string'
+        }
+      },
+      // 组织/个人信息的结构化数据
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: '焘',
+        url: 'https://deepfog.top/',
+        sameAs: [
+          'https://github.com/DeepFog-ORG'
+        ]
+      },
+      // 博客信息的结构化数据
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Blog',
+        name: '深霧遠東通訊所',
+        url: 'https://deepfog.top/',
+        description: 'The best way to predict the future is to create it.',
+        publisher: {
           '@type': 'Person',
-          name: '焘'
+          name: '焘',
+          url: 'https://deepfog.top/'
         }
       }
     ],
@@ -107,7 +136,6 @@ export const defaultConfig: ThemeConfig = {
   analytics: {
     googleAnalyticsId: '',
     umamiAnalyticsId: '',
-    baiduAnalyticsId: '',
   },
   latex: {
     katex: true,
