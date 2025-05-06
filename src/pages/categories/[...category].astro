@@ -5,6 +5,8 @@ import LayoutDefault from '~/layouts/LayoutDefault.astro'
 import type { Post } from '~/types'
 import { formatDate, getCategories, getPathFromCategory } from '~/utils'
 
+const { translate: t } = Astro.locals
+
 export async function getStaticPaths() {
   const categoryMap = await getCategories()
   return Array.from(categoryMap).map(([key, value]) => {
