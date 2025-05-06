@@ -38,6 +38,7 @@
 - [My Blog](https://blog.moeyua.com/)
 - [Julyfun's Blog (用 `bun` 光速搭建这样一个带域名博客)](https://julyfun.fun/posts/%E5%85%89%E9%80%9F%E6%90%AD%E5%BB%BA%E8%BF%99%E6%A0%B7%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/)
 - [Jinx's Blog](https://blog.mytest.cc/)
+- [不那么正经的读书笔记](https://books.beyondxin.top/)
 
 ## 开始使用
 
