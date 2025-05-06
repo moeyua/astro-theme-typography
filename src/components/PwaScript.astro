@@ -1,0 +1,23 @@
+---
+// PWA注册脚本
+---
+
+<script is:inline>
+  // 检查浏览器是否支持Service Worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      // 使用import.meta.env.BASE_URL确保在任何base路径下都能正确注册
+      const swPath = import.meta.env.BASE_URL.endsWith('/') 
+        ? `${import.meta.env.BASE_URL}sw.js` 
+        : `${import.meta.env.BASE_URL}/sw.js`;
+      
+      navigator.serviceWorker.register(swPath)
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(error => {
+          console.log('ServiceWorker registration failed: ', error);
+        });
+    });
+  }
+</script>
