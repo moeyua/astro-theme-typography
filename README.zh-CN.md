@@ -66,7 +66,7 @@ description: 'description'
 或者，您可以在终端中使用以下命令创建新帖子：
 
 ```bash
-pnpm new-post
+pnpm theme:create
 ```
 
 ## 更新主题
