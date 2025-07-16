@@ -4,7 +4,7 @@ import {
   defineConfig,
   presetIcons,
   presetTypography,
-  presetUno,
+  presetWind3,
   transformerVariantGroup,
 } from 'unocss'
 import presetTheme from 'unocss-preset-theme'
@@ -54,7 +54,7 @@ export default defineConfig({
     ],
   ],
   presets: [
-    presetUno(),
+    presetWind3(),
     presetTypography({ cssExtend }),
     presetAttributify(),
     presetIcons({ scale: 1.2, warn: true }),
