@@ -2,7 +2,7 @@
   "recommendations": [
     "astro-build.astro-vscode",
     "antfu.unocss",
-    "biomejs.biome"
+    "dbaeumer.vscode-eslint"
   ],
   "unwantedRecommendations": []
 }
