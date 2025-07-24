@@ -54,5 +54,8 @@
     "postcss"
   ],
   "typescript.tsdk": "node_modules/typescript/lib",
-  "astro.updateImportsOnFileMove.enabled": true
+  "astro.updateImportsOnFileMove.enabled": true,
+  "cSpell.words": [
+    "heti"
+  ]
 }

@@ -3,7 +3,7 @@ import transformerDirectives from '@unocss/transformer-directives'
 import {
   defineConfig,
   presetIcons,
-  presetTypography,
+  // presetTypography,
   presetWind3,
   transformerVariantGroup,
 } from 'unocss'
@@ -12,30 +12,30 @@ import { themeConfig } from './src/.config'
 
 const { colorsDark, colorsLight, fonts } = themeConfig.appearance
 
-const cssExtend = {
-  ':root': {
-    '--prose-borders': '#eee',
-  },
+// const cssExtend = {
+//   ':root': {
+//     '--prose-borders': '#eee',
+//   },
 
-  'code::before,code::after': {
-    content: 'none',
-  },
+//   'code::before,code::after': {
+//     content: 'none',
+//   },
 
-  ':where(:not(pre):not(a) > code)': {
-    'white-space': 'normal',
-    'word-wrap': 'break-word',
-    'padding': '2px 4px',
-    'color': '#c7254e',
-    'font-size': '90%',
-    'background-color': '#f9f2f4',
-    'border-radius': '4px',
-  },
+//   ':where(:not(pre):not(a) > code)': {
+//     'white-space': 'normal',
+//     'word-wrap': 'break-word',
+//     'padding': '2px 4px',
+//     'color': '#c7254e',
+//     'font-size': '90%',
+//     'background-color': '#f9f2f4',
+//     'border-radius': '4px',
+//   },
 
-  'li': {
-    'white-space': 'normal',
-    'word-wrap': 'break-word',
-  },
-}
+//   'li': {
+//     'white-space': 'normal',
+//     'word-wrap': 'break-word',
+//   },
+// }
 
 export default defineConfig({
   rules: [
@@ -55,7 +55,7 @@ export default defineConfig({
   ],
   presets: [
     presetWind3(),
-    presetTypography({ cssExtend }),
+    // presetTypography({ cssExtend }),
     presetAttributify(),
     presetIcons({ scale: 1.2, warn: true }),
     presetTheme ({

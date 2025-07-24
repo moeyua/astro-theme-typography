@@ -7,7 +7,7 @@ import SiteSeo from '~/components/SiteSeo.astro'
 import LaTeX from '~/components/LaTeX.astro'
 import Analytics from '~/components/Analytics.astro'
 import ThemeScript from '~/components/ThemeScript.astro'
-import '~/styles/global.css'
+import '~/styles/main.css'
 
 const lang = themeConfig.appearance.locale ?? 'en-us'
 const dark = themeConfig.appearance.theme === 'dark'
@@ -16,6 +16,7 @@ const dark = themeConfig.appearance.theme === 'dark'
 <html lang={lang} class:list={['animation-prepared', { dark }]}>
   <head>
     <slot name="seo"> <SiteSeo /> </slot>
+    <link rel="stylesheet" href="//unpkg.com/heti/umd/heti.min.css" />
     <LaTeX />
     <Analytics />
     <ThemeScript />
