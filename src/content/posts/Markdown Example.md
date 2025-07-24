@@ -10,7 +10,7 @@ pin: true
 ---
 
 <a href="/">here is a link</a>
-<a href="/">a`here is a code in link here is a code in linkhere is a code in linkhere is a code in linkhere is a code in linkhere is a code in link`a</a>
+<a href="/">a`here is a code in link here is a code in linkhere is a code in`a</a>
 
 Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
 

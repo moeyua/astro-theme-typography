@@ -7,19 +7,3 @@
 .heti a {
   --at-apply: 'underline';
 }
-
-.heti a:hover {
-  border-block-end: none;
-}
-
-.heti a:has(code) {
-  --at-apply: 'decoration-none transition-none';
-}
-
-.heti a:has(code):hover {
-  --at-apply: 'color-inherit bg-transparent';
-}
-
-.heti a code:hover {
-  --at-apply: 'text-#f9f2f4 bg-#c7254e';
-}
