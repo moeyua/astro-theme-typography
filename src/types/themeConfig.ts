@@ -51,6 +51,7 @@ export interface ConfigSEO {
   twitter: string
   meta: Partial<Meta>[]
   link: Partial<Link>[]
+  jsonLd?: Record<string, any>[] // 添加JSON-LD结构化数据支持
 }
 
 export interface ConfigComment {
@@ -69,6 +70,7 @@ export interface ConfigAnalytics {
   /** google analytics */
   googleAnalyticsId: string
   umamiAnalyticsId: string
+  baiduAnalyticsId: string
 }
 
 export interface ConfigLaTeX {
