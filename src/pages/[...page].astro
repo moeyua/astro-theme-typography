@@ -2,9 +2,9 @@
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
 import { themeConfig } from '~/.config'
 import Pagination from '~/components/Pagination.astro'
+import PostItem from '~/components/PostItem.astro'
 import LayoutDefault from '~/layouts/LayoutDefault.astro'
-import LayoutPost from '~/layouts/LayoutPost.astro'
-import { getPostDescription, getPosts } from '~/utils'
+import { getPosts } from '~/utils'
 
 const { translate: t } = Astro.locals
 
@@ -24,15 +24,15 @@ const { page } = Astro.props
 ---
 
 <LayoutDefault>
-  <section contain-layout flex="~ col gap-7.5">
+  <ul contain-layout flex="~ col gap-10">
     {
       page.data.map((post) => (
-        <LayoutPost post={post}>
-          <p class="line-clamp-4">{getPostDescription(post)}</p>
-        </LayoutPost>
+        <li>
+          <PostItem post={post} />
+        </li>
       ))
     }
-  </section>
+  </ul>
   <Pagination
     showLeft={Boolean(page.url.prev)}
     leftTitle={t('prev')}

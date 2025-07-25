@@ -1,0 +1,29 @@
+---
+import type { Post } from '~/types'
+import { formatDate } from '~/utils'
+import PostCategory from '~/components/PostCategory.astro'
+import { render } from 'astro:content'
+
+interface Props {
+  post: Post
+}
+
+const { post } = Astro.props
+const { translate: t } = Astro.locals
+const categoryList = post.data.categories ?? []
+const { Content } = await render(post)
+---
+
+<article class="heti">
+  <header class="mb-4">
+    <h1>{post.data.title}</h1>
+    <div class="text-3.5">
+      <span>{t(post.data.modDate ? 'updated_at' : 'posted_at')}</span>
+      <time>{formatDate(post.data.modDate ?? post.data.pubDate)}</time>
+      {categoryList.map((category) => <PostCategory category={category} />)}
+    </div>
+  </header>
+  <section>
+    <Content />
+  </section>
+</article>

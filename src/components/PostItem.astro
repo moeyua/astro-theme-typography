@@ -1,0 +1,29 @@
+---
+import type { Post } from '~/types'
+import { formatDate, getPostDescription } from '~/utils'
+import PostCategory from '~/components/PostCategory.astro'
+
+interface Props {
+  post: Post
+}
+
+const { post } = Astro.props
+const { translate: t } = Astro.locals
+const categoryList = post.data.categories ?? []
+---
+
+<article class="heti">
+  <header class="mb-4">
+    <h4 class="mt-0! mb-3!">
+      <a href={`/posts/${post.id}/`}>{post.data.title}</a>
+    </h4>
+    <div class="text-3.5">
+      <span>{t(post.data.modDate ? 'updated_at' : 'posted_at')}</span>
+      <time>{formatDate(post.data.modDate ?? post.data.pubDate)}</time>
+      {categoryList.map((category) => <PostCategory category={category} />)}
+    </div>
+  </header>
+  <section>
+    <p class="line-clamp-4">{getPostDescription(post)}</p>
+  </section>
+</article>

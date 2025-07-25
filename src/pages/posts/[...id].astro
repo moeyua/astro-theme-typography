@@ -4,9 +4,8 @@ import Comments from '~/components/Comments.astro'
 import Pagination from '~/components/Pagination.astro'
 import SiteSeo from '~/components/SiteSeo.astro'
 import LayoutDefault from '~/layouts/LayoutDefault.astro'
-import LayoutPost from '~/layouts/LayoutPost.astro'
 import { getPosts } from '~/utils'
-import { render } from 'astro:content'
+import PostDetail from '~/components/PostDetail.astro'
 
 export const getStaticPaths = (async () => {
   const posts = await getPosts()
@@ -20,11 +19,9 @@ export const getStaticPaths = (async () => {
   })
 }) satisfies GetStaticPaths
 
-// type Params = InferGetStaticParamsType<typeof getStaticPaths>
 type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { entry, prev, next } = Astro.props
-const { Content } = await render(entry)
 const { translate: t } = Astro.locals
 
 function getUrl(id: string) {
@@ -35,9 +32,7 @@ function getUrl(id: string) {
 <LayoutDefault>
   <SiteSeo slot="seo" title={entry.data.title} desc={entry.data.description} banner={entry.data.banner} />
 
-  <LayoutPost post={entry}>
-    <Content />
-  </LayoutPost>
+  <PostDetail post={entry} />
 
   <Pagination
     showLeft={Boolean(prev)}
