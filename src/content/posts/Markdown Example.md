@@ -5,7 +5,7 @@ modDate: 2025-01-03 15:01
 categories: ["Examples"]
 description: "Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro."
 slug: markdown-example
-draft: true
+draft: false
 pin: true
 ---
 
