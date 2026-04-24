@@ -12,7 +12,9 @@ function getListFromMap(map: typeof categoryMap) {
   return Array.from(map).map(([key, value]) => ({
     title: key,
     href: `/categories/${getPathFromCategory(key, themeConfig.site.categoryMap)}`,
-    size: t('categories_count', value.length),
+    size: value.length === 1
+      ? t('categories_count', value.length)
+      : t('categories_count_plural', value.length),
   }))
 }
 ---
