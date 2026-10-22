@@ -47,6 +47,9 @@ You can fork the repository to your account by clicking the Fork button in the u
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start)
+[![Deploy to Wasmer](https://img.shields.io/badge/Deploy%20to-Wasmer-171717?logo=wasmer&logoColor=white)](https://wasmer.io/apps/create?github=moeyua%2Fastro-theme-typography)
+
+The Wasmer button imports this repository; to publish your own blog and redeploy on push, import your fork instead.
 
 Or you can refer to the [Astro](https://docs.astro.build/guides/deploy/) documentation to deploy to your favorite platform.
 

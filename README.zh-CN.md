@@ -47,6 +47,9 @@
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start)
+[![Deploy to Wasmer](https://img.shields.io/badge/Deploy%20to-Wasmer-171717?logo=wasmer&logoColor=white)](https://wasmer.io/apps/create?github=moeyua%2Fastro-theme-typography)
+
+Wasmer 按钮会导入本仓库；如需发布你自己的博客并在推送后自动重新部署，请改为导入你 Fork 的仓库。
 
 或者你也可以参考[Astro](https://docs.astro.build/zh-cn/guides/deploy/)的文档，部署到你喜欢的平台。
 
